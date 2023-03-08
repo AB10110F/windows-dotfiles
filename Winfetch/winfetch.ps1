@@ -292,7 +292,7 @@ $e = [char]0x1B
 $ansiRegex = '([\u001B\u009B][[\]()#;?]*(?:(?:(?:[a-zA-Z\d]*(?:;[-a-zA-Z\d\/#&.:=?%@~_]*)*)?\u0007)|(?:(?:\d{1,4}(?:;\d{0,4})*)?[\dA-PR-TZcf-ntqry=><~])))'
 $cimSession = New-CimSession
 $os = Get-CimInstance -ClassName Win32_OperatingSystem -Property Caption,OSArchitecture,LastBootUpTime,TotalVisibleMemorySize,FreePhysicalMemory -CimSession $cimSession
-$t = if ($blink = $true) { "5" } else { "1" }
+$t = if ($blink = $true) { "5" } else { "1" } #note: make ascii art blink
 $COLUMNS = $imgwidth
 
 # ===== UTILITY FUNCTIONS =====
@@ -434,7 +434,7 @@ $img = if (-not $noimage) {
             if ($os -Like "*Windows 11 *") {
                 $logo = "Windows 11"
             } elseif ($os -Like "*Windows 10 *" -Or $os -Like "*Windows 8.1 *" -Or $os -Like "*Windows 8 *") {
-                $logo = "girlvisage"
+                $logo = "girlcartoon" #note: default ascci art
             } else {
                 $logo = "Windows 7"
             }
@@ -443,23 +443,23 @@ $img = if (-not $noimage) {
         if ($logo -eq "Windows 11") {
             $COLUMNS = 32
             @(
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34m                                 "
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
-                "${e}[${t};34mlllllllllllllll   lllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96mlllllllllllllll   ${e}[32mlllllllllllllll"
+                "${e}[${t};96m                                 "
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
+                "${e}[${t};95mlllllllllllllll   ${e}[31mlllllllllllllll"
             )
-        } elseif ($logo -eq "Windows 10" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "Name") {
             $COLUMNS = 52
             @(
                 "${e}[${t};96m                                                        "
@@ -468,45 +468,45 @@ $img = if (-not $noimage) {
                 "${e}[${t};96m                                                        "
                 "${e}[${t};96m                                                        "
                 "${e}[${t};96m                                                        "
-                "${e}[${t};96m       e      888b    | 888~-_   888~-_   888~~         "
-                "${e}[${t};96m      d8b     |Y88b   | 888   \  888   \  888___        "
-                "${e}[${t};96m     /Y88b    | Y88b  | 888    | 888    | 888           "
-                "${e}[${t};96m    /  Y88b   |  Y88b | 888    | 888   /  888           "
-                "${e}[${t};96m   /____Y88b  |   Y88b| 888   /  888_-~   888           "
-                "${e}[${t};96m  /      Y88b |    Y888 888_-~   888 ~-_  888___        "
-                "${e}[${t};96m                                                        "
+                "${e}[${t};31m       e      ${e}[32m888b    | ${e}[33m888~-_   ${e}[36m888~-_   ${e}[35m888~~         "
+                "${e}[${t};31m      d8b     ${e}[32m|Y88b   | ${e}[33m888   \  ${e}[36m888   \  ${e}[35m888___        "
+                "${e}[${t};31m     /Y88b    ${e}[32m| Y88b  | ${e}[33m888    | ${e}[36m888    | ${e}[35m888           "
+                "${e}[${t};31m    /  Y88b   ${e}[32m|  Y88b | ${e}[33m888    | ${e}[36m888   /  ${e}[35m888           "
+                "${e}[${t};31m   /____Y88b  ${e}[32m|   Y88b| ${e}[33m888   /  ${e}[36m888_-~   ${e}[35m888           "
+                "${e}[${t};31m  /      Y88b ${e}[32m|    Y888 ${e}[33m888_-~   ${e}[36m888 ~-_  ${e}[35m888___        "
+                "${e}[${t};31m                                                        "
                 
             )
-        } elseif ($logo -eq "girlvisage" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlvisage") {
             $COLUMNS = 52
             @(
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡠⢤⣤⡄⣤⣄⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⡶⠿⠓⢋⠭⠃⡠⠤⢙⢿⣶⣟⠻⣦⢆⣤⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⡛⠝⠉⠀⠀⠀⡢⠃⡰⢋⡤⠊⠋⢚⣶⣟⢻⢿⣷⣽⣿⡫⣳⣄⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠟⡡⠀⠀⠀⠀⢀⠐⠀⡴⠡⠀⠀⡄⠡⠏⢀⠔⠁⠈⠀⠙⠛⠻⣮⢺⣵⡀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⢋⢎⠀⠀⠀⠀⠀⡀⠀⢰⡕⠀⠀⢠⢈⠀⡠⠃⠀⠀⠀⠀⠀⠀⠀⠘⣾⠨⣧⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⢃⡊⢸⠀⠀⠀⠀⡀⠃⠠⠼⢡⡀⣄⡇⣬⣾⠁⠀⢀⡄⠀⠀⠀⠀⠀⠀⠻⢃⠹⣂⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠇⡼⠀⠀⠀⡀⠄⠀⢫⢋⠀⣧⠕⠸⡜⣜⠎⢀⣀⠀⠀⠀⠀⠀⠀⠀⢠⣀⢰⡉⢠⣗⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠾⡿⠰⡑⡠⠀⠀⠀⠀⠀⢸⠀⢠⠃⠀⣴⠟⢁⠴⠒⢺⠲⡄⠀⠀⠀⢀⠀⡀⠀⢸⣟⠏⡏⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⢃⣿⣧⣾⡹⣉⣇⢗⠮⡓⠄⣂⠂⢾⣠⣾⠇⠀⠀⠁⠁⠀⠀⠁⠀⠀⠀⠸⢃⠌⠓⡿⠎⡖⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⣽⣺⣟⣏⣯⢹⢸⣿⡠⡀⠙⣤⠍⠸⠂⣡⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⣰⡷⠋⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⢰⡿⠁⣵⢿⣧⢸⠇⡏⢰⣟⢅⣡⣟⡟⠠⠣⡴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠀⠛⡇⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⣠⡟⠀⢠⣟⡇⡧⣋⠰⣿⣝⣿⣾⣿⡻⣵⣲⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠇⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⢀⢾⠟⠀⢀⡞⢙⠀⣿⠀⠀⡸⡻⣾⣿⣿⢿⠞⠣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢤⡀⠀⢀⡇⠸⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⢠⣾⠃⠀⢠⠎⠁⡇⠀⣿⠀⠀⣐⣿⣿⢿⣿⠀⠁⠀⠁⠀⡀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠈⠉⠉⠇⠀⣞⠱⢴⠁⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⣠⡟⠁⠀⣠⠃⠐⣠⠃⢠⠛⠀⠈⠈⢿⢿⡴⣾⠀⠀⠀⠀⠊⡮⠖⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⡟⠐⠆⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⢀⡠⠞⢁⠀⢀⠮⠁⢠⠎⠸⠀⠘⠀⠀⠀⠀⠘⢸⢣⡇⠀⠀⠀⠀⠀⠀⠌⢙⣚⣲⣄⡀⠀⠀⠀⠀⠀⣰⣿⡞⠇⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⡞⡐⣰⠏⠀⠃⠀⠀⡆⠀⠀⠀⢰⢺⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠚⠍⠂⠉⡗⠖⠖⠲⠯⡟⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⡜⡐⣰⠃⠀⠀⠀⠀⢀⠃⠀⠀⠀⣰⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠃⢠⡾⡿⢻⠟⠛⠃⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⢠⡗⢠⠇⠀⠀⠀⠀⠀⠂⠀⠠⣀⢾⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡱⠃⠀⠀⠀⠀⠀⡈⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⢰⠅⡟⠀⠀⠀⡀⠀⠀⣀⡠⠖⠣⠟⢅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⡟⣅⠀⠀⠀⠀⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⢸⣰⡇⠀⠀⠀⠀⠁⠊⠁⠀⠀⠀⠂⠈⠳⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠊⣿⢓⡥⠟⣦⣆⠀⣘⠁⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠀⢀⠀⠠⠂⠀⠀⠀⠘⠕⠠⠀⡀⠀⠀⠀⠀⢠⠃⣸⠿⠋⠔⠚⠓⢒⠟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⣸⣀⠃⠀⠀⠀⠀⠀⡠⠀⠀⠀⠀⠀⠀⠀⠈⡈⢀⢀⣈⢀⢂⣤⣇⣶⠋⠀⠀⠀⠀⠔⠁⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠒⠈⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠁⠐⠀⠠⢰⠇⢀⠀⠉⠉⠀⠀⠐⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡠⢤⣤⡄⣤⣄⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⡶⠿⠓⢋⠭⠃⡠⠤⢙⢿⣶⣟⠻⣦⢆⣤⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⡛⠝⠉⠀⠀⠀⡢⠃⡰⢋⡤⠊⠋⢚⣶⣟⢻⢿⣷⣽⣿⡫⣳⣄⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠟⡡⠀⠀⠀⠀⢀⠐⠀⡴⠡⠀⠀⡄⠡⠏⢀⠔⠁⠈⠀⠙⠛⠻⣮⢺⣵⡀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⢋⢎⠀⠀⠀⠀⠀⡀⠀⢰⡕⠀⠀⢠⢈⠀⡠⠃⠀⠀⠀⠀⠀⠀⠀⠘⣾⠨⣧⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⢃⡊⢸⠀⠀⠀⠀⡀⠃⠠⠼⢡⡀⣄⡇⣬⣾⠁⠀⢀⡄⠀⠀⠀⠀⠀⠀⠻⢃⠹⣂⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠇⡼⠀⠀⠀⡀⠄⠀⢫⢋⠀⣧⠕⠸⡜⣜⠎⢀⣀⠀⠀⠀⠀⠀⠀⠀⢠⣀⢰⡉⢠⣗⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠾⡿⠰⡑⡠⠀⠀⠀⠀⠀⢸⠀⢠⠃⠀⣴⠟⢁⠴⠒⢺⠲⡄⠀⠀⠀⢀⠀⡀⠀⢸⣟⠏⡏⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⢃⣿⣧⣾⡹⣉⣇⢗⠮⡓⠄⣂⠂⢾⣠⣾⠇⠀⠀⠁⠁⠀⠀⠁⠀⠀⠀⠸⢃⠌⠓⡿⠎⡖⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⣽⣺⣟⣏⣯⢹⢸⣿⡠⡀⠙⣤⠍⠸⠂⣡⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⣰⡷⠋⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⢰⡿⠁⣵⢿⣧⢸⠇⡏⢰⣟⢅⣡⣟⡟⠠⠣⡴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠀⠛⡇⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⣠⡟⠀⢠⣟⡇⡧⣋⠰⣿⣝⣿⣾⣿⡻⣵⣲⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠇⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⢀⢾⠟⠀⢀⡞⢙⠀⣿⠀⠀⡸⡻⣾⣿⣿⢿⠞⠣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢤⡀⠀⢀⡇⠸⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⢠⣾⠃⠀⢠⠎⠁⡇⠀⣿⠀⠀⣐⣿⣿⢿⣿⠀⠁⠀⠁⠀⡀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠈⠉⠉⠇⠀⣞⠱⢴⠁⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⣠⡟⠁⠀⣠⠃⠐⣠⠃⢠⠛⠀⠈⠈⢿⢿⡴⣾⠀⠀⠀⠀⠊⡮⠖⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⡟⠐⠆⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⢀⡠⠞⢁⠀⢀⠮⠁⢠⠎⠸⠀⠘⠀⠀⠀⠀⠘⢸⢣⡇⠀⠀⠀⠀⠀⠀⠌⢙⣚⣲⣄⡀⠀⠀⠀⠀⠀⣰⣿⡞⠇⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⡞⡐⣰⠏⠀⠃⠀⠀⡆⠀⠀⠀⢰⢺⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠚⠍⠂⠉⡗⠖⠖⠲⠯⡟⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⡜⡐⣰⠃⠀⠀⠀⠀⢀⠃⠀⠀⠀⣰⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠃⢠⡾⡿⢻⠟⠛⠃⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⢠⡗⢠⠇⠀⠀⠀⠀⠀⠂⠀⠠⣀⢾⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡱⠃⠀⠀⠀⠀⠀⡈⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⢰⠅⡟⠀⠀⠀⡀⠀⠀⣀⡠⠖⠣⠟⢅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⡟⣅⠀⠀⠀⠀⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⢸⣰⡇⠀⠀⠀⠀⠁⠊⠁⠀⠀⠀⠂⠈⠳⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠊⣿⢓⡥⠟⣦⣆⠀⣘⠁⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠀⢀⠀⠠⠂⠀⠀⠀⠘⠕⠠⠀⡀⠀⠀⠀⠀⢠⠃⣸⠿⠋⠔⠚⠓⢒⠟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⣸⣀⠃⠀⠀⠀⠀⠀⡠⠀⠀⠀⠀⠀⠀⠀⠈⡈⢀⢀⣈⢀⢂⣤⣇⣶⠋⠀⠀⠀⠀⠔⠁⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠒⠈⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠁⠐⠀⠠⢰⠇⢀⠀⠉⠉⠀⠀⠐⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
-        } elseif ($logo -eq "girlvisage2" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlvisage2") {
             $COLUMNS = 52
             @(
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -536,7 +536,7 @@ $img = if (-not $noimage) {
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
-        } elseif ($logo -eq "girlvisage3" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlvisage3") {
             $COLUMNS = 52
             @(
                 "${e}[${t};96m⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠧⠀⠀⢴⢂⡐⣶⢤⣲⡀⠤⢄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -564,7 +564,7 @@ $img = if (-not $noimage) {
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠐⠀⠰⠄⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⠈"
                 
             )
-        } elseif ($logo -eq "girlside" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlside") {
             $COLUMNS = 52
             @(  
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠒⠒⢚⡉⠉⠉⠙⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -597,7 +597,7 @@ $img = if (-not $noimage) {
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
-        } elseif ($logo -eq "girlbody" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlbody") {
             $COLUMNS = 52
             @(  
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⠚⠋⠁⢀⠀⠀⠀⠈⠙⠒⡷⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -627,38 +627,38 @@ $img = if (-not $noimage) {
                 "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⡯⢄⠈⠫⣚⠽⠷⠶⢿⣶⣿⠭⣭⣱⣿⠀⠀⢱⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
-        } elseif ($logo -eq "girlcartoon" -Or $logo -eq "Windows 8.1" -Or $logo -eq "Windows 8") {
+        } elseif ($logo -eq "girlcartoon") {
             $COLUMNS = 52
             @(  
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⠤⠶⠶⠶⠢⣄⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠒⠋⠁⠀⠀⠐⠚⠉⠙⠲⣄⠀⠀⠀⠈⠉⠲⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢦⠘⢦⠀⠀⠀⠀⠀⠀⠙⢦⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣞⡴⠚⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⡈⢧⠀⠀⠈⢧⠀⠀⠀⠓⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠒⠒⠒⠒⢚⢉⡕⠀⠀⢸⠀⠀⠀⠀⠀⣠⠀⠀⠀⠀⠀⠀⢳⡈⡇⠀⠀⠈⢧⠀⣀⠀⡀⠀⢦⣽⠲⡄⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡷⠋⠀⠀⠀⣸⠀⠀⠀⠀⢀⡿⡄⠀⠀⠀⠀⢦⠀⢳⠙⠀⠀⠀⠘⡎⠁⢠⠇⢠⠀⠈⠱⡌⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠀⠀⠀⢠⣿⡀⠀⠀⠀⢸⣧⢳⠀⠀⠀⠀⢸⠀⠈⣇⠀⠀⠀⡀⢹⡒⠋⠀⠘⡆⠀⢀⡇⡆⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⡜⣡⠀⠀⠀⠀⣠⣿⢿⠁⠀⠀⠀⠀⣿⡻⣷⣦⣤⣀⣈⣇⠀⢸⠀⠀⠀⡇⠀⢣⠀⠀⠀⡇⠘⢮⡀⠇⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⡼⣱⠃⠀⠀⠀⠈⣽⣹⣼⡀⠀⠀⠀⠀⣗⢳⣚⣳⡉⠉⠁⡇⠀⠸⡆⠀⠀⡇⠀⠈⢇⠀⠀⣧⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠙⡟⣼⠀⠀⠰⡦⣿⢿⢿⣧⡀⡀⠀⠳⣾⣿⣷⠯⣭⡷⣤⡇⠀⠀⠁⠀⠀⡏⠙⢦⠈⢧⡀⠉⣇⢀⡸⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⢧⠘⣆⠀⣇⢸⡧⠈⣏⠻⡟⠿⠗⠒⠺⠋⠘⣏⠙⢁⣾⠃⠀⠀⡠⠀⢰⠃⠀⢸⠙⠒⣻⠒⠘⠚⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠺⡶⣷⠖⠼⢛⠃⠀⠀⠀⠀⠀⠀⠚⠓⢻⠏⠀⠀⡰⢃⡴⡏⠀⢀⡜⠀⣰⠃⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⡇⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠘⠒⠻⠶⠵⠚⡗⠋⠀⡇⠚⠁⢀⠞⠁⣰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡄⢳⡀⠀⠀⣄⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⢀⡇⠀⠔⠁⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⢣⠀⠙⣄⠀⠈⠒⠂⠚⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⢠⢸⡀⣀⡴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠟⢸⢸⠀⠀⢸⠢⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⣸⡞⡟⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⢸⡞⠀⠀⢸⠀⠈⠑⠢⠤⢤⠖⠒⠉⠁⠀⢠⠇⠀⠀⣷⠃⡇⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⣞⠀⠀⠀⠀⠀⠀⣇⠀⠀⠀⠀⣸⠀⠀⠀⡇⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢹⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⡇⠀⠀⠀⢳⣠⠼⠚⠹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣜⣦⣘⢆⠀⠀⢀⣠⠴⢺⡄⠀⠀⠀⣇⠀⢧⣄⠘⣇⠀⠀⠀⣙⡦⠴⠒⠒⠒⠒⠒⠦⣄⠀⠀⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡄⠀⠈⠛⠉⠉⠉⡽⣫⣄⢀⢾⠃⠀⠀⢀⣜⢦⣘⡮⠉⠀⡠⠖⠋⠁⠀⠀⠀⠀⠀⢀⡴⠚⠈⠳⡄⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⣰⠁⠀⠀⠀⣠⡾⠞⡟⢁⡞⠦⢀⠴⠒⠚⠈⠳⣄⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⢹⠀⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⢠⠇⠀⠀⠀⠐⠋⠀⠀⢳⡼⠀⢀⡏⠀⡰⠀⠀⠀⠘⠧⠋⠀⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢀⠞⢀⡜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⢸⠁⢸⣧⠆⠀⠀⠀⠀⠀⠀⠀⠀⡵⠋⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⢰⠀⡞⠀⠀⢠⠏⠀⠀⠀⠀⠀⠀⢡⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⢸⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⢠⠂⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠁⡏⢈⠁⠀⣠⠋⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⢰⢋⡞⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠇⡇⡏⢀⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⡏⠞⠀⠀⠀⠀⠀⠀⠀⠀⡼⠁⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢳⡷⢋⡴⠀⠀⠀⠀⠀⠀⠀⠀⠠⠇⠀⠀"
-                "${e}[${t};96m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠁⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠊⢀⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⠤⠶⠶⠶⠢⣄⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠒⠋⠁⠀⠀⠐⠚⠉⠙⠲⣄⠀⠀⠀⠈⠉⠲⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢦⠘⢦⠀⠀⠀⠀⠀⠀⠙⢦⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣞⡴⠚⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⡈⢧⠀⠀⠈⢧⠀⠀⠀⠓⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};31m⠀⠀⠀⠀⠀⠀⠒⠒⠒⠒⢚⢉⡕⠀⠀⢸⠀⠀⠀⠀⠀⣠⠀⠀⠀⠀⠀⠀⢳⡈⡇⠀⠀⠈⢧⠀⣀⠀⡀⠀⢦⣽⠲⡄⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡷⠋⠀⠀⠀⣸⠀⠀⠀⠀⢀⡿⡄⠀⠀⠀⠀⢦⠀⢳⠙⠀⠀⠀⠘⡎⠁⢠⠇⢠⠀⠈⠱⡌⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠀⠀⠀⢠⣿⡀⠀⠀⠀⢸⣧⢳⠀⠀⠀⠀⢸⠀⠈⣇⠀⠀⠀⡀⢹⡒⠋⠀⠘⡆⠀⢀⡇⡆⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠀⡜⣡⠀⠀⠀⠀⣠⣿⢿⠁⠀⠀⠀⠀⣿⡻⣷⣦⣤⣀⣈⣇⠀⢸⠀⠀⠀⡇⠀⢣⠀⠀⠀⡇⠘⢮⡀⠇⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⡼⣱⠃⠀⠀⠀⠈⣽⣹⣼⡀⠀⠀⠀⠀⣗⢳⣚⣳⡉⠉⠁⡇⠀⠸⡆⠀⠀⡇⠀⠈⢇⠀⠀⣧⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};32m⠀⠀⠀⠀⠀⠀⠙⡟⣼⠀⠀⠰⡦⣿⢿⢿⣧⡀⡀⠀⠳⣾⣿⣷⠯⣭⡷⣤⡇⠀⠀⠁⠀⠀⡏⠙⢦⠈⢧⡀⠉⣇⢀⡸⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⢧⠘⣆⠀⣇⢸⡧⠈⣏⠻⡟⠿⠗⠒⠺⠋⠘⣏⠙⢁⣾⠃⠀⠀⡠⠀⢰⠃⠀⢸⠙⠒⣻⠒⠘⠚⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠺⡶⣷⠖⠼⢛⠃⠀⠀⠀⠀⠀⠀⠚⠓⢻⠏⠀⠀⡰⢃⡴⡏⠀⢀⡜⠀⣰⠃⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⡇⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠘⠒⠻⠶⠵⠚⡗⠋⠀⡇⠚⠁⢀⠞⠁⣰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡄⢳⡀⠀⠀⣄⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⢀⡇⠀⠔⠁⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⢣⠀⠙⣄⠀⠈⠒⠂⠚⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⢠⢸⡀⣀⡴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠟⢸⢸⠀⠀⢸⠢⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⣸⡞⡟⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⢸⡞⠀⠀⢸⠀⠈⠑⠢⠤⢤⠖⠒⠉⠁⠀⢠⠇⠀⠀⣷⠃⡇⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⣞⠀⠀⠀⠀⠀⠀⣇⠀⠀⠀⠀⣸⠀⠀⠀⡇⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢹⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⡇⠀⠀⠀⢳⣠⠼⠚⠹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                "${e}[${t};34m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣜⣦⣘⢆⠀⠀⢀⣠⠴⢺⡄⠀⠀⠀⣇⠀⢧⣄⠘⣇⠀⠀⠀⣙⡦⠴⠒⠒⠒⠒⠒⠦⣄⠀⠀⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡄⠀⠈⠛⠉⠉⠉⡽⣫⣄⢀⢾⠃⠀⠀⢀⣜⢦⣘⡮⠉⠀⡠⠖⠋⠁⠀⠀⠀⠀⠀⢀⡴⠚⠈⠳⡄⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⣰⠁⠀⠀⠀⣠⡾⠞⡟⢁⡞⠦⢀⠴⠒⠚⠈⠳⣄⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⢹⠀⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⢠⠇⠀⠀⠀⠐⠋⠀⠀⢳⡼⠀⢀⡏⠀⡰⠀⠀⠀⠘⠧⠋⠀⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢀⠞⢀⡜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀"
+                "${e}[${t};35m⠀⠀⠀⠀⠀⠀⠀⢸⠁⢸⣧⠆⠀⠀⠀⠀⠀⠀⠀⠀⡵⠋⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⢰⠀⡞⠀⠀⢠⠏⠀⠀⠀⠀⠀⠀⢡⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠀⠀⠀⢸⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⢠⠂⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠁⡏⢈⠁⠀⣠⠋⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠀⠀⢰⢋⡞⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠇⡇⡏⢀⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠀⠀⡏⠞⠀⠀⠀⠀⠀⠀⠀⠀⡼⠁⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢳⡷⢋⡴⠀⠀⠀⠀⠀⠀⠀⠀⠠⠇⠀⠀"
+                "${e}[${t};36m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠁⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠊⢀⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
         } elseif ($logo -eq "Windows 7" -Or $logo -eq "Windows Vista" -Or $logo -eq "Windows XP") {
@@ -680,41 +680,6 @@ $img = if (-not $noimage) {
                 "${e}[${t};34m{3=*^``````'*4E3) ${e}[33m;EEEtttt:::::tZ``     "
                 "${e}[${t};34m            `` ${e}[33m:EEEEtttt::::z7       "
                 "${e}[${t};33m                'VEzjt:;;z>*``       "
-            )
-        } elseif ($logo -eq "Microsoft") {
-            $COLUMNS = 13
-            @(
-                "${e}[${t};31m┌─────┐${e}[32m┌─────┐"
-                "${e}[${t};31m│     │${e}[32m│     │"
-                "${e}[${t};31m│     │${e}[32m│     │"
-                "${e}[${t};31m└─────┘${e}[32m└─────┘"
-                "${e}[${t};34m┌─────┐${e}[33m┌─────┐"
-                "${e}[${t};34m│     │${e}[33m│     │"
-                "${e}[${t};34m│     │${e}[33m│     │"
-                "${e}[${t};34m└─────┘${e}[33m└─────┘"
-            )
-        } elseif ($logo -eq "Windows 2000" -Or $logo -eq "Windows 98" -Or $logo -eq "Windows 95") {
-            $COLUMNS = 45
-            @(
-                "                         ${e}[${t};30mdBBBBBBBb"
-                "                     ${e}[${t};30mdBBBBBBBBBBBBBBBb"
-                "             ${e}[${t};30m   000 BBBBBBBBBBBBBBBBBBBB"
-                "${e}[${t};30m:::::        000000 BBBBB${e}[${t};31mdBB${e}[${t};30mBBBB${e}[${t};32mBBBb${e}[${t};30mBBBBBBB"
-                "${e}[${t};31m::::: ${e}[${t};30m====== 000${e}[${t};31m000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};32mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};31m::::: ====== ${e}[${t};31m000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};32mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};31m::::: ====== ${e}[${t};31m000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};32mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};31m::::: ====== ${e}[${t};31m000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};32mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};31m::::: ====== 000000 BBBBf${e}[${t};30mBBBBBBBBBBB${e}[${t};32m`BBBB${e}[${t};30mBBBB"
-                "${e}[${t};30m::::: ${e}[${t};31m====== 000${e}[${t};30m000 BBBBBBBBBBBBBBBBBBBBBBBBB"
-                "${e}[${t};30m::::: ====== 000000 BBBBB${e}[${t};34mdBB${e}[${t};30mBBBB${e}[${t};33mBBBb${e}[${t};30mBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};34m::::: ${e}[${t};30m====== 000${e}[${t};34m000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};33mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};34m::::: ====== 000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};33mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};34m::::: ====== 000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};33mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};34m::::: ====== 000000 BBBBBBBB${e}[${t};30mBBBB${e}[${t};33mBBBBBBBBB${e}[${t};30mBBBB"
-                "${e}[${t};34m::::: ====== 000000 BBBBf${e}[${t};30mBBBBBBBBBBB${e}[${t};33m`BBBB${e}[${t};30mBBBB"
-                "${e}[${t};30m::::: ${e}[${t};34m====== 000${e}[${t};30m000 BBBBBf         `BBBBBBBBB"
-                "${e}[${t};30m   :: ====== 000000 BBf                `BBBBB"
-                "     ${c1}   ==  000000 B                     BBB"
             )
         } else {
             Write-Error 'The only version logos supported are Windows 11, Windows 10/8.1/8, Windows 7/Vista/XP, Windows 2000/98/95 and Microsoft.'
@@ -748,7 +713,8 @@ function info_colorbar {
 # ===== OS =====
 function info_os {
     return @{
-        title   = "    OS"
+        title   = "OS"
+        icon = "     "
         content = "$($os.Caption.TrimStart('Microsoft ')) [$($os.OSArchitecture)]"
     }
 }
@@ -758,7 +724,9 @@ function info_os {
 function info_motherboard {
     $motherboard = Get-CimInstance Win32_BaseBoard -CimSession $cimSession -Property Manufacturer,Product
     return @{
-        title = "    Материнская плата"
+        title = "Материнская плата"
+        #title = "Motherboard"
+        icon = "     "
         content = "{0} {1}" -f $motherboard.Manufacturer, $motherboard.Product
     }
 }
@@ -768,44 +736,55 @@ function info_motherboard {
 function info_title {
     return @{
         title   = ""
-        content = "${e}[1;96m{0}${e}[0m@${e}[1;96m{1}${e}[0m" -f [System.Environment]::UserName,$env:COMPUTERNAME #here
+        content = "                     ${e}[1;96m{0}${e}[0m @  ${e}[1;96m{1}${e}[0m" -f [System.Environment]::UserName,$env:COMPUTERNAME #note: change title color
     }
 }
 
-
 # ===== DASHES-H =====
 function info_dashes_h {
-    # $length = [System.Environment]::UserName.Length + $env:COMPUTERNAME.Length + 1 #here Original line
     return @{
         title   = ""
-        content = "┌─────────────── Аппаратное обеспечение ───────────────┐"
+        content = "┌────────────────${e}[;33m Аппаратное обеспечение ${e}[0m────────────────┐"
+        #content = "┌───────────────${e}[${t};33m Аппаратное обеспечение ${e}[0m───────────────┐" #blinking
+        #content = "┌─────────────── Hardware Information ───────────────┐"
     }
 }
 
 # ===== DASHES-S =====
 function info_dashes_s {
-    # $length = [System.Environment]::UserName.Length + $env:COMPUTERNAME.Length + 1 #here Original line
     return @{
         title   = ""
-        content = "┌────────────── Программное обеспечение ──────────────┐"
+        content = "┌───────────────${e}[;33m Программное  обеспечение ${e}[0m───────────────┐"
+        #content = "┌───────────────${e}[${t};33m Программное  обеспечение ${e}[0m───────────────┐"
+        #content = "┌──────────────── Software Information ──────────────┐"
     }
 }
 
 # ===== DASHES-B =====
 function info_dashes_b {
-    # $length = [System.Environment]::UserName.Length + $env:COMPUTERNAME.Length + 1 #here Original line
     return @{
         title   = ""
         content = "└──────────────────────────────────────────────────────┘"
     }
 }
 
+# ===== DASHES =====
+function info_dashes {
+    $length = [System.Environment]::UserName.Length + $env:COMPUTERNAME.Length + 7
+    return @{
+        title   = ""
+        content = "                   ",("─" * $length)
+    }
+}
+
+
 
 # ===== COMPUTER =====
 function info_computer {
     $compsys = Get-CimInstance -ClassName Win32_ComputerSystem -Property Manufacturer,Model -CimSession $cimSession
     return @{
-        title   = "    Хост"
+        title   = "Хост"
+        icon = "     "
         content = '{0} {1}' -f $compsys.Manufacturer, $compsys.Model
     }
 }
@@ -815,6 +794,7 @@ function info_computer {
 function info_kernel {
     return @{
         title   = "Kernel"
+        icon = ""
         content = "$([System.Environment]::OSVersion.Version)"
     }
 }
@@ -844,7 +824,8 @@ function info_resolution {
     }
 
     return @{
-        title   = "  󰹑  Resolution"
+        title   = "Resolution"
+        icon = "   󰹑  "
         content = $displays -join ', '
     }
 }
@@ -889,7 +870,8 @@ function info_terminal {
     }
 
     return @{
-        title   = "    Терминал"
+        title   = "Терминал"
+        icon = "     "
         content = $terminal
     }
 }
@@ -903,6 +885,7 @@ function info_theme {
     $apptheme = if ($themeinfo.AppsUseLightTheme) { "Light" } else { "Dark" }
     return @{
         title = "Theme"
+        icon = ""
         content = "$themename (System: $systheme, Apps: $apptheme)"
     }
 }
@@ -918,7 +901,8 @@ function info_cpu {
         $cpuname.Trim()
     }
     return @{
-        title   = "  󰻠  CPU"
+        title   = "CPU"
+        icon = "   󰻠 "
         content = "$cpuname @ $($cpu.GetValue("~MHz") / 1000)GHz" # [math]::Round($cpu.GetValue("~MHz") / 1000, 1) is 2-5ms slower
     }
 }
@@ -928,7 +912,8 @@ function info_gpu {
     #loop through Win32_VideoController
     foreach ($gpu in Get-CimInstance -ClassName Win32_VideoController -Property Name -CimSession $cimSession) {
         [void]$lines.Add(@{
-            title   = "    GPU"
+            title   = "GPU"
+            icon = "   󰻠 "
             content = $gpu.Name
         })
     }
@@ -958,6 +943,7 @@ function info_cpu_usage {
 
     return @{
         title   = "CPU Usage"
+        icon = ""
         content = get_level_info "" $cpustyle $loadpercent "$proccount processes" -altstyle
     }
 }
@@ -969,7 +955,8 @@ function info_memory {
     $used = ($os.TotalVisibleMemorySize - $os.FreePhysicalMemory) / 1mb
     $usage = [math]::floor(($used / $total * 100))
     return @{
-        title   = "  󰍛  Память"
+        title   = "Память"
+        icon = "   󰍛 "
         content = get_level_info "   " $memorystyle $usage "$($used.ToString("#.##")) GiB / $($total.ToString("#.##")) GiB"
     }
 }
@@ -997,7 +984,8 @@ function info_disk {
                     $usage = [math]::Floor(($used / $_.TotalSize * 100))
     
                     [void]$lines.Add(@{
-                        title   = "    Диск ($diskLetter)"
+                        title   = "Диск ($diskLetter)"
+                        icon = "     "
                         content = get_level_info "" $diskstyle $usage "$(to_units $used) / $(to_units $_.TotalSize)"
                     })
                 }
@@ -1017,7 +1005,8 @@ function info_disk {
 # ===== POWERSHELL VERSION =====
 function info_pwsh {
     return @{
-        title   = "    Оболочка"
+        title   = "Оболочка"
+        icon = "     "
         content = "PowerShell v$($PSVersionTable.PSVersion)"
     }
 }
@@ -1102,7 +1091,8 @@ function info_pkgs {
     }
 
     return @{
-        title   = "  󰏗  Пакеты"
+        title   = "Пакеты"
+        icon = "   󰏗 "
         content = $pkgs -join ', '
     }
 }
@@ -1646,7 +1636,12 @@ foreach ($item in $config) {
     }
 
     foreach ($line in $info) {
-        $output = "$e[1;96m$($line["title"])$e[0m" #here
+        $output = "$e[1;33m$($line["icon"])$e[0m"   #note: printing icons
+
+        if ($line["icon"] -and $line["title"]) {
+            $output += " "
+        }
+        $output += "$e[1;96m$($line["title"])$e[0m" #note: items colors
 
         if ($line["title"] -and $line["content"]) {
             $output += ": "

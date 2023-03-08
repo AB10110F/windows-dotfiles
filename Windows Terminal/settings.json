@@ -32,22 +32,28 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "initialCols": 104,
-    "initialRows": 25,
+    "initialCols": 114,
+    "initialRows": 30,
     "language": "en-US",
     "profiles": 
     {
         "defaults": 
         {
             "colorScheme": "custom",
+            "cursorHeight": 25,
+            "cursorShape": "vintage",
             "elevate": false,
-            "experimental.retroTerminalEffect": true,
+            "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "SpaceMono NF"
+                "face": "Hack NF",
+                "weight": "thin"
             },
-            "opacity": 0,
-            "useAcrylic": true
+            "opacity": 25,
+            "padding": "8",
+            "suppressApplicationTitle": false,
+            "useAcrylic": true,
+            "useAtlasEngine": false
         },
         "list": 
         [
@@ -73,22 +79,11 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "commandline": "pwsh.exe -nologo",                  //removes the initial message
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore"
-            },
-            {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
-                "hidden": false,
-                "name": "kali-linux",
-                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -327,25 +322,25 @@
         {
             "background": "#1A1A1A",
             "black": "#121212",
-            "blue": "#2B4FFF",
+            "blue": "#447BFF",
             "brightBlack": "#666666",
             "brightBlue": "#5C78FF",
             "brightCyan": "#5AC8FF",
-            "brightGreen": "#905AFF",
-            "brightPurple": "#5EA2FF",
+            "brightGreen": "#DEB3FF",
+            "brightPurple": "#AC5EFF",
             "brightRed": "#FF4A6F",
             "brightWhite": "#FFFFFF",
             "brightYellow": "#3BF1FF",
             "cursorColor": "#FFFFFF",
             "cyan": "#28B9FF",
             "foreground": "#F1F1F1",
-            "green": "#7129FF",
+            "green": "#BE9DDF",
             "name": "custom",
-            "purple": "#2883FF",
+            "purple": "#A73BFF",
             "red": "#FF3677",
             "selectionBackground": "#595959",
             "white": "#F1F1F1",
-            "yellow": "#3D2AFF"
+            "yellow": "#15FFF5"
         }
     ],
     "themes": [],
