@@ -1,3 +1,11 @@
-oh-my-posh init pwsh --config "$(scoop prefix oh-my-posh)\themes\tokyo.omp.json" | Invoke-Expression
-Import-Module -Name Terminal-Icons
-winfetch
+if($env:TERM_PROGRAM -eq 'vscode') 
+{
+    oh-my-posh init pwsh --config 'C:\Users\WSwor\AppData\Local\Programs\oh-my-posh\themes\tokyo.omp.json' | Invoke-Expression
+    Import-Module -Name Terminal-Icons
+}
+else
+{
+    oh-my-posh init pwsh --config 'C:\Users\WSwor\AppData\Local\Programs\oh-my-posh\themes\tokyo.omp.json' | Invoke-Expression
+    Import-Module -Name Terminal-Icons
+    winfetch
+}
