@@ -10,5 +10,7 @@ else
     Import-Module PSReadLine
     Set-PSReadLineOption -PredictionSource History
     Set-PSReadLineOption -PredictionVIewStyle ListView
+    Set-PSReadLineKeyHandler -Chord Tab -Function NextHistory
+    Set-PSReadLineKeyHandler -Chord Shift+Tab -Function PreviousHistory
     winfetch
 }
