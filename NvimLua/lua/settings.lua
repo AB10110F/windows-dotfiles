@@ -8,4 +8,5 @@ o.relativenumber = true
 o.autoindent = true
 o.cursorline = true
 o.expandtab = true
-o.tabstop = 4
+o.tabstop = 2
+o.shiftwidth = 2
