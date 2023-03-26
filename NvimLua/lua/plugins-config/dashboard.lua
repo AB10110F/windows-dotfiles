@@ -6,7 +6,6 @@ require('dashboard').setup ({
       "",
       "",
       "",
-      "",
       " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
       " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
       " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
@@ -14,35 +13,42 @@ require('dashboard').setup ({
       " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
       " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
       "",
+      "-.-. .- .-. .--. .    -.. .. . -- ",
       "",
       "",
     },
     center = {
       {
         icon = '  ',
-        desc ='New File                         ',
+        icon_hl = 'Title',
+        desc ='New File                           ',
+        key = 'n',
         action =  'new_file',
-        shortcut = 'Leader n f'
       },
       {
         icon = '  ',
         icon_hl = 'Title',
-        desc = 'Find File           ',
-        desc_hl = 'String',
-        key = 'b',
-        keymap = 'SPC f f',
-        key_hl = 'Number',
+        desc = 'Find File',
+        key = 'f',
+        keymap = 'CTRL f',
         action = 'Telescope find_files find_command=rg,--hidden,--files'
       },
       {
+        icon = '󰑓  ',
+        icon_hl = 'Title',
+        desc = 'Update',
+        key = 'u',
+        action = 'PackerUpdate'
+      },
+      {
         icon = '󰗼  ',
+        icon_hl = 'Title',
         desc = 'Exit',
-        key = 'f',
-        keymap = 'SPC t c',
+        key = 'q',
+        keymap = 'SPC q',
         action = ':q'
       },
     },
-    footer = {'Carpe Diem'}
+    footer = {}
   }
-  
 })

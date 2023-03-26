@@ -1,4 +1,4 @@
-if($env:TERM_PROGRAM -eq 'vscode') 
+if($Host.UI.RawUI.WindowSize.Height -le 15) 
 {
     oh-my-posh init pwsh --config 'C:\Users\WSwor\AppData\Local\Programs\oh-my-posh\themes\tokyo.omp.json' | Invoke-Expression
     Import-Module -Name Terminal-Icons

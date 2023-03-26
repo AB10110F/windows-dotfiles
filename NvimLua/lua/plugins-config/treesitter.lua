@@ -24,8 +24,10 @@ ts.setup({
 		"c_sharp",
 		"json",
 		"css",
+    "scss",
 		"html",
 		"lua",
+    "vim",
 	},
 	rainbow = {
 		enable = true,

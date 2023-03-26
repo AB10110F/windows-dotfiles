@@ -1,6 +1,6 @@
 
 require("tokyonight").setup({
-  style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
   transparent = true, -- Enable this to disable setting the background color
   transparent_sidebar = true,
@@ -14,7 +14,7 @@ require("tokyonight").setup({
     functions = {},
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "tranparent", -- style for sidebars, see below
+    sidebars = "transparent", -- style for sidebars, see below
     floats = "transparent", -- style for floating windows
   },
   day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -33,5 +33,6 @@ require("tokyonight").setup({
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 }) 
-  vim.o.terminguicolors = true
-  vim.cmd[[colorscheme tokyonight]]
+vim.o.terminguicolors = true
+vim.g.tokyonight_transparent = vim.g.transparent_enabled
+vim.cmd[[colorscheme tokyonight]]
