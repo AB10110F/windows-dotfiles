@@ -1,0 +1,35 @@
+# Basic Settings
+set shell powershell
+set drawbox
+set hidden true
+set ignorecase true
+set icons true
+set mouse true
+set relativenumber true
+
+# Bindings
+# Remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+
+# Basic Functions
+map . set hidden!
+map <enter> open
+map R reload
+
+# Movement
+map gD cd ~/documents
+map gd cd ~/downloads
+map gp cd ~/pictures
+map gc cd ~/.config
+map gv cd ~/videos
+
+# Open Files
+map n $nvim $Env:f
+map c $code $Env:f
+
+# Previewing with Quicklook
+map o $C:/Users/WSwor/AppData/Local/Programs/QuickLook/QuickLook.exe $Env:f

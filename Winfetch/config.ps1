@@ -93,9 +93,9 @@
     # "uptime"
     # "ps_pkgs"  # takes some time
     "pwsh"
-    "terminal"
+    #"terminal"
     "pkgs"
-    "local_ip"
+    #"local_ip"
     # "public_ip"
     # "theme"
 
@@ -108,8 +108,8 @@
     "cpu"
     "gpu"
     # "resolution"
-    "memory"
-    "disk"
+    # "memory"
+    # "disk"
     # "cpu_usage"
     # "battery"
     # "blank"
