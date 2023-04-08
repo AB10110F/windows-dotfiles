@@ -14,6 +14,7 @@ ts.setup({
 	},
 	ensure_installed = {
     "cpp",
+    "go",
     "python",
     "javascript",
     "php",

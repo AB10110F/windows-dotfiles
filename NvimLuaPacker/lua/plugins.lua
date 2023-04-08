@@ -81,13 +81,6 @@ return require('packer').startup(function(use)
 
   -- Functional
 
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-	}
-
   use({
 	"norcalli/nvim-colorizer.lua",
 	config = function()
