@@ -112,6 +112,7 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
+                "colorScheme": "Tokyo",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "experimental.retroTerminalEffect": true,
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -323,9 +324,9 @@
         {
             "background": "#1A1A1A",
             "black": "#121212",
-            "blue": "#447BFF",
+            "blue": "#4B8CFF",
             "brightBlack": "#666666",
-            "brightBlue": "#5C78FF",
+            "brightBlue": "#5DB2FF",
             "brightCyan": "#5AC8FF",
             "brightGreen": "#DEB3FF",
             "brightPurple": "#AC5EFF",
@@ -333,7 +334,7 @@
             "brightWhite": "#FFFFFF",
             "brightYellow": "#3BF1FF",
             "cursorColor": "#FFFFFF",
-            "cyan": "#28B9FF",
+            "cyan": "#2FE6FF",
             "foreground": "#F1F1F1",
             "green": "#BE9DDF",
             "name": "Tokyo",

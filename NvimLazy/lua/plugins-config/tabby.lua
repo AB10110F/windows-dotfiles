@@ -1,4 +1,4 @@
---[[ vim.o.showtabline = 2
+vim.o.showtabline = 2
 
 local theme = {
     fill = {bg='transparent'},
@@ -46,4 +46,3 @@ local theme = {
       hl = theme.fill,
     }
   end)
- ]]

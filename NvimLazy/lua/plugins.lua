@@ -14,10 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {  
   --Themes
   'folke/tokyonight.nvim',
-  "EdenEast/nightfox.nvim",
+  -- "EdenEast/nightfox.nvim",
+  -- 'rockerBOO/boo-colorscheme-nvim'
 
   -- Interface
   'nvim-lualine/lualine.nvim',
+  'rcarriga/nvim-notify',
+  "lukas-reineke/indent-blankline.nvim",
   {
 	'glepnir/dashboard-nvim',
 	event = 'VimEnter',
@@ -61,12 +64,7 @@ local plugins = {
 
   -- Navigation
   'nvim-tree/nvim-web-devicons',
-  --[[ 'nanozuki/tabby.nvim'
-  {
-  		"nvim-telescope/telescope.nvim",
-  		tag = "0.1.1",
-  		dependencies = { { "nvim-lua/plenary.nvim" } }
-  }, ]]
+  'nanozuki/tabby.nvim',
 
   {
     {'akinsho/toggleterm.nvim', version = "*", config = true}
@@ -89,6 +87,8 @@ local plugins = {
   },
 
   -- Functional
+  
+  'shoukoo/commentary.nvim',
 
   {
 	"norcalli/nvim-colorizer.lua",
@@ -113,8 +113,24 @@ local plugins = {
     disable_in_visualblock = true,
 	disable_filetype = { "TelescopePrompt", "vim" },
     } end
-	
   },
+
+
+
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  "williamboman/mason.nvim",
+  "neovim/nvim-lspconfig",
+  "williamboman/mason-lspconfig.nvim",
+  "glepnir/lspsaga.nvim",
+  {
+	  'nvim-telescope/telescope.nvim',
+	  tag = '0.1.0',
+	  dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
+
 }
 
 
