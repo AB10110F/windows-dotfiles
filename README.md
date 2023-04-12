@@ -1,14 +1,7 @@
-<div style="display: flex; justify-content: center;">
-<pre style="background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); -webkit-background-clip: text; color: transparent;">              
-   __    _  ___  _ __   ___    ___  __    _  __,
-  ( /   /  ( /  ( /  ) ( / \  /  ()( /   /  (
-   / / /    /    /  /   /  / /   /  / / /    `.
-  (_/_/   _/_   /  (_ (/\_/ (___/  (_/_/   (___)
-  ___    ___  ______ ______  ___   __   ______  __,
- ( / \  /  ()(  /   (  /    ( /   ( /  (  /    (
-  /  / /   /   /     -/--    /     /     /--    `.
-(/\_/ (___/  _/     _/     _/_   (/___/(/____/(___)
-</pre>
+<div align="center">
+	<br>
+		<img src="./src/wd.svg" width="800" height="400" alt="Click to see the source">
+	<br>
 </div>
 
 ---
@@ -21,7 +14,7 @@
 </pre>
 </div>
 
-![image](./images/nvim.gif)
+![image](./src/nvim.gif)
 
 <details>
 <summary><b>Plugins</b></summary>
@@ -65,7 +58,7 @@
 
 
 ### Files Structure
-![image](./images/tree.png)
+![image](./src/tree.png)
 
 > Rainbow effect in powershell thanks to [lolcat](https://github.com/andot/lolcat)
 
@@ -77,4 +70,4 @@
 </pre>
 </div>
 
-![image](./images/winfetch.png)
+![image](./src/winfetch.png)
