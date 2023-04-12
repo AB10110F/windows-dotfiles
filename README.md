@@ -1,17 +1,11 @@
-<div align="center">
-	<br>
-		<img src="./src/wd.svg" width="800" height="400" alt="Click to see the source">
-	<br>
+<div>
+		<img src="./src/wd.svg" width="100%" height="300" alt="Click to see the source">
 </div>
 
 ---
 
-<div style="display: flex; justify-content: center;">
-<pre style="background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); -webkit-background-clip: text; color: transparent;">              
- +-+ +-+ +-+ +-+
- |N| |V| |I| |M|
- +-+ +-+ +-+ +-+
-</pre>
+<div>
+		<img src="./src/nvim.svg" width="100%" height="100" alt="Click to see the source">
 </div>
 
 ![image](./src/nvim.gif)
@@ -62,12 +56,8 @@
 
 > Rainbow effect in powershell thanks to [lolcat](https://github.com/andot/lolcat)
 
-<div style="display: flex; justify-content: center;">
-<pre style="background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); -webkit-background-clip: text; color: transparent;">              
- +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+
- |W| |I| |N| |F| |E| |T| |C| |H|
- +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+
-</pre>
+<div>
+		<img src="./src/winfetch.svg" width="100%" height="100" alt="Click to see the source">
 </div>
 
 ![image](./src/winfetch.png)
