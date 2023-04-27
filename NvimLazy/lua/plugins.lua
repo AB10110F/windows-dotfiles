@@ -14,60 +14,42 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {  
   --Themes
   'folke/tokyonight.nvim',
-  -- "EdenEast/nightfox.nvim",
-  -- 'rockerBOO/boo-colorscheme-nvim'
 
   -- Interface
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
-  "lukas-reineke/indent-blankline.nvim",
+  
   {
-	'glepnir/dashboard-nvim',
-	event = 'VimEnter',
-	config = function()
-	  require('dashboard').setup {
-	  }
-	end,
-	dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() 
+      require("indent_blankline").setup{
+        buftype_exclude = { "terminal" },
+        filetype_exclude = { "dashboard" },
+      } end,
   },
 
   {
-	"lewis6991/gitsigns.nvim",
-	config = function()
-		require("plugins-config..gitsigns")
-	end,
+	  'glepnir/dashboard-nvim',
+	  event = 'VimEnter',
+	  config = function()
+	    require('dashboard').setup {
+	    }
+	  end,
+	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
 
-  --[[ {
-	"xiyaowong/nvim-transparent",
-	config = function()
-		require("transparent").setup({
-			groups = { -- table: default groups
-				'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-				'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-				'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-				'SignColumn', 'CursorLineNr', 'EndOfBuffer',
-			},
-			extra_groups = {
-				"BufferLineTabClose",
-				"BufferlineBufferSelected",
-				"BufferLineFill",
-				"BufferLineBackground",
-				"BufferLineSeparator",
-				"BufferLineIndicatorSelected",
-			},
-			exclude_groups = {},
-		})
-	end,
-  }, ]]
-
+  {
+	  "lewis6991/gitsigns.nvim",
+	  config = function()
+		  require("plugins-config..gitsigns")
+	  end,
+  },
 
   -- Navigation
   'nvim-tree/nvim-web-devicons',
-  'nanozuki/tabby.nvim',
 
   {
-    {'akinsho/toggleterm.nvim', version = "*", config = true}
+    {'akinsho/toggleterm.nvim', version = "*", config = true,}
   },
   
   {
@@ -81,9 +63,9 @@ local plugins = {
   },
 
   {
-	'nvim-telescope/telescope.nvim',
-	tag = '0.1.0',
-	dependencies = { {'nvim-lua/plenary.nvim'} }
+  	'nvim-telescope/telescope.nvim',
+	  tag = '0.1.0',
+	  dependencies = { {'nvim-lua/plenary.nvim'} }
   },
 
   -- Functional
@@ -91,50 +73,43 @@ local plugins = {
   'shoukoo/commentary.nvim',
 
   {
-	"norcalli/nvim-colorizer.lua",
-	config = function()
-		require("colorizer").setup({ "*" })
-	end,
+	  "norcalli/nvim-colorizer.lua",
+	  config = function()
+		  require("colorizer").setup({ "*" })
+	  end,
   },
 
   {
-	"nvim-treesitter/nvim-treesitter",
-	run = function()
-		require("nvim-treesitter.install").update({ with_sync = true })
-	end,
-	config = function()
-		require("plugins-config.treesitter")
-	end,
+	  "nvim-treesitter/nvim-treesitter",
+	  run = function()
+	  	require("nvim-treesitter.install").update({ with_sync = true })
+	  end,
+	  config = function()
+	  	require("plugins-config.treesitter")
+	  end,
   },
-
+  
   {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {
-    disable_in_visualblock = true,
-	disable_filetype = { "TelescopePrompt", "vim" },
+      disable_in_visualblock = true,
+	    disable_filetype = { "TelescopePrompt", "vim" },
     } end
   },
-
-
 
   'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
+  'rafamadriz/friendly-snippets',
+
   "williamboman/mason.nvim",
-  "neovim/nvim-lspconfig",
   "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
   "glepnir/lspsaga.nvim",
-  {
-	  'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
-	  dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
 
 }
-
 
   local opts = {}
 
   require("lazy").setup(plugins, opts)
-

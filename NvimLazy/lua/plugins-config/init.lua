@@ -1,12 +1,8 @@
 require ("plugins-config/tokyonight")
---require ("plugins-config/nightfox")
 require ("plugins-config/lualine")
 require ("plugins-config/dashboard")
 require ("plugins-config/telescope")
-require ("plugins-config/tabby")
 require ("plugins-config/nvim-tree")
 require ("plugins-config.notify")
-
+require ("plugins-config.lspconfig")
 require ("plugins-config/cmp")
-require ("plugins-config/lsp")
-require ("plugins-config/mason")

@@ -12,5 +12,4 @@ else
     Set-PSReadLineOption -PredictionVIewStyle ListView
     Set-PSReadLineKeyHandler -Chord Tab -Function NextHistory
     Set-PSReadLineKeyHandler -Chord Shift+Tab -Function PreviousHistory
-    winfetch
 }

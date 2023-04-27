@@ -9,21 +9,20 @@ vim.keymap.set("n", "<c-o>", "<CMD>Neotree focus<CR>")
 global.mapleader = " "
 global.maplocalleader = " "
 
-vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader><TAB>", ":tabn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
--- move current tab to previous position
-vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
--- move current tab to next position
-vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
-
 -- Save
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>")
 
 -- Quit
 vim.keymap.set("n", "<leader>q", "<CMD>q<CR>")
+
+-- Split panel
+vim.keymap.set("n", "s", "<CMD>vsplit<CR>")
+
+-- Switch to next buffer
+vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>")
+
+-- Close buffer
+vim.keymap.set("n", "<c-c>", "<CMD>bd<CR>")
 
 -- Exit insert mode
 vim.keymap.set("i", "jk", "<ESC>")

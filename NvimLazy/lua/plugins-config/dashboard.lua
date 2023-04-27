@@ -3,7 +3,6 @@ require('dashboard').setup ({
   theme = 'doom',
   config = {
     header = {
-      "",
       --[[ " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
       " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
       " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
@@ -65,6 +64,13 @@ require('dashboard').setup ({
         action = 'Lazy'
       },
       {
+        icon = '  ',
+        icon_hl = 'Title',
+        desc = 'Colorscheme',
+        key = 'c',
+        action = 'Telescope colorscheme'
+      },
+      {
         icon = '󰒋  ',
         icon_hl = 'Title',
         desc = 'Mason',
@@ -75,7 +81,7 @@ require('dashboard').setup ({
         icon = '  ',
         icon_hl = 'Title',
         desc = 'Check Health',
-        key = 'c',
+        key = '1',
         action = 'checkhealth lazy'
       },
       {

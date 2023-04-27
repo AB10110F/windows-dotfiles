@@ -1,11 +1,35 @@
 <div>
-		<img src="./src/wd.svg" width="100%" height="300" alt="Click to see the source">
+		<img src="./src/wd.svg" width="100%" height="300" alt="ascii-art">
 </div>
 
 ---
 
+<img align="right" src="./src/screens.png" alt="Rice Preview" width="363px"/>
+<ul>
+    <li>Terminal Apps</li>
+    <ul>
+        <li><a href="https://github.com/neovim/neovim">NVIM</a></li>
+        <li><a href="https://github.com/lptstr/winfetch">Winfetch</a></li>
+        <li><a href="https://github.com/aristocratos/btop">btop</a></li>
+        <li><a href="https://github.com/ClementTsang/bottom">bottom</a></li>
+        <li><a href="https://github.com/JanDeDobbeleer/oh-my-posh">Oh my posh</a></li>
+        <li><a href="https://github.com/gokcehan/lf">lf</a></li>
+    </ul><br><br>
+    <li>Desktop Apps</li>
+    <ul>
+        <li><a href="https://github.com/lars-berger/GlazeWM">GlazeWM</a></li>
+        <li><a href="https://github.com/adirh3/Fluent-Search">Fluent Search</a></li>
+        <li><a href="https://github.com/microsoft/terminal">Windows Terminal</a></li>
+        <li><a href="https://github.com/PowerShell/PowerShell">PowerShell 7.3.4</a></li>
+        <li><a href="https://github.com/files-community/Files">Files</a></li>
+    </ul>
+</ul>
+<br><br><br><br><br><br><br><br><br><br>
+
+---
+
 <div>
-		<img src="./src/nvim.svg" width="100%" height="100" alt="Click to see the source">
+		<img src="./src/nvim.svg" width="100%" height="100" alt="ascii-art">
 </div>
 
 ![image](./src/nvim.gif)
@@ -27,7 +51,6 @@
     </ul>
     <li>Navigation</li>
     <ul>
-        <li><a href="https://github.com/nanozuki/tabby.nvim">tabby.nvim</a></li>
         <li><a href="https://github.com/akinsho/toggleterm.nvim">toggleterm.nvim</a></li>
         <li><a href="https://github.com/nvim-neo-tree/neo-tree.nvim">neo-tree.nvim</a></li>
         <li><a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a></li>
@@ -57,7 +80,7 @@
 > Rainbow effect in powershell thanks to [lolcat](https://github.com/andot/lolcat)
 
 <div>
-		<img src="./src/winfetch.svg" width="100%" height="100" alt="Click to see the source">
+		<img src="./src/winfetch.svg" width="100%" height="100" alt="ascii-art">
 </div>
 
 ![image](./src/winfetch.png)
