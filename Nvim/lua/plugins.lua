@@ -24,7 +24,7 @@ local plugins = {
     config = function() 
       require("indent_blankline").setup{
         buftype_exclude = { "terminal" },
-        filetype_exclude = { "dashboard" },
+        filetype_exclude = { "dashboard","mason" },
       } end,
   },
 
@@ -97,16 +97,27 @@ local plugins = {
     } end
   },
 
-  'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'rafamadriz/friendly-snippets',
+  
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+         build = function()
+         pcall(vim.cmd, 'MasonUpdate')
+      end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
-  "glepnir/lspsaga.nvim",
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+    }
+  }
 
 }
 
