@@ -12,6 +12,7 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.termguicolors = true
 o.splitright = true
+
 -- Powershell
 
 local powershell_options = {

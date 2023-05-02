@@ -1,0 +1,86 @@
+format = """
+(#7eb8da)$username$hostname| $memory_usage |$time $git_branch$git_status$nodejs$python$lua$php$golang
+[╰─ ](#7eb8da)\\[$directory\\]
+[ ](#7eb8da)$character"""
+
+add_newline = false
+
+[username]
+style_user = "#7eb8da"
+style_root = "red bold"
+format = " [$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](white)[on](#7eb8da)   [$hostname](#7eb8da) '
+trim_at = '.companyname.com'
+disabled = false
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = '#ae91cc'
+format = '$symbol [RAM: ${ram}]($style)'
+symbol = ''
+
+[character]
+success_symbol = "[❯](#a0a9cb)"
+error_symbol = "[X‿X Syntax error ❯](red)"
+
+[directory]
+style = "fg:#98bfad"
+format = ' 󰉋 [$path]($style) '
+truncation_length = 0
+truncate_to_repo = false
+home_symbol = "⠏⠗⠕⠋⠊⠇⠑"
+
+[directory.substitutions]
+"Documents" = "  Documents"
+"Downloads" = "   Downloads"
+"Music" = "   Music"
+"Pictures" = "   Pictures"
+"Videos" = "󰿎 Videos"
+"Programming" = "󱃖 Programming"
+"Library" = " Library"
+"Blender" = "󰂫 Blender"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time](fg:#a0a9cb)]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:#394260"
+format = '|[[   $symbol $branch ](fg:#769ff0)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0)]($style)'
+
+[lua]
+symbol = "󰢱"
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
+
+[golang]
+symbol = "ﳑ"
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
+
+[python]
+symbol = ''
+format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'

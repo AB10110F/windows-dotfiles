@@ -47,6 +47,7 @@
         <li><a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a></li>
         <li><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline.nvim</a></li>
         <li><a href="https://github.com/nvimdev/dashboard-nvim">dashboard-nvim</a></li>
+        <li><a href="https://github.com/Eandrju/cellular-automaton.nvim">cellular-automaton.nvim</a></li>
         <li><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
     </ul>
     <li>Navigation</li>
@@ -59,16 +60,18 @@
     <ul>
         <li><a href="https://github.com/shoukoo/commentary.nvim">commentary.nvim</a></li>
         <li><a href="https://github.com/norcalli/nvim-colorizer.lua">nvim-colorizer.lua</a></li>
+        <li><a href="https://github.com/nvim-colortils/colortils.nvim">colortils.nvim</a></li>
         <li><a href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</a></li>
         <li><a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a></li>
-        <li><a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a></li>
-        <li><a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a></li>
-        <li><a href=https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></li>
-        <li><a href="https://github.com/hrsh7th/cmp-nvim-lsp">cmp-nvim-slp</a></li>
-        <li><a href="https://github.com/williamboman/mason.nvim">mason.nvim</a></li>
-        <li><a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a></li>
-        <li><a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig.nvim</a></li>
-        <li>glepnir/lspsaga.nvim</li>
+        <li><a href="https://github.com/VonHeikemen/lsp-zero.nvim">lsp-zero</a></li>
+        <ul>
+            <li><a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a></li>
+            <li><a href=https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></li>
+            <li><a href="https://github.com/hrsh7th/cmp-nvim-lsp">cmp-nvim-slp</a></li>
+            <li><a href="https://github.com/williamboman/mason.nvim">mason.nvim</a></li>
+            <li><a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a></li>
+            <li><a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig.nvim</a></li>
+        </ul>
     </ul>
 </ul>
 </details>

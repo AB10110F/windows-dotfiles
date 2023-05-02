@@ -18,12 +18,13 @@ local plugins = {
   -- Interface
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
+  'eandrju/cellular-automaton.nvim',
   
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function() 
       require("indent_blankline").setup{
-        buftype_exclude = { "terminal" },
+        buftype_exclude = { "terminal","nofile" },
         filetype_exclude = { "dashboard","mason" },
       } end,
   },
@@ -75,8 +76,16 @@ local plugins = {
   {
 	  "norcalli/nvim-colorizer.lua",
 	  config = function()
-		  require("colorizer").setup({ "*" })
+		  require("colorizer").setup({ "*" } ,{mode = 'foreground'})
 	  end,
+  },
+
+  {
+    "max397574/colortils.nvim",
+    cmd = "Colortils",
+    config = function()
+      require("colortils").setup()
+    end,
   },
 
   {
