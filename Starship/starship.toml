@@ -1,5 +1,5 @@
 format = """
-(#7eb8da)$username$hostname| $memory_usage |$time $git_branch$git_status$nodejs$python$lua$php$golang
+(#7eb8da)$username$hostname| $memory_usage |$time $git_branch$nodejs$python$lua$php$golang$localip
 [╰─ ](#7eb8da)\\[$directory\\]
 [ ](#7eb8da)$character"""
 
@@ -37,14 +37,15 @@ truncate_to_repo = false
 home_symbol = "⠏⠗⠕⠋⠊⠇⠑"
 
 [directory.substitutions]
-"Documents" = "  Documents"
-"Downloads" = "   Downloads"
-"Music" = "   Music"
-"Pictures" = "   Pictures"
+"Documents" = " Documents"
+"Downloads" = "  Downloads"
+"Music" = "  Music"
+"Pictures" = "  Pictures"
 "Videos" = "󰿎 Videos"
 "Programming" = "󱃖 Programming"
 "Library" = " Library"
 "Blender" = "󰂫 Blender"
+"Fonts" = " Fonts"
 
 [time]
 disabled = false
@@ -56,10 +57,6 @@ format = '[[  $time](fg:#a0a9cb)]($style)'
 symbol = ""
 style = "bg:#394260"
 format = '|[[   $symbol $branch ](fg:#769ff0)]($style)'
-
-[git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0)]($style)'
 
 [lua]
 symbol = "󰢱"
@@ -84,3 +81,8 @@ format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
 [python]
 symbol = ''
 format = '|[[ $symbol ($version) ](fg:#769ff0)]($style)'
+
+[localip]
+ssh_only = false
+format = '| [  $localipv4](fg:white) '
+disabled = false

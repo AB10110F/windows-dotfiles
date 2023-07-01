@@ -4,7 +4,7 @@ gaps:
 
 general:
   # Whether to show floating windows as always on top.
-  show_floating_on_top: false
+  show_floating_on_top: true
 
 bar:
   height: "30px"
@@ -45,7 +45,7 @@ bar:
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "hh:mm tt  ddd MMM d"
+      time_formatting: "hh:mm tt     dd/MMM/yyyy     ⠞⠑⠍⠏⠕⠎"
       margin: "0 0 0 10px"
 
 workspaces:
