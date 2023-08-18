@@ -1,0 +1,31 @@
+[
+    {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "j",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "j"
+    },
+    {
+        "command": "vscode-neovim.compositeEscape2",
+        "key": "k",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "k"
+    },
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "ctrl+b",
+        "when": "neovim.mode == normal",
+        "args": "<C-b>"
+    },
+    {
+        "command": "editor.action.clipboardCopyAction",
+        "key": "ctrl+c",
+        "when": "neovim.mode == (insert || normal) && editorTextFocus",
+        "args": "<C-c>"
+    },
+    {
+        "key": "s",
+        "command": "workbench.action.moveEditorToNextGroup",
+        "when": "neovim.mode == normal && editorTextFocus"
+    }
+]

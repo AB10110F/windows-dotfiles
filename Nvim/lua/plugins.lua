@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {  
+local plugins = {
   --Themes
   'folke/tokyonight.nvim',
 
@@ -19,11 +19,11 @@ local plugins = {
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
   'eandrju/cellular-automaton.nvim',
-  
+
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function() 
-      require("indent_blankline").setup{
+    config = function()
+      require("indent_blankline").setup {
         buftype_exclude = { "terminal","nofile" },
         filetype_exclude = { "dashboard","mason" },
       } end,
@@ -33,8 +33,7 @@ local plugins = {
 	  'glepnir/dashboard-nvim',
 	  event = 'VimEnter',
 	  config = function()
-	    require('dashboard').setup {
-	    }
+	    require('dashboard').setup {}
 	  end,
 	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
@@ -52,7 +51,7 @@ local plugins = {
   {
     {'akinsho/toggleterm.nvim', version = "*", config = true,}
   },
-  
+
   {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -70,7 +69,7 @@ local plugins = {
   },
 
   -- Functional
-  
+
   'shoukoo/commentary.nvim',
 
   {
@@ -97,7 +96,7 @@ local plugins = {
 	  	require("plugins-config.treesitter")
 	  end,
   },
-  
+
   {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {
@@ -106,7 +105,7 @@ local plugins = {
     } end
   },
 
-  
+
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -125,11 +124,12 @@ local plugins = {
       {'hrsh7th/nvim-cmp'},     -- Required
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
       {'L3MON4D3/LuaSnip'},     -- Required
+      {'hrsh7th/cmp-path'}      -- Required
     }
   }
 
 }
 
-  local opts = {}
+local opts = {}
 
-  require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, opts)

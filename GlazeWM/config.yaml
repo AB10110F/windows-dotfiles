@@ -12,8 +12,8 @@ bar:
   opacity: 0.7 #Default = 1.0
   background: "#20242cc4"
   foreground: "#ffffff"
-  font_family: "Segoe UI"
-  font_size: "13px"
+  font_family: "SpaceMono NF"
+  font_size: "12px"
   padding: "4px 6px"
   offset_x: "0"
   offset_y: "0"
@@ -34,10 +34,10 @@ bar:
       background: "#ffffff33"
       margin: "0 4px"
       padding: "0 8px"
-    - type: "binding mode"
-      background: "#ffffff33"
-      margin: "0 4px 0 0"
-      padding: "0 8px"
+    # - type: "binding mode"
+      # background: "#ffffff33"
+      # margin: "0 4px 0 0"
+      # padding: "0 8px"
     - type: "battery"
       label_draining: "{battery_level}% remaining"
       label_power_saver: "{battery_level}% (power saver)"
@@ -45,8 +45,8 @@ bar:
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "hh:mm tt     dd/MMM/yyyy     ⠞⠑⠍⠏⠕⠎"
-      margin: "0 0 0 10px"
+      time_formatting: " hh:mm tt    MMM/dd/yyyy   ⠞⠑⠍⠏⠕⠎"
+      margin: "0 0 0 0px"
 
 workspaces:
   - name: "1"
@@ -100,21 +100,21 @@ keybindings:
   - command: "focus left"
     bindings: ["Alt+H", "Alt+Left"]
   - command: "focus right"
-    bindings: ["Alt+L", "Alt+Right"]
+    bindings: ["Alt+L"]
   - command: "focus up"
-    bindings: ["Alt+K", "Alt+Up"]
+    bindings: ["Alt+K"]
   - command: "focus down"
-    bindings: ["Alt+J", "Alt+Down"]
+    bindings: ["Alt+J"]
 
   # Move focused window in a given direction.
   - command: "move left"
-    bindings: ["Alt+Shift+H", "Alt+Shift+Left"]
+    bindings: ["Alt+Shift+H"]
   - command: "move right"
-    bindings: ["Alt+Shift+L", "Alt+Shift+Right"]
+    bindings: ["Alt+Shift+L"]
   - command: "move up"
-    bindings: ["Alt+Shift+K", "Alt+Shift+Up"]
+    bindings: ["Alt+Shift+K"]
   - command: "move down"
-    bindings: ["Alt+Shift+J", "Alt+Shift+Down"]
+    bindings: ["Alt+Shift+J"]
 
   # Resize focused window by a percentage or pixel amount.
   - command: "resize width -2%"

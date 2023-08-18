@@ -15,7 +15,6 @@ cmp.setup({
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
   },
-
   window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -25,11 +24,11 @@ cmp.setup({
     ['<Tab>'] = cmp_action.tab_complete(),
     ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
 
-    ['<C-y>'] = cmp.mapping.confirm({select = true}),
+    ['<Enter>'] = cmp.mapping.confirm({select = true}),
     ['<C-x>'] = cmp.mapping.abort(),
     ['<Up>'] = cmp.mapping.scroll_docs(-4),
     ['<Down>'] = cmp.mapping.scroll_docs(4),
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
+    -- ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+    -- ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
   },
 })

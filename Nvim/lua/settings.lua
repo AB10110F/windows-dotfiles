@@ -1,17 +1,21 @@
-local global = vim.g
 local o = vim.o
 
 -- Editor Settings
 
-o.number = true
-o.relativenumber = true
-o.autoindent = true
-o.cursorline = true
-o.expandtab = true
-o.tabstop = 2
-o.shiftwidth = 2
-o.termguicolors = true
-o.splitright = true
+o.number = true               -- show line numbers
+o.relativenumber = true       -- use relative numbers
+o.autoindent = true           -- copy indent from current line when starting a new line
+o.cursorline = true           -- highlight current line
+o.expandtab = true            -- convert tabs to spaces
+o.tabstop = 2                 -- insert 2 spaces per tab
+o.shiftwidth = 2              -- insert 2 spaces per identation
+o.termguicolors = true        -- set term gui colors
+o.splitright = true           -- force all vertical splits to go to the right of current window
+o.splitbelow = true           -- force all horizontal aplits to go below of the current window
+o.backup = false              -- don't create a backup
+o.swapfile = false            -- don't create a swapfile
+o.clipboard ="unnamed"        -- allows nvim to access to the clipboard
+
 
 -- Powershell
 
