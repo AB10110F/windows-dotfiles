@@ -14,11 +14,23 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   --Themes
   'folke/tokyonight.nvim',
+  'olivercederborg/poimandres.nvim',
+  { "catppuccin/nvim", name = "catppuccin" },
 
   -- Interface
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
-  'eandrju/cellular-automaton.nvim',
+  { 'eandrju/cellular-automaton.nvim', lazy = true, },
+
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {},
+  },
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -35,7 +47,7 @@ local plugins = {
 	  config = function()
 	    require('dashboard').setup {}
 	  end,
-	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+	  dependencies = { {'nvim-tree/nvim-web-devicons'}},
   },
 
   {
@@ -43,14 +55,11 @@ local plugins = {
 	  config = function()
 		  require("plugins-config..gitsigns")
 	  end,
+    lazy = true,
   },
 
   -- Navigation
-  'nvim-tree/nvim-web-devicons',
-
-  {
-    {'akinsho/toggleterm.nvim', version = "*", config = true,}
-  },
+  {'akinsho/toggleterm.nvim', version = "*", config = true, lazy = true},
 
   {
 		"nvim-neo-tree/neo-tree.nvim",
@@ -70,13 +79,14 @@ local plugins = {
 
   -- Functional
 
-  'shoukoo/commentary.nvim',
+  { 'shoukoo/commentary.nvim', lazy = true, },
 
   {
 	  "norcalli/nvim-colorizer.lua",
 	  config = function()
 		  require("colorizer").setup({ "*" } ,{mode = 'foreground'})
 	  end,
+    lazy = true,
   },
 
   {
@@ -85,20 +95,13 @@ local plugins = {
     config = function()
       require("colortils").setup()
     end,
+    lazy = true,
   },
 
-  {
-	  "nvim-treesitter/nvim-treesitter",
-	  run = function()
-	  	require("nvim-treesitter.install").update({ with_sync = true })
-	  end,
-	  config = function()
-	  	require("plugins-config.treesitter")
-	  end,
-  },
+  "nvim-treesitter/nvim-treesitter",
 
   {
-	"windwp/nvim-autopairs",
+    "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {
       disable_in_visualblock = true,
 	    disable_filetype = { "TelescopePrompt", "vim" },

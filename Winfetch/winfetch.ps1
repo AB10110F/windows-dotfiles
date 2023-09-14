@@ -434,7 +434,7 @@ $img = if (-not $noimage) {
             if ($os -Like "*Windows 11 *") {
                 $logo = "Windows 11"
             } elseif ($os -Like "*Windows 10 *" -Or $os -Like "*Windows 8.1 *" -Or $os -Like "*Windows 8 *") {
-                $logo = "vienna" #note: default ascci art
+                $logo = "cubes" #note: default ascci art
             } else {
                 $logo = "Windows 7"
             }
@@ -684,6 +684,27 @@ $img = if (-not $noimage) {
                 "${e}[${t};33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                 
             )
+        } elseif ($logo -eq "cubes") {
+            $COLUMNS = 37
+            @(
+               "${e}[${t};33m                                     "
+               "${e}[${t};33m               ________              "
+               "${e}[${t};33m              /\       \             "
+               "${e}[${t};33m             /  \       \            "
+               "${e}[${t};33m            /    \       \           "
+               "${e}[${t};33m           /      \_______\          "
+               "${e}[${t};33m           \      /       /          "
+               "${e}[${t};33m         ___\    /   ____/___        "
+               "${e}[${t};33m        /\   \  /   /\       \       "
+               "${e}[${t};33m       /  \   \/___/  \       \      "
+               "${e}[${t};33m      /    \       \   \       \     "
+               "${e}[${t};33m     /      \_______\   \_______\    "
+               "${e}[${t};33m     \      /       /   /       /    "
+               "${e}[${t};33m      \    /       /   /       /     "
+               "${e}[${t};33m       \  /       /\  /       /      "
+               "${e}[${t};33m        \/_______/  \/_______/       "
+               "${e}[${t};33m                                     "
+            )
         } elseif ($logo -eq "Windows 7" -Or $logo -eq "Windows Vista" -Or $logo -eq "Windows XP") {
             $COLUMNS = 35
             @(
@@ -737,7 +758,7 @@ function info_colorbar {
 function info_os {
     return @{
         title   = "OS"
-        icon = "     "
+        icon = "    "
         content = "$($os.Caption.TrimStart('Microsoft ')) [$($os.OSArchitecture)]"
     }
 }
@@ -767,7 +788,7 @@ function info_title {
 function info_dashes_h {
     return @{
         title   = ""
-        content = "──────────────────${e}[;33m Аппаратное обеспечение ${e}[0m──────────────────"
+        content = "─────────────────${e}[;33m Аппаратное обеспечение ${e}[0m─────────────────"
         #content = "┌───────────────${e}[${t};33m Аппаратное обеспечение ${e}[0m───────────────┐" #blinking
         #content = "┌───────────────${e}[;33m Hardware Information ${e}[0m───────────────┐"
     }
@@ -777,7 +798,7 @@ function info_dashes_h {
 function info_dashes_s {
     return @{
         title   = ""
-        content = "─────────────────${e}[;33m Программное  обеспечение ${e}[0m─────────────────"
+        content = "────────────────${e}[;33m Программное  обеспечение ${e}[0m────────────────"
         #content = "┌───────────────${e}[${t};33m Программное  обеспечение ${e}[0m───────────────┐" #blinking
         #content = "┌────────────────${e}[;33m Software Information ──────────────┐"
     }
@@ -809,7 +830,7 @@ function info_computer {
     $compsys = Get-CimInstance -ClassName Win32_ComputerSystem -Property Manufacturer,Model -CimSession $cimSession
     return @{
         title   = "Хост"
-        icon = "     "
+        icon = "    "
         content = '{0} {1}' -f $compsys.Manufacturer, $compsys.Model
     }
 }
@@ -1031,7 +1052,7 @@ function info_disk {
 function info_pwsh {
     return @{
         title   = "Оболочка"
-        icon = "     "
+        icon = "    "
         content = "PowerShell v$($PSVersionTable.PSVersion)"
     }
 }
