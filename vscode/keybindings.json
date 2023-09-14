@@ -27,5 +27,10 @@
         "key": "s",
         "command": "workbench.action.moveEditorToNextGroup",
         "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "command": "editor.action.selectAll",
+        "key": "Ctrl+a",
+        "when": "neovim.mode == normal && editorTextFocus"
     }
 ]

@@ -20,6 +20,15 @@
             "keys": "ctrl+c"
         },
         {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+shift+w"
         },
@@ -40,17 +49,15 @@
             "keys": "ctrl+shift+m"
         },
         {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        },
-        {
             "command": "closePane",
             "keys": "alt+4"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+t"
         },
         {
             "command": 
@@ -59,13 +66,6 @@
                 "split": "down"
             },
             "keys": "ctrl+alt+numpad_minus"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+t"
         },
         {
             "command": 
@@ -79,10 +79,17 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "experimental.rendering.forceFullRepaint": false,
     "initialCols": 122,
     "initialRows": 32,
     "language": "en-US",
     "launchMode": "default",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -94,6 +101,7 @@
             "font": 
             {
                 "face": "Hack NF",
+                "size": 11.0,
                 "weight": "thin"
             },
             "opacity": 50,
@@ -132,6 +140,24 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "commandline": "C:\\Program Files\\Git\\git-bash.exe",
+                "guid": "{1921b990-5f6d-4d64-bfdb-a6b8ba9d1823}",
+                "hidden": false,
+                "name": "Git Bash"
+            },
+            {
+                "guid": "{2d16f406-bf26-5c3d-bbba-21ca4c9235f3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{27f74a9a-6760-5054-8ba2-7da1d20f0e7f}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -228,6 +254,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#FAFAFA",
             "yellow": "#C18301"
+        },
+        {
+            "background": "#000000",
+            "black": "#BD7827",
+            "blue": "#BD7827",
+            "brightBlack": "#BD7827",
+            "brightBlue": "#BD7827",
+            "brightCyan": "#BD7827",
+            "brightGreen": "#BD7827",
+            "brightPurple": "#BD7827",
+            "brightRed": "#BD7827",
+            "brightWhite": "#BD7827",
+            "brightYellow": "#BD7827",
+            "cursorColor": "#BD7827",
+            "cyan": "#BD7827",
+            "foreground": "#BD7827",
+            "green": "#BD7827",
+            "name": "Retro Orange",
+            "purple": "#BD7827",
+            "red": "#BD7827",
+            "selectionBackground": "#FFFFFF",
+            "white": "#BD7827",
+            "yellow": "#BD7827"
         },
         {
             "background": "#002B36",
@@ -414,6 +463,50 @@
             "yellow": "#808000"
         }
     ],
-    "themes": [],
+    "themes": 
+    [
+        {
+            "name": "legacyDark",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacyLight",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacySystem",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "system",
+                "useMica": false
+            }
+        }
+    ],
     "useAcrylicInTabRow": true
 }
