@@ -29,6 +29,15 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Select All
+keymap('n', "<c-a>", "ggVG")
+
+-- Enter visual block
+keymap('n', "vb", "<c-v>") -- Alt reserved for GWM
+
+-- Toggle centered line
+keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
+
 -- Move lines
 keymap("n", "<A-j>", "<CMD>m .+1<CR>", opts) -- Alt is already reserved for GlazeWM
 -- keymap("n", "<c-j>", "<CMD>m .+1<CR>", opts)
@@ -45,4 +54,10 @@ keymap("n", "<leader>ñ", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", op
 keymap("n", "<leader>d", "<CMD>Dashboard<CR>", opts)
 
 -- Colortils
-keymap("n", "<C-p>", "<CMD>Colortils<CR>", opts)
+keymap("n", "<C-ñ>", "<CMD>Colortils<CR>", opts)
+
+-- Enable animation
+keymap("n", "<leader>a", "<CMD>CellularAutomaton make_it_rain<CR>", opts)
+
+-- Zen mode
+keymap("n", "<leader>z", "<CMD>ZenMode<CR>", opts)

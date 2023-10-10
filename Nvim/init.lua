@@ -7,4 +7,5 @@ else
     require ("plugins")
     require ("maps")
     require ("plugins-config")
+    require ("autocommands")
 end

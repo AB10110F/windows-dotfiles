@@ -76,6 +76,7 @@
             "keys": "ctrl+alt+numpad_plus"
         }
     ],
+    "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -83,7 +84,7 @@
     "initialCols": 122,
     "initialRows": 32,
     "language": "en-US",
-    "launchMode": "default",
+    "launchMode": "focus",
     "newTabMenu": 
     [
         {
@@ -107,6 +108,7 @@
             "opacity": 50,
             "padding": "8",
             "suppressApplicationTitle": false,
+            "tabTitle": "\u0422\u0435\u0440\u043c\u0438\u043d\u0430\u043b",
             "useAcrylic": true,
             "useAtlasEngine": false
         },
@@ -122,7 +124,7 @@
             {
                 "colorScheme": "Tokyo",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "experimental.retroTerminalEffect": true,
+                "experimental.retroTerminalEffect": false,
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell",
@@ -256,29 +258,6 @@
             "yellow": "#C18301"
         },
         {
-            "background": "#000000",
-            "black": "#BD7827",
-            "blue": "#BD7827",
-            "brightBlack": "#BD7827",
-            "brightBlue": "#BD7827",
-            "brightCyan": "#BD7827",
-            "brightGreen": "#BD7827",
-            "brightPurple": "#BD7827",
-            "brightRed": "#BD7827",
-            "brightWhite": "#BD7827",
-            "brightYellow": "#BD7827",
-            "cursorColor": "#BD7827",
-            "cyan": "#BD7827",
-            "foreground": "#BD7827",
-            "green": "#BD7827",
-            "name": "Retro Orange",
-            "purple": "#BD7827",
-            "red": "#BD7827",
-            "selectionBackground": "#FFFFFF",
-            "white": "#BD7827",
-            "yellow": "#BD7827"
-        },
-        {
             "background": "#002B36",
             "black": "#002B36",
             "blue": "#268BD2",
@@ -373,9 +352,9 @@
         {
             "background": "#1A1A1A",
             "black": "#121212",
-            "blue": "#4B8CFF",
+            "blue": "#39FFE4",
             "brightBlack": "#666666",
-            "brightBlue": "#5DB2FF",
+            "brightBlue": "#6AFFE4",
             "brightCyan": "#5AC8FF",
             "brightGreen": "#DEB3FF",
             "brightPurple": "#AC5EFF",
@@ -392,29 +371,6 @@
             "selectionBackground": "#595959",
             "white": "#F1F1F1",
             "yellow": "#15FFF5"
-        },
-        {
-            "background": "#24283B",
-            "black": "#1D202F",
-            "blue": "#7AA2F7",
-            "brightBlack": "#414868",
-            "brightBlue": "#7AA2F7",
-            "brightCyan": "#7DCFFF",
-            "brightGreen": "#9ECE6A",
-            "brightPurple": "#9D7CD8",
-            "brightRed": "#F7768E",
-            "brightWhite": "#C0CAF5",
-            "brightYellow": "#E0AF68",
-            "cursorColor": "#C0CAF5",
-            "cyan": "#7DCFFF",
-            "foreground": "#C0CAF5",
-            "green": "#9ECE6A",
-            "name": "Tokyo Night Storm",
-            "purple": "#BB9AF7",
-            "red": "#F7768E",
-            "selectionBackground": "#364A82",
-            "white": "#A9B1D6",
-            "yellow": "#E0AF68"
         },
         {
             "background": "#300A24",
@@ -463,6 +419,9 @@
             "yellow": "#808000"
         }
     ],
+    "showTabsInTitlebar": true,
+    "showTerminalTitleInTitlebar": true,
+    "tabWidthMode": "equal",
     "themes": 
     [
         {
@@ -508,5 +467,6 @@
             }
         }
     ],
-    "useAcrylicInTabRow": true
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useNew"
 }

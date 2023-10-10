@@ -1,6 +1,6 @@
 gaps:
-  inner_gap: 10 #default = 20
-  outer_gap: 10
+  inner_gap: 20 #default = 20
+  outer_gap: 20
 
 general:
   # Whether to show floating windows as always on top.
@@ -9,14 +9,16 @@ general:
 bar:
   height: "30px"
   position: "top"
-  opacity: 0.7 #Default = 1.0
+  opacity: 1
   background: "#20242cc4"
   foreground: "#ffffff"
   font_family: "SpaceMono NF"
   font_size: "12px"
-  padding: "4px 6px"
+  padding: "4px 20px"
   offset_x: "0"
   offset_y: "0"
+  border_width: "0 0 0 0"
+  border_color: "white"
   border_radius: "0"
   components_left:
     - type: "workspaces"
@@ -26,27 +28,39 @@ bar:
   components_center:
     - type: "window title"
   component_separator:
-    label: "    "
+    label: "   "
   components_right:
-    - type: "tiling direction"
-      label_horizontal: "⮂"
-      label_vertical: "⮁"
-      background: "#ffffff33"
-      margin: "0 4px"
-      padding: "0 8px"
+    # - type: "tiling direction"
+    #   label_horizontal: "⮂"
+    #   label_vertical: "⮁"
+    #   background: "#00000000"
+    #   margin: "0 0px"
+    #   padding: "0 0px"
     # - type: "binding mode"
       # background: "#ffffff33"
       # margin: "0 4px 0 0"
       # padding: "0 8px"
     - type: "battery"
-      label_draining: "{battery_level}% remaining"
-      label_power_saver: "{battery_level}% (power saver)"
-      label_charging: "{battery_level}% (charging)"
+      label_draining: "󱐋 {battery_level}%"
+      label_power_saver: "󰌪 {battery_level}%"
+      label_charging: "󱐋 {battery_level}%"
+    - type: "cpu"
+      label: "󰻠 {percent_usage}%"
+      # How often this counter is refreshed.
+      refresh_interval_ms: 1000
+    - type: "memory"
+      label: "󰍛 {percent_usage}%"
+      # How often this counter is refreshed.
+      refresh_interval_ms: 1000
+    # - type: "volume"
+    #   label_low: " {volume_level}%"
+    #   label_medium: " {volume_level}%"
+    #   label_high: " {volume_level}%"
+    #   label_mute: " {volume_level}%"
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: " hh:mm tt    MMM/dd/yyyy   ⠞⠑⠍⠏⠕⠎"
-      margin: "0 0 0 0px"
+      time_formatting: " hh:mm tt    MMM/dd/yy"
 
 workspaces:
   - name: "1"
@@ -98,7 +112,7 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - command: "focus left"
-    bindings: ["Alt+H", "Alt+Left"]
+    bindings: ["Alt+H"]
   - command: "focus right"
     bindings: ["Alt+L"]
   - command: "focus up"

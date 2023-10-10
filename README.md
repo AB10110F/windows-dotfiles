@@ -37,36 +37,43 @@
 <details>
 <summary><b>Plugins</b></summary>
 <ul>
-    <li>Theme</li>
+    <li>Themes</li>
     <ul>
         <li><a href="https://github.com/folke/tokyonight.nvim">Tokyonight</a></li>
+        <li><a href="https://github.com/olivercederborg/poimandres.nvim">Poimandres</a></li>
+        <li><a href="https://github.com/catppuccin/nvim">Catppuccin</a></li>
+        <li><a href="https://github.com/ellisonleao/gruvbox.nvim">Gruvbox</a></li>
     </ul>
     <li>Interface</li>
     <ul>
         <li><a href="https://github.com/nvim-lualine/lualine.nvim">lualine</a></li>
         <li><a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a></li>
+        <li><a href="https://github.com/gelguy/wilder.nvim">wilder.nvim</a></li>
+        <li><a href="https://github.com/folke/zen-mode.nvim">zen-mode.nvim</a></li>
+        <li><a href="https://github.com/sindrets/diffview.nvim">diffview.nvim</a></li>
+        <li><a href="https://github.com/romgrk/barbar.nvim">barbar.nvim</a></li>
         <li><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline.nvim</a></li>
         <li><a href="https://github.com/nvimdev/dashboard-nvim">dashboard-nvim</a></li>
-        <li><a href="https://github.com/Eandrju/cellular-automaton.nvim">cellular-automaton.nvim</a></li>
         <li><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
     </ul>
     <li>Navigation</li>
     <ul>
-        <li><a href="https://github.com/akinsho/toggleterm.nvim">toggleterm.nvim</a></li>
         <li><a href="https://github.com/nvim-neo-tree/neo-tree.nvim">neo-tree.nvim</a></li>
         <li><a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a></li>
     </ul>
     <li>Functional</li>
     <ul>
+        <li><a href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</a></li>
+        <li><a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotag</a></li>
         <li><a href="https://github.com/shoukoo/commentary.nvim">commentary.nvim</a></li>
         <li><a href="https://github.com/norcalli/nvim-colorizer.lua">nvim-colorizer.lua</a></li>
         <li><a href="https://github.com/nvim-colortils/colortils.nvim">colortils.nvim</a></li>
-        <li><a href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</a></li>
         <li><a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a></li>
         <li><a href="https://github.com/VonHeikemen/lsp-zero.nvim">lsp-zero</a></li>
         <ul>
             <li><a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a></li>
-            <li><a href=https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></li>
+            <li><a href="https://github.com/hrsh7th/cmp-path">cmp-path</a></li>
+            <li><a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></li>
             <li><a href="https://github.com/hrsh7th/cmp-nvim-lsp">cmp-nvim-slp</a></li>
             <li><a href="https://github.com/williamboman/mason.nvim">mason.nvim</a></li>
             <li><a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a></li>

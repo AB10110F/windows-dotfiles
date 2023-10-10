@@ -15,12 +15,15 @@ local plugins = {
   --Themes
   'folke/tokyonight.nvim',
   'olivercederborg/poimandres.nvim',
+  'ellisonleao/gruvbox.nvim',
   { "catppuccin/nvim", name = "catppuccin" },
 
   -- Interface
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
-  { 'eandrju/cellular-automaton.nvim', lazy = true, },
+  'gelguy/wilder.nvim',
+  'folke/zen-mode.nvim',
+  "sindrets/diffview.nvim",
 
   {
     'romgrk/barbar.nvim',
@@ -55,12 +58,9 @@ local plugins = {
 	  config = function()
 		  require("plugins-config..gitsigns")
 	  end,
-    lazy = true,
   },
 
   -- Navigation
-  {'akinsho/toggleterm.nvim', version = "*", config = true, lazy = true},
-
   {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -79,14 +79,16 @@ local plugins = {
 
   -- Functional
 
-  { 'shoukoo/commentary.nvim', lazy = true, },
+  "nvim-treesitter/nvim-treesitter",
+  "windwp/nvim-ts-autotag",
+  { 'shoukoo/commentary.nvim' },
 
   {
 	  "norcalli/nvim-colorizer.lua",
 	  config = function()
 		  require("colorizer").setup({ "*" } ,{mode = 'foreground'})
 	  end,
-    lazy = true,
+      lazy = true, keys ={ { "<c-ñ>", "<cmd>colortils<cr>", desc = "Colortils" }, }
   },
 
   {
@@ -97,8 +99,6 @@ local plugins = {
     end,
     lazy = true,
   },
-
-  "nvim-treesitter/nvim-treesitter",
 
   {
     "windwp/nvim-autopairs",
