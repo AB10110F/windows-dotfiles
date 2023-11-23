@@ -12,9 +12,8 @@ keymap("n", "<leader>w", "<CMD>w<CR>", opts)
 -- Quit
 keymap("n", "<leader>q", "<CMD>q<CR>", opts)
 
--- Neotree
-keymap("n", "<c-b>", "<CMD>Neotree toggle<CR>", opts)
-keymap("n", "<c-o>", "<CMD>Neotree focus<CR>")
+-- NvimTree
+keymap("n", "<c-b>", "<CMD>NvimTreeToggle<CR>", opts)
 
 -- Switch to next buffer
 keymap("n", "<TAB>", "<CMD>bnext<CR>", opts)
@@ -28,6 +27,16 @@ keymap("i", "jk", "<ESC>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Surrounds
+keymap("v", "s(", "xi()<Esc>P")
+keymap("v", "s)", "xi()<Esc>P")
+keymap("v", "s{", "xi{}<Esc>P")
+keymap("v", "s}", "xi{}<Esc>P")
+keymap("v", "s[", "xi[]<Esc>P")
+keymap("v", "s]", "xi[]<Esc>P")
+keymap("v", "s\"", "xi\"\"<Esc>P")
+keymap("v", "s\'", "xi\'\'<Esc>P")
 
 -- Select All
 keymap('n', "<c-a>", "ggVG")
@@ -47,17 +56,17 @@ keymap("n", "<A-k>", "<CMD>m .-2<CR>", opts)
 --Duplicate line
 keymap("n", "<A-S-j>", "<CMD>t.<CR>", opts)
 
--- Terminal
-keymap("n", "<leader>ñ", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", opts)
-
 -- Dashboard
 keymap("n", "<leader>d", "<CMD>Dashboard<CR>", opts)
 
 -- Colortils
 keymap("n", "<C-ñ>", "<CMD>Colortils<CR>", opts)
 
--- Enable animation
-keymap("n", "<leader>a", "<CMD>CellularAutomaton make_it_rain<CR>", opts)
-
 -- Zen mode
 keymap("n", "<leader>z", "<CMD>ZenMode<CR>", opts)
+
+-- Easy split navigation
+keymap("n", "<C-h>", "<C-w>h")
+keymap("n", "<C-l>", "<C-w>l")
+keymap("n", "<C-j>", "<C-w>j")
+keymap("n", "<C-k>", "<C-w>k")

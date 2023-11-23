@@ -32,56 +32,51 @@ local plugins = {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
-    opts = {},
+    opts = {}
   },
 
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
       require("indent_blankline").setup {
-        buftype_exclude = { "terminal","nofile" },
         filetype_exclude = { "dashboard","mason" },
-      } end,
+      } end
   },
 
   {
 	  'glepnir/dashboard-nvim',
 	  event = 'VimEnter',
-	  config = function()
-	    require('dashboard').setup {}
-	  end,
-	  dependencies = { {'nvim-tree/nvim-web-devicons'}},
+	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
 
   {
 	  "lewis6991/gitsigns.nvim",
 	  config = function()
 		  require("plugins-config..gitsigns")
-	  end,
+	  end
   },
 
   -- Navigation
   {
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		dependencies = {{
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		}},
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+    }
   },
 
   {
   	'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
-	  dependencies = { {'nvim-lua/plenary.nvim'} }
+	  tag = '0.1.3',
+	  dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
   -- Functional
 
   "nvim-treesitter/nvim-treesitter",
   "windwp/nvim-ts-autotag",
-  { 'shoukoo/commentary.nvim' },
+  'shoukoo/commentary.nvim',
 
   {
 	  "norcalli/nvim-colorizer.lua",
@@ -94,10 +89,7 @@ local plugins = {
   {
     "max397574/colortils.nvim",
     cmd = "Colortils",
-    config = function()
-      require("colortils").setup()
-    end,
-    lazy = true,
+    lazy = true
   },
 
   {

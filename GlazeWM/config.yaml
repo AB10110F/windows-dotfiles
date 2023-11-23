@@ -9,8 +9,8 @@ general:
 bar:
   height: "30px"
   position: "top"
-  opacity: 1
-  background: "#20242cc4"
+  opacity: 0.8
+  background: "#222222"
   foreground: "#ffffff"
   font_family: "SpaceMono NF"
   font_size: "12px"
@@ -26,7 +26,8 @@ bar:
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
   components_center:
-    - type: "window title"
+    - type: "clock"
+      time_formatting: " hh:mm tt"
   component_separator:
     label: "   "
   components_right:
@@ -37,13 +38,21 @@ bar:
     #   margin: "0 0px"
     #   padding: "0 0px"
     # - type: "binding mode"
-      # background: "#ffffff33"
-      # margin: "0 4px 0 0"
-      # padding: "0 8px"
-    - type: "battery"
-      label_draining: "󱐋 {battery_level}%"
-      label_power_saver: "󰌪 {battery_level}%"
-      label_charging: "󱐋 {battery_level}%"
+    #   background: "#ffffff33"
+    #   margin: "0 4px 0 0"
+    #   padding: "0 8px"
+    # - type: "battery"
+    #   label_draining: "󱐋 {battery_level}%"
+    #   label_power_saver: "󰌪 {battery_level}%"
+    #   label_charging: "󱐋 {battery_level}%"
+    - type: "network"
+      label_no_internet: "NC"
+      label_ethernet: "Eth"
+      label_wifi_strength0: "WiFi: 0%"
+      label_wifi_strength25: "WiFi: 25%"
+      label_wifi_strength50: "WiFi: 50%"
+      label_wifi_strength75: "WiFi: 75%"
+      label_wifi_strength100: "WiFi: 100%"
     - type: "cpu"
       label: "󰻠 {percent_usage}%"
       # How often this counter is refreshed.
@@ -52,15 +61,15 @@ bar:
       label: "󰍛 {percent_usage}%"
       # How often this counter is refreshed.
       refresh_interval_ms: 1000
-    # - type: "volume"
-    #   label_low: " {volume_level}%"
-    #   label_medium: " {volume_level}%"
-    #   label_high: " {volume_level}%"
-    #   label_mute: " {volume_level}%"
+    - type: "volume"
+      label_low: " {volume_level}%"
+      label_medium: " {volume_level}%"
+      label_high: " {volume_level}%"
+      label_mute: " {volume_level}%"
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: " hh:mm tt    MMM/dd/yy"
+      time_formatting: " MMM/dd/yy"
 
 workspaces:
   - name: "1"
