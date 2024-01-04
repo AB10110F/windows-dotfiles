@@ -15,33 +15,18 @@ local plugins = {
   --Themes
   'folke/tokyonight.nvim',
   'olivercederborg/poimandres.nvim',
-  'ellisonleao/gruvbox.nvim',
-  { "catppuccin/nvim", name = "catppuccin" },
 
   -- Interface
   'nvim-lualine/lualine.nvim',
   'rcarriga/nvim-notify',
   'gelguy/wilder.nvim',
-  'folke/zen-mode.nvim',
   "sindrets/diffview.nvim",
+  "yamatsum/nvim-cursorline",
+  "folke/zen-mode.nvim",
 
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {}
-  },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("indent_blankline").setup {
-        filetype_exclude = { "dashboard","mason" },
-      } end
-  },
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}},
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
   {
 	  'glepnir/dashboard-nvim',
@@ -58,11 +43,13 @@ local plugins = {
 
   -- Navigation
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
   },
 
@@ -72,24 +59,40 @@ local plugins = {
 	  dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
+  { 'ghassan0/telescope-glyph.nvim', config = function () require('telescope').load_extension('glyph') end },
+
   -- Functional
+
+  "epwalsh/obsidian.nvim",
+  "allen-mack/nvim-table-md",
+  {
+      "lukas-reineke/headlines.nvim",
+      dependencies = "nvim-treesitter/nvim-treesitter",
+      opts = { markdown = { fat_headline_lower_string = "─", }, },
+  },
 
   "nvim-treesitter/nvim-treesitter",
   "windwp/nvim-ts-autotag",
-  'shoukoo/commentary.nvim',
+
+  {
+    'numToStr/Comment.nvim',
+    dependencies = {'JoosepAlviste/nvim-ts-context-commentstring'},
+    opts = {},
+    lazy = false,
+  },
 
   {
 	  "norcalli/nvim-colorizer.lua",
 	  config = function()
-		  require("colorizer").setup({ "*" } ,{mode = 'foreground'})
+		  require("colorizer").setup({ "*" } ,{mode = 'foreground', css=true})
 	  end,
-      lazy = true, keys ={ { "<c-ñ>", "<cmd>colortils<cr>", desc = "Colortils" }, }
   },
 
   {
-    "max397574/colortils.nvim",
-    cmd = "Colortils",
-    lazy = true
+    'ziontee113/color-picker.nvim',
+    config = function ()
+      require('color-picker').setup()
+    end
   },
 
   {
@@ -100,7 +103,6 @@ local plugins = {
     } end
   },
 
-
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -110,7 +112,7 @@ local plugins = {
       {                                      -- Optional
         'williamboman/mason.nvim',
          build = function()
-         pcall(vim.cmd, 'MasonUpdate')
+         pcall(function() vim.cmd('MasonUpdate') end)
       end,
       },
       {'williamboman/mason-lspconfig.nvim'}, -- Optional

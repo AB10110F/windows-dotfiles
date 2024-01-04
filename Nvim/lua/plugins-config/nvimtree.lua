@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 

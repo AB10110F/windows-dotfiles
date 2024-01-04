@@ -3,7 +3,7 @@ require("mason").setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("mason-lspconfig").setup({
-  ensure_installed = {"lua_ls", "gopls", "cssls", "clangd", "angularls", "vtsls", "intelephense"}
+  ensure_installed = {"lua_ls", "cssls", "clangd", "typescript-language-server",}
 })
 
 require('lspsaga').setup({
@@ -43,8 +43,3 @@ local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup {}
 lspconfig.clangd.setup {}
-lspconfig.gopls.setup {}
-lspconfig.cssls.setup {}
-lspconfig.vtsls.setup {}
-lspconfig.angularls.setup {}
-lspconfig.intelephense.setup {}

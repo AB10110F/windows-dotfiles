@@ -19,3 +19,13 @@ keymap("n", "<leader>f", "<CMD>call VSCodeCall('actions.find')<CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Surrounds
+keymap("v", "s(", "xi()<Esc>P")
+keymap("v", "s)", "xi()<Esc>P")
+keymap("v", "s{", "xi{}<Esc>P")
+keymap("v", "s}", "xi{}<Esc>P")
+keymap("v", "s[", "xi[]<Esc>P")
+keymap("v", "s]", "xi[]<Esc>P")
+keymap("v", "s\"", "xi\"\"<Esc>P")
+keymap("v", "s\'", "xi\'\'<Esc>P")

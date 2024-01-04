@@ -2,7 +2,7 @@ if vim.g.vscode then
     -- VSCode extension
     require ("vscodeMaps")
 else
-    -- ordinary Neovim
+    -- Neovim
     require ("settings")
     require ("plugins")
     require ("maps")
