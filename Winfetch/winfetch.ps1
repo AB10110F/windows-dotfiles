@@ -292,7 +292,7 @@ $e = [char]0x1B
 $ansiRegex = '([\u001B\u009B][[\]()#;?]*(?:(?:(?:[a-zA-Z\d]*(?:;[-a-zA-Z\d\/#&.:=?%@~_]*)*)?\u0007)|(?:(?:\d{1,4}(?:;\d{0,4})*)?[\dA-PR-TZcf-ntqry=><~])))'
 $cimSession = New-CimSession
 $os = Get-CimInstance -ClassName Win32_OperatingSystem -Property Caption,OSArchitecture,LastBootUpTime,TotalVisibleMemorySize,FreePhysicalMemory -CimSession $cimSession
-$t = if ($blink = $true) { "5" } else { "1" } #note: make ascii art blink
+$t = if ($blink) { "5" } else { "1" } #note: make ascii art blink
 $COLUMNS = $imgwidth
 
 # ===== UTILITY FUNCTIONS =====
