@@ -8,7 +8,58 @@ set mouse true
 set number true
 set relativenumber true
 
-# Bindings
+# Functions
+cmd mkdir ${{
+  $directoryName = Read-Host "Enter Directory Name"
+  mkdir $directoryName
+}}
+
+cmd mkfile ${{
+  $fileName = Read-Host "Enter File Name"
+  ni $fileName
+}}
+
+cmd neovim ${{
+  param (
+        [string]$Env:f
+    )
+  nvim $Env:f
+}}
+
+cmd lazygit ${{
+  param (
+        [string]$Env:f
+    )
+  cd $Env:f
+  lazygit
+}}
+
+cmd unarchive ${{
+  param (
+        [string]$Env:f
+    )
+
+    switch -wildcard ($Env:f) {
+        *.zip {
+            $directoryName = Read-Host "Enter Directory Name"
+            & "C:\Users\WSwor\scoop\apps\7zip\23.01\7z.exe" e $Env:f -o"$directoryName" -y
+        }
+        *.tar.gz {
+            $directoryName = Read-Host "Enter Directory Name"
+            & "C:\Users\WSwor\scoop\apps\7zip\23.01\7z.exe" x $Env:f -o"$directoryName" -y
+        }
+        *.tar.bz2 {
+            $directoryName = Read-Host "Enter Directory Name"
+            & "C:\Users\WSwor\scoop\apps\7zip\23.01\7z.exe" x $Env:f -o"$directoryName" -y
+        }
+        *.tar {
+            $directoryName = Read-Host "Enter Directory Name"
+            & "C:\Users\WSwor\scoop\apps\7zip\23.01\7z.exe" x $Env:f -o"$directoryName" -y
+        }
+        default { Write-Host "Unsupported format" }
+    }
+}}
+
 # Remove some defaults
 map m
 map o
@@ -16,29 +67,28 @@ map n
 map "'"
 map '"'
 map <space>
-map d
 
-# Basic Functions
+# Bindings
+map n neovim
+map c $code $Env:f
+map <space> $C:/Users/WSwor/scoop/apps/quicklook/3.7.3/QuickLook.exe $Env:f
+map b $C:/Users/WSwor/scoop/apps/sioyek/2.0.0/sioyek.exe $Env:f
+map L lazygit
 map . set hidden!
 map <enter> open
 map v :toggle
+map p :paste; clear
 map C clear
 map R reload
+map md mkdir
+map mf mkfile
+map mu unarchive
+
 
 # Movement
 map gd cd ~/documents
 map gD cd ~/downloads
 map gp cd ~/pictures
 map gv cd ~/videos
-map gc cd ~/.config
+map gc cd ~/Documents/Repos/windows-dotfiles
 map ga cd ~/AppData
-
-# Open Files
-map n $nvim $Env:f
-map c $code $Env:f
-
-#Open with lazygit
-map L $lazygit
-
-# Previewing with Quicklook
-map <space> $C:/Users/WSwor/AppData/Local/Programs/QuickLook/QuickLook.exe $Env:f

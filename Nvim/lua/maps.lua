@@ -38,6 +38,9 @@ keymap('n', "<leader>t", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 -- Toggle centered line
 keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
 
+-- Toggle wrap
+keymap('n', '<Leader>l', ':set wrap!<CR>')
+
 -- Easy split navigation
 keymap("n", "<C-h>", "<C-w>h")
 keymap("n", "<C-l>", "<C-w>l")
@@ -92,6 +95,9 @@ keymap('n', '<leader>fi', "<CMD>:Telescope glyph<CR>")
 
 -- Diffview
 keymap("n", "<leader>g", "<CMD>DiffviewToggle<CR>", opts)
+
+-- zenmode
+keymap("n", "<leader>z", "<CMD>ZenMode<CR>", opts)
 
 -- nvim-table-md
 keymap("n", "<Leader>tf", ':lua require("tablemd").format()<cr>', opts)

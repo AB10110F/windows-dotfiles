@@ -1,7 +1,6 @@
 format = """
-(#a0a9cb)$username$hostname| $memory_usage |$time $git_branch$nodejs$python$lua$php$golang
-[╰─ ](white)\\[$directory\\]
-[ ](#a0a9cb)$character"""
+(#a0a9cb)$username$hostname|(white)$directory|$time $git_branch$nodejs$python$lua$php$golang
+(#a0a9cb)$character"""
 
 add_newline = false
 command_timeout = 800
@@ -35,18 +34,20 @@ style = "fg:white"
 format = ' 󰉋 [$path]($style) '
 truncation_length = 0
 truncate_to_repo = false
-home_symbol = "⠏⠗⠕⠋⠊⠇⠑"
+home_symbol = "Home"
 
 [directory.substitutions]
 "Documents" = " Documents"
-"Downloads" = "  Downloads"
-"Music" = "  Music"
+"Downloads" = " Downloads"
+"Music" = " Music"
 "Pictures" = "  Pictures"
 "Videos" = "󰿎 Videos"
-"Programming" = "󱃖 Programming"
+"Coding" = "󱃖 Coding"
 "Library" = " Library"
 "Blender" = "󰂫 Blender"
 "Fonts" = " Fonts"
+"Repos" = " Repos"
+"Wallpapers" = " Wallpapers"
 
 [time]
 disabled = false

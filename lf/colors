@@ -41,12 +41,12 @@
 # fi      00      # FILE
 
 # file types (with matching order)
-ln      01;37   # LINK
-or      31;01   # ORPHAN
+ln      01;33   # LINK
+or      37;01   # ORPHAN
 tw      35      # STICKY_OTHER_WRITABLE
-ow      33      # OTHER_WRITABLE
-st      01;34   # STICKY
-di      01;31   # DIR
+ow      37      # OTHER_WRITABLE
+st      01;31   # STICKY
+di      01;37   # DIR
 pi      33      # FIFO
 so      01;35   # SOCK
 bd      33;01   # BLK

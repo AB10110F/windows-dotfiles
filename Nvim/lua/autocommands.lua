@@ -1,6 +1,6 @@
 -- Remove white spaces on save
 vim.cmd([[
-  augroup noWhitespaces
+  augroup noWhiteSpaces
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
   augroup END
@@ -8,7 +8,7 @@ vim.cmd([[
 
 -- Open help files in vertical split
 vim.cmd([[
-  augroup vertical_help
+  augroup verticalHelp
     autocmd!
     autocmd FileType help wincmd L
   augroup END
@@ -41,3 +41,6 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
     end
   end,
 })
+
+-- Autoformat when saving file
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

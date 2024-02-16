@@ -9,12 +9,12 @@ general:
 bar:
   height: "30px"
   position: "top"
-  opacity: 0.8
-  background: "#222222"
+  opacity: 0.7
+  background: "#000000"
   foreground: "#ffffff"
   font_family: "SpaceMono NF"
   font_size: "12px"
-  padding: "4px 20px"
+  padding: "0px 20px"
   offset_x: "0"
   offset_y: "0"
   border_width: "0 0 0 0"
@@ -22,23 +22,37 @@ bar:
   border_radius: "0"
   components_left:
     - type: "music"
-      label_not_playing: " --  --"
+      label_not_playing: ""
       label_paused: " {song_title} - {artist_name}"
       label_playing: "  {song_title} - {artist_name}"
       max_title_length: 20
       max_artist_length: 20
     - type: "volume"
       label_low: " {volume_level}%"
-      label_medium: " {volume_level}%"
-      label_high: " {volume_level}%"
-      label_mute: " {volume_level}%"
+      label_medium: "  {volume_level}%"
+      label_high: "  {volume_level}%"
+      label_mute: "  {volume_level}%"
+    - type: "weather"
+      latitude: 20.6589
+      longitude: -100.4165
+      label: "{temperature_celsius}°C"
+      label_sun: "  {temperature_celsius}°C"
+      label_moon: "  {temperature_celsius}°C"
+      label_cloud_moon: "  {temperature_celsius}°C"
+      label_cloud_sun: "  {temperature_celsius}°C"
+      label_cloud_moon_rain: "  {temperature_celsius}°C"
+      label_cloud_sun_rain: "  {temperature_celsius}°C"
+      label_cloud_rain: "  {temperature_celsius}°C"
+      label_snow_flake: "❄️ {temperature_celsius}°C"
+      label_thunderstorm: "  {temperature_celsius}°C"
+      label_cloud: "  {temperature_celsius}°C"
   components_center:
     - type: "workspaces"
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
   component_separator:
-    label: "   "
+    label: " | "
   components_right:
     # - type: "tiling direction"
     #   label_horizontal: "⮂"
@@ -63,36 +77,26 @@ bar:
       label_wifi_strength75: "WiFi: 75%"
       label_wifi_strength100: "WiFi: 100%"
     - type: "cpu"
-      label: "󰻠 {percent_usage}%"
+      label: "CPU: {percent_usage}%"
       # How often this counter is refreshed.
       refresh_interval_ms: 1000
+    - type: "gpu"
+      label: "GPU: {percent_usage}%"
+      # How often this counter is refreshed.
+      refresh_interval_ms: 1500
     - type: "memory"
-      label: "󰍛 {percent_usage}%"
+      label: "RAM: {percent_usage}%"
       # How often this counter is refreshed.
       refresh_interval_ms: 1000
-    - type: "weather"
-      latitude: 20.6589
-      longitude: -100.4165
-      label: "{temperature_celsius}°C"
-      label_sun: "  {temperature_celsius}°C"
-      label_moon: "  {temperature_celsius}°C"
-      label_cloud_moon: "  {temperature_celsius}°C"
-      label_cloud_sun: "  {temperature_celsius}°C"
-      label_cloud_moon_rain: "  {temperature_celsius}°C"
-      label_cloud_sun_rain: "  {temperature_celsius}°C"
-      label_cloud_rain: "  {temperature_celsius}°C"
-      label_snow_flake: "❄️ {temperature_celsius}°C"
-      label_thunderstorm: "  {temperature_celsius}°C"
-      label_cloud: "  {temperature_celsius}°C"
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: " hh:mm tt    MMM/dd/yy"
+      time_formatting: "  hh:mm tt |   MMM/dd/yy"
 
 workspaces:
-  #         
+  #         
   - name: "1"
-    display_name: ""
+    display_name: ""
     bind_to_monitor: 1
     keep_alive: false
   - name: "2"
@@ -100,7 +104,7 @@ workspaces:
     keep_alive: false
     bind_to_monitor: 1
   - name: "3"
-    display_name: ""
+    display_name: ""
     keep_alive: false
     bind_to_monitor: 1
   - name: "4"
@@ -120,11 +124,11 @@ workspaces:
     keep_alive: false
     bind_to_monitor: 1
   - name: "8"
-    display_name: ""
+    display_name: ""
     keep_alive: false
     bind_to_monitor: 1
   - name: "9"
-    display_name: ""
+    display_name: ""
     keep_alive: false
     bind_to_monitor: 1
 
@@ -139,6 +143,14 @@ window_rules:
 
   - command: "ignore"
     match_process_name: "QuickLook"
+
+  - command: "set tiling"
+    match_process_name: "sioyek"
+
+    # Do not manage Picture-in-picture windows
+  - command: "ignore"
+    match_title: "[Pp]icture.in.[Pp]icture"
+    match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
 
   # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
   - command: "set floating"
