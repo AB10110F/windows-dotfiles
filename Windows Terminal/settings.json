@@ -173,6 +173,7 @@
         {
             "command": 
             {
+                "action": "splitPane",
                 "split": "down"
             },
             "keys": "ctrl+shift+{"
