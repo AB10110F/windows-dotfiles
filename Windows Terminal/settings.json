@@ -4,6 +4,18 @@
     "actions": 
     [
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "ctrl+left"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -20,27 +32,8 @@
             "keys": "ctrl+shift+e"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "ctrl+left"
-        },
-        {
             "command": "paste",
             "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+t"
         },
         {
             "command": 
@@ -53,10 +46,9 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "down"
+                "action": "newTab"
             },
-            "keys": "ctrl+shift+{"
+            "keys": "ctrl+shift+t"
         },
         {
             "command": "unbound",
@@ -177,6 +169,13 @@
         {
             "command": "unbound",
             "keys": "ctrl+shift+down"
+        },
+        {
+            "command": 
+            {
+                "split": "down"
+            },
+            "keys": "ctrl+shift+{"
         },
         {
             "command": 
@@ -320,10 +319,22 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "C:\\Program Files\\Git\\git-bash.exe",
+                "commandline": "C:\\Users\\WSwor\\scoop\\apps\\git\\2.43.0\\git-cmd",
                 "guid": "{1921b990-5f6d-4d64-bfdb-a6b8ba9d1823}",
                 "hidden": false,
                 "name": "Git Bash"
+            },
+            {
+                "guid": "{9977cb09-aab4-5e2b-b0b0-4c137680bd12}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{1a25a84c-a393-534b-b439-b9412b9e518c}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },

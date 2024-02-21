@@ -13,121 +13,136 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   --Themes
-  'folke/tokyonight.nvim',
-  'olivercederborg/poimandres.nvim',
-  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
+  { "folke/tokyonight.nvim",           name = "tokyonight", },
+  { "olivercederborg/poimandres.nvim", name = "poimandres", },
 
   -- Interface
-  'nvim-lualine/lualine.nvim',
-  'rcarriga/nvim-notify',
-  'gelguy/wilder.nvim',
-  "sindrets/diffview.nvim",
-  "yamatsum/nvim-cursorline",
-  "folke/zen-mode.nvim",
-  "huy-hng/anyline.nvim",
-
-  { 'akinsho/toggleterm.nvim', version = "*",       config = true },
+  { "nvim-lualine/lualine.nvim",       name = "lualine" },
+  { "rcarriga/nvim-notify",            name = "notify" },
+  { "gelguy/wilder.nvim",              name = "wilder" },
+  { "sindrets/diffview.nvim",          name = "diffview" },
+  { "yamatsum/nvim-cursorline",        name = "cursorline" },
+  { "folke/zen-mode.nvim",             name = "zen-mode",   event = "VeryLazy" },
+  { "akinsho/toggleterm.nvim",         name = "toggleterm", version = "*",      config = true },
+  { "akinsho/bufferline.nvim",         name = "bufferline", version = "*" },                      -- Requires devicons
+  { "glepnir/dashboard-nvim",          name = "dashboard",  event = "VimEnter", },                -- Requires devicons
+  { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
   -- { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
-  { 'akinsho/bufferline.nvim', version = "*",       dependencies = 'nvim-tree/nvim-web-devicons' },
-
-  {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  },
 
   {
     "lewis6991/gitsigns.nvim",
+    name = "gitsigns",
     config = function()
       require("plugins-config..gitsigns")
-    end
+    end,
   },
 
   -- Navigation
+  { "nvim-telescope/telescope.nvim", name = "telescope", tag = "0.1.3", }, -- Requires plenary.nvim
+
   {
     "nvim-neo-tree/neo-tree.nvim",
+    name = "neo-tree",
     branch = "v3.x",
     dependencies = {
+      { "nvim-tree/nvim-web-devicons", name = "devicons" },
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
+    },
   },
 
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.3',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "ghassan0/telescope-glyph.nvim",
+    name = "telescope-glyph",
+    event = "VeryLazy",
+    config = function()
+      require("telescope").load_extension("glyph")
+    end,
   },
-
-  { 'ghassan0/telescope-glyph.nvim', config = function() require('telescope').load_extension('glyph') end },
 
   -- Functional
+  { "windwp/nvim-ts-autotag",        name = "autotag" },
+  { "allen-mack/nvim-table-md",      name = "table-md",  ft = "markdown" },
 
-  "allen-mack/nvim-table-md",
   {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    opts = { markdown = { fat_headline_lower_string = "─", }, },
+    "lukas-reineke/headlines.nvim", -- Requires treesitter
+    name = "headlines",
+    ft = "markdown",
+    opts = { markdown = { fat_headline_lower_string = "─" } },
   },
 
-  "nvim-treesitter/nvim-treesitter",
-  "windwp/nvim-ts-autotag",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    -- name = "treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPre", "BufNewFile" }
+  },
 
   {
-    'numToStr/Comment.nvim',
-    dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
+    "numToStr/Comment.nvim",
+    name = "comment",
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", name = "ts-context-commentstring" },
     opts = {},
     lazy = false,
   },
 
   {
     "norcalli/nvim-colorizer.lua",
+    name = "colorizer",
     config = function()
-      require("colorizer").setup({ "*" }, { --[[ mode = 'foreground', ]] css = true })
+      require("colorizer").setup({ "*" }, { --[[ mode = 'foreground', ]]
+        css = true,
+      })
     end,
   },
 
   {
-    'ziontee113/color-picker.nvim',
+    "ziontee113/color-picker.nvim",
+    name = "color-picker",
+    event = "VeryLazy",
     config = function()
-      require('color-picker').setup()
-    end
+      require("color-picker").setup()
+    end,
   },
 
   {
     "windwp/nvim-autopairs",
+    name = "autopairs",
     config = function()
-      require("nvim-autopairs").setup {
+      require("nvim-autopairs").setup({
         disable_in_visualblock = true,
         disable_filetype = { "TelescopePrompt", "vim" },
-      }
-    end
+      })
+    end,
   },
 
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    name = "lsp-zero",
+    branch = "v2.x",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      {                            -- Optional
-        'williamboman/mason.nvim',
+      { "neovim/nvim-lspconfig",             name = "lspconfig" }, -- Required
+      {                                                            -- Optional
+        "williamboman/mason.nvim",
+        name = "mason",
         build = function()
-          pcall(function() vim.cmd('MasonUpdate') end)
+          pcall(function()
+            vim.cmd("MasonUpdate")
+          end)
         end,
       },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { "williamboman/mason-lspconfig.nvim", name = "mason-lspconfig" }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
-      { 'hrsh7th/cmp-path' }      -- Required
-    }
-  }
-
+      { "hrsh7th/nvim-cmp",                  name = "cmp" }, -- Required
+      { "hrsh7th/cmp-nvim-lsp" },                            -- Required
+      { "L3MON4D3/LuaSnip" },                                -- Required
+      { "hrsh7th/cmp-path" },                                -- Required
+    },
+  },
 }
 
 local opts = {}

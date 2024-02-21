@@ -1,14 +1,14 @@
 local status, ts = pcall(require, "nvim-treesitter.configs")
 if not status then
-	return
+  return
 end
 
 ts.setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-	ensure_installed = {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  ensure_installed = {
     "cpp",
     "go",
     "python",
@@ -28,11 +28,14 @@ ts.setup({
     "vim",
     "vimdoc",
     "java",
-	},
-	autotag = { enable = true },
-	incremental_selection = { enable = true },
-	indent = { enable = true },
-	auto_install = true,
+    "yaml",
+    "tsx",
+    "rust",
+  },
+  autotag = { enable = true },
+  incremental_selection = { enable = true },
+  indent = { enable = true },
+  -- auto_install = true,
 })
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

@@ -43,4 +43,4 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 })
 
 -- Autoformat when saving file
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

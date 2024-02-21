@@ -50,7 +50,8 @@ keymap("n", "<C-k>", "<C-w>k")
 -- Buffers navigation
 keymap("n", "<TAB>", "<CMD>bnext<CR>", opts)
 keymap("n", "<S-TAB>", "<Cmd>bprevious<CR>", opts)
-keymap("n", "<C-c>", "<CMD>bd<CR>", opts) -- Close buffer
+keymap("n", "<C-c>", "<CMD>bd<CR>", opts)          -- Close buffer
+keymap("n", "<leader>cc", "<CMD>%bd|e#<CR>", opts) -- Close all buffers except current
 
 
 -- Plugins
@@ -59,7 +60,6 @@ keymap("n", "<C-c>", "<CMD>bd<CR>", opts) -- Close buffer
 keymap("n", "<leader>d", "<CMD>Dashboard<CR>", opts)
 
 -- NvimTree
--- keymap("n", "<c-b>", "<CMD>NvimTreeToggle<CR>", opts)
 keymap("n", "<c-b>", "<CMD>Neotree toggle<CR>", opts)
 
 -- Bufferline
