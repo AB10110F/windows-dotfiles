@@ -1,142 +1,147 @@
-gaps:
-  inner_gap: 20 #default = 20
-  outer_gap: 20
-
 general:
+  # Whether to automatically focus windows underneath the cursor.
+  focus_follows_cursor: false
+
+  # Whether to jump the cursor between windows focused by the WM.
+  cursor_follows_focus: false
+
+  # Whether to switch back and forth between the previously focused workspace
+  # when focusing the current workspace.
+  toggle_workspace_on_refocus: true
+
   # Whether to show floating windows as always on top.
   show_floating_on_top: true
+
+  # Amount to move floating windows by (eg. when using `alt+<hjkl>` on a floating window)
+  floating_window_move_amount: "5%"
+
+  # Whether to center new floating windows.
+  center_new_floating_windows: true
+
+  # *Strongly* recommended to set to 'false'. Whether to globally enable/disable
+  # window transition animations (on minimize, close, etc). Set to 'unchanged'
+  # to make no setting changes.
+  window_animations: "unchanged"
+
+gaps:
+  # Gap between adjacent windows.
+  inner_gap: "20px"
+
+  # Gap between windows and the screen edge.
+  outer_gap: "20px"
+
+# Highlight active/inactive windows with a colored border.
+# ** Exclusive to Windows 11 due to API limitations.
+focus_borders:
+  active:
+    enabled: true
+    color: "#0000ff"
+
+  inactive:
+    enabled: false
+    color: "#ff0000"
 
 bar:
   height: "30px"
   position: "top"
-  opacity: 0.7
-  background: "#000000"
+  opacity: 1.0
+  background: "#20242cc4"
   foreground: "#ffffff"
   font_family: "SpaceMono NF"
   font_size: "12px"
-  padding: "0px 20px"
+  padding: "4px 20px"
   offset_x: "0"
   offset_y: "0"
-  border_width: "0 0 0 0"
-  border_color: "white"
   border_radius: "0"
+  component_separator:
+    label: " | "
   components_left:
-    - type: "music"
-      label_not_playing: ""
-      label_paused: " {song_title} - {artist_name}"
-      label_playing: "  {song_title} - {artist_name}"
-      max_title_length: 20
-      max_artist_length: 20
-    - type: "volume"
-      label_low: " {volume_level}%"
-      label_medium: "  {volume_level}%"
-      label_high: "  {volume_level}%"
-      label_mute: "  {volume_level}%"
-    - type: "weather"
-      latitude: 20.6589
-      longitude: -100.4165
-      label: "{temperature_celsius}°C"
-      label_sun: "  {temperature_celsius}°C"
-      label_moon: "  {temperature_celsius}°C"
-      label_cloud_moon: "  {temperature_celsius}°C"
-      label_cloud_sun: "  {temperature_celsius}°C"
-      label_cloud_moon_rain: "  {temperature_celsius}°C"
-      label_cloud_sun_rain: "  {temperature_celsius}°C"
-      label_cloud_rain: "  {temperature_celsius}°C"
-      label_snow_flake: "❄️ {temperature_celsius}°C"
-      label_thunderstorm: "  {temperature_celsius}°C"
-      label_cloud: "  {temperature_celsius}°C"
-  components_center:
     - type: "workspaces"
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
-  component_separator:
-    label: " | "
+    - type: "volume"
+      label_low: " {volume_level}%"
+      label_medium: " {volume_level}%"
+      label_high: " {volume_level}%"
+      label_mute: " {volume_level}%"
+    - type: "music"
+      label_not_playing: ""
+      label_paused: " {song_title} - {artist_name}"
+      label_playing: " {song_title} - {artist_name}"
+      max_title_length: 20
+      max_artist_length: 20
+    # - type: "window title"
+  components_center:
+    - type: "clock"
+      time_formatting: " hh:mm tt"
   components_right:
+    # - type: "system tray"
     # - type: "tiling direction"
     #   label_horizontal: "⮂"
     #   label_vertical: "⮁"
-    #   background: "#00000000"
-    #   margin: "0 0px"
-    #   padding: "0 0px"
+    #   background: "#ffffff33"
+    #   margin: "0 4px"
+    #   padding: "0 8px"
     # - type: "binding mode"
     #   background: "#ffffff33"
     #   margin: "0 4px 0 0"
     #   padding: "0 8px"
-    # - type: "battery"
-    #   label_draining: "󱐋 {battery_level}%"
-    #   label_power_saver: "󰌪 {battery_level}%"
-    #   label_charging: "󱐋 {battery_level}%"
     - type: "network"
       label_no_internet: "NC"
       label_ethernet: "Eth"
-      label_wifi_strength0: "WiFi: 0%"
-      label_wifi_strength25: "WiFi: 25%"
-      label_wifi_strength50: "WiFi: 50%"
-      label_wifi_strength75: "WiFi: 75%"
-      label_wifi_strength100: "WiFi: 100%"
+      label_wifi_strength0: " 0%"
+      label_wifi_strength25: " 25%"
+      label_wifi_strength50: " 50%"
+      label_wifi_strength75: " 75%"
+      label_wifi_strength100: " 100%"
     - type: "cpu"
-      label: "CPU: {percent_usage}%"
+      label: "󰻠 {percent_usage}%"
       # How often this counter is refreshed.
       refresh_interval_ms: 1000
     - type: "gpu"
-      label: "GPU: {percent_usage}%"
+      label: "󰢮 {percent_usage}%"
       # How often this counter is refreshed.
-      refresh_interval_ms: 1500
+      refresh_interval_ms: 1000
     - type: "memory"
-      label: "RAM: {percent_usage}%"
+      label: " {percent_usage}%"
       # How often this counter is refreshed.
       refresh_interval_ms: 1000
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "  hh:mm tt |   MMM/dd/yy"
+      time_formatting: " MMM/dd/yy"
 
 workspaces:
-  #         
   - name: "1"
-    display_name: ""
-    bind_to_monitor: 1
-    keep_alive: false
   - name: "2"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "3"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "4"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "5"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "6"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "7"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "8"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
   - name: "9"
-    display_name: ""
-    keep_alive: false
-    bind_to_monitor: 1
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
   # the WM as admin.
   - command: "ignore"
-    match_process_name: "Taskmgr"
+    match_process_name: "/Taskmgr|ScreenClippingHost/"
+
+  # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
+  - command: "set floating"
+    match_class_name: "#32770"
+
+  # Do not manage picture-in-picture windows for browsers. Note that the default is for
+  # English; change `match_title` to the window's title if you use another language.
+  - command: "ignore"
+    match_title: "[Pp]icture.in.[Pp]icture"
+    match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
+
+  # Some applications (eg. Steam) have borders that extend past the normal border size.
+  - command: "resize borders 0px -7px -7px -7px"
+    match_process_name: "steam"
 
   - command: "ignore"
     match_process_name: "FluentSearch"
@@ -146,19 +151,6 @@ window_rules:
 
   - command: "set tiling"
     match_process_name: "sioyek"
-
-    # Do not manage Picture-in-picture windows
-  - command: "ignore"
-    match_title: "[Pp]icture.in.[Pp]icture"
-    match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
-
-  # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
-  - command: "set floating"
-    match_class_name: "#32770"
-
-  # Some applications (eg. Steam) have borders that extend past the normal border size.
-  - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "steam"
 
 binding_modes:
   - name: "resize"
@@ -179,23 +171,23 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - command: "focus left"
-    bindings: ["Alt+H"]
+    bindings: ["Alt+H", "Alt+Left"]
   - command: "focus right"
-    bindings: ["Alt+L"]
+    bindings: ["Alt+L", "Alt+Right"]
   - command: "focus up"
-    bindings: ["Alt+K"]
+    bindings: ["Alt+K", "Alt+Up"]
   - command: "focus down"
-    bindings: ["Alt+J"]
+    bindings: ["Alt+J", "Alt+Down"]
 
   # Move focused window in a given direction.
   - command: "move left"
-    bindings: ["Alt+Shift+H"]
+    bindings: ["Alt+Shift+H", "Alt+Shift+Left"]
   - command: "move right"
-    bindings: ["Alt+Shift+L"]
+    bindings: ["Alt+Shift+L", "Alt+Shift+Right"]
   - command: "move up"
-    bindings: ["Alt+Shift+K"]
+    bindings: ["Alt+Shift+K", "Alt+Shift+Up"]
   - command: "move down"
-    bindings: ["Alt+Shift+J"]
+    bindings: ["Alt+Shift+J", "Alt+Shift+Down"]
 
   # Resize focused window by a percentage or pixel amount.
   - command: "resize width -2%"

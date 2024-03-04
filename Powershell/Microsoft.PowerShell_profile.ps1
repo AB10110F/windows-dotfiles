@@ -5,8 +5,9 @@ Import-Module PSReadLine
 Set-PSReadlineOption -EditMode vi
 Set-PSReadlineOption -ViModeIndicator Cursor
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineKeyHandler -Chord Tab -Function NextHistory
-Set-PSReadLineKeyHandler -Chord Shift+Tab -Function PreviousHistory
+Set-PSReadLineKeyHandler -Chord Tab -Function ForwardChar
+Set-PSReadLineOption -PredictionVIewStyle InlineView
+Set-PSReadLineOption -BellStyle Visual
 
 # map jk
 Set-PSReadLineKeyHandler -vimode insert -Chord "k" -ScriptBlock { mapTwoLetterNormal 'k' 'j' }
@@ -71,11 +72,36 @@ Set-PSReadLineKeyHandler -Chord '"',"'" `
     }
 }
 
-if($Host.UI.RawUI.WindowSize.Height -le 15 -or $Host.UI.RawUI.WindowSize.Width -le 50)
-{
-    Set-PSReadLineOption -PredictionVIewStyle InlineView
-}
-else
-{
-    Set-PSReadLineOption -PredictionVIewStyle ListView
+# Pair brackets
+Set-PSReadLineKeyHandler -Key '(','{','[' `
+                         -BriefDescription InsertPairedBraces `
+                         -LongDescription "Insert matching braces" `
+                         -ScriptBlock {
+    param($key, $arg)
+
+    $closeChar = switch ($key.KeyChar)
+    {
+        <#case#> '(' { [char]')'; break }
+        <#case#> '{' { [char]'}'; break }
+        <#case#> '[' { [char]']'; break }
+    }
+
+    $selectionStart = $null
+    $selectionLength = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($selectionStart -ne -1)
+    {
+      # Text is selected, wrap it in brackets
+      [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
+      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
+    } else {
+      # No text is selected, insert a pair
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
+      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+    }
 }

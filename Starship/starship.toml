@@ -1,9 +1,9 @@
 format = """
-(#a0a9cb)$username$hostname|(white)$directory|$time $git_branch$nodejs$python$lua$php$golang
+(#a0a9cb)$username$hostname|(white)$directory$gitbranch$c$rust$dotnet$python$nodejs$lua$php$golang
 (#a0a9cb)$character"""
 
 add_newline = false
-command_timeout = 800
+command_timeout = 1000
 
 [username]
 style_user = "#a0a9cb"
@@ -18,13 +18,6 @@ format = '[$ssh_symbol](white)[on](#a0a9cb)   [$hostname](#a0a9cb) '
 trim_at = '.companyname.com'
 disabled = false
 
-[memory_usage]
-disabled = false
-threshold = -1
-style = '#be9ddf'
-format = '$symbol [RAM: ${ram}]($style)'
-symbol = ''
-
 [character]
 success_symbol = "[❯](white)"
 error_symbol = "[X‿X Syntax error ❯](red)"
@@ -38,10 +31,12 @@ home_symbol = "Home"
 
 [directory.substitutions]
 "Documents" = " Documents"
+"ASCII" = " ASCII"
 "Downloads" = " Downloads"
 "Music" = " Music"
 "Pictures" = "  Pictures"
-"Videos" = "󰿎 Videos"
+"Videos" = "﫭Videos"
+"Movies" = "󰿎 Movies"
 "Coding" = "󱃖 Coding"
 "Library" = " Library"
 "Blender" = "󰂫 Blender"
@@ -49,25 +44,42 @@ home_symbol = "Home"
 "Repos" = " Repos"
 "Wallpapers" = " Wallpapers"
 
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-format = '  [$time](fg:#a0a9cb)'
-
 [git_branch]
 symbol = ""
 style = "bg:#394260"
 format = '|[[   $symbol $branch ](fg:#769ff0)]($style)'
 
-[lua]
-symbol = "󰢱"
-style = "bg:#212736"
-format = '|[[ $symbol ($version) ](fg:#7aa2f7)]($style)'
+[c]
+symbol = ""
+style = "bg:#394260"
+detect_extensions = ["c", "h", "cc", "cpp", "hh", "hpp"]
+format = '|[[ $symbol $name $version ](fg:#5597d2)]($style)'
 
 [nodejs]
 symbol = ""
 style = "bg:#212736"
 format = '|[[ $symbol ($version) ](fg:#9ece6a)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#ff6247)]($style)'
+
+[dotnet]
+symbol = " "
+style = "bg:#212736"
+heuristic = false
+format = '|[[ $symbol ($version) ](fg:#512ad5)]($style)'
+
+[python]
+symbol = ''
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#e0af68)]($style)'
+
+[lua]
+symbol = "󰢱"
+style = "bg:#212736"
+format = '|[[ $symbol ($version) ](fg:#7aa2f7)]($style)'
 
 [golang]
 symbol = "ﳑ"
@@ -78,14 +90,3 @@ format = '|[[ $symbol ($version) ](fg:#2ac3de)]($style)'
 symbol = ""
 style = "bg:#212736"
 format = '|[[ $symbol ($version) ](fg:#565f89)]($style)'
-
-[python]
-symbol = ''
-style = "bg:#212736"
-format = '|[[ $symbol ($version) ](fg:#e0af68)]($style)'
-
-[dotnet]
-symbol = '󰪮 '
-style = "bg:#212736"
-heuristic = false
-format = '|[[ $symbol ($version) ](fg#512ad5)]($style)'

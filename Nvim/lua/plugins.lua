@@ -13,21 +13,21 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   --Themes
-  { "folke/tokyonight.nvim",           name = "tokyonight", },
-  { "olivercederborg/poimandres.nvim", name = "poimandres", },
+  { "folke/tokyonight.nvim",               name = "tokyonight", },
+  { "olivercederborg/poimandres.nvim",     name = "poimandres", },
 
   -- Interface
-  { "nvim-lualine/lualine.nvim",       name = "lualine" },
-  { "rcarriga/nvim-notify",            name = "notify" },
-  { "gelguy/wilder.nvim",              name = "wilder" },
-  { "sindrets/diffview.nvim",          name = "diffview" },
-  { "yamatsum/nvim-cursorline",        name = "cursorline" },
-  { "folke/zen-mode.nvim",             name = "zen-mode",   event = "VeryLazy" },
-  { "akinsho/toggleterm.nvim",         name = "toggleterm", version = "*",      config = true },
-  { "akinsho/bufferline.nvim",         name = "bufferline", version = "*" },                      -- Requires devicons
-  { "glepnir/dashboard-nvim",          name = "dashboard",  event = "VimEnter", },                -- Requires devicons
-  { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
-  -- { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
+  { "nvim-lualine/lualine.nvim",           name = "lualine" },
+  { "rcarriga/nvim-notify",                name = "notify" },
+  { "gelguy/wilder.nvim",                  name = "wilder" },
+  { "sindrets/diffview.nvim",              name = "diffview" },
+  { "yamatsum/nvim-cursorline",            name = "cursorline" },
+  { "folke/zen-mode.nvim",                 name = "zen-mode",         event = "VeryLazy" },
+  { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
+  { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
+  { "glepnir/dashboard-nvim",              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
+  { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
+  -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
 
   {
     "lewis6991/gitsigns.nvim",
