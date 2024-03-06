@@ -7,8 +7,7 @@ command_timeout = 1000
 
 [username]
 style_user = "#a0a9cb"
-style_root = "red bold"
-format = " [$user]($style) "
+format = "[ ](fg:white)[$user]($style) "
 disabled = false
 show_always = true
 

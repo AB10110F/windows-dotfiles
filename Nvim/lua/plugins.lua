@@ -20,6 +20,7 @@ local plugins = {
   { "nvim-lualine/lualine.nvim",           name = "lualine" },
   { "rcarriga/nvim-notify",                name = "notify" },
   { "gelguy/wilder.nvim",                  name = "wilder" },
+  { "lewis6991/gitsigns.nvim",             name = "gitsigns" },
   { "sindrets/diffview.nvim",              name = "diffview" },
   { "yamatsum/nvim-cursorline",            name = "cursorline" },
   { "folke/zen-mode.nvim",                 name = "zen-mode",         event = "VeryLazy" },
@@ -29,16 +30,9 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
   -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
 
-  {
-    "lewis6991/gitsigns.nvim",
-    name = "gitsigns",
-    config = function()
-      require("plugins-config..gitsigns")
-    end,
-  },
 
   -- Navigation
-  { "nvim-telescope/telescope.nvim", name = "telescope", tag = "0.1.3", }, -- Requires plenary.nvim
+  { "nvim-telescope/telescope.nvim",       name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim
 
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -62,22 +56,11 @@ local plugins = {
   },
 
   -- Functional
-  { "windwp/nvim-ts-autotag",        name = "autotag" },
-  { "allen-mack/nvim-table-md",      name = "table-md",  ft = "markdown" },
-
-  {
-    "lukas-reineke/headlines.nvim", -- Requires treesitter
-    name = "headlines",
-    ft = "markdown",
-    opts = { markdown = { fat_headline_lower_string = "─" } },
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    -- name = "treesitter",
-    build = ":TSUpdate",
-    event = { "BufReadPre", "BufNewFile" }
-  },
+  { "windwp/nvim-ts-autotag", name = "autotag" },
+  { "allen-mack/nvim-table-md", name = "table-md", ft = "markdown" },
+  { "lukas-reineke/headlines.nvim", name = "headlines", ft = "markdown", opts = { markdown = { fat_headline_lower_string = "─" } }, }, -- Requires treesitter
+  { "brenoprata10/nvim-highlight-colors", name = "highlight-colors", config = { render = 'virtual' } },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
 
   {
     "numToStr/Comment.nvim",
@@ -85,16 +68,6 @@ local plugins = {
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", name = "ts-context-commentstring" },
     opts = {},
     lazy = false,
-  },
-
-  {
-    "norcalli/nvim-colorizer.lua",
-    name = "colorizer",
-    config = function()
-      require("colorizer").setup({ "*" }, { --[[ mode = 'foreground', ]]
-        css = true,
-      })
-    end,
   },
 
   {

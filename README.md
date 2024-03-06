@@ -66,7 +66,7 @@
         <li><a href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</a></li>
         <li><a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotag</a></li>
         <li><a href="https://github.com/numToStr/Comment.nvim">Comment.nvim</a></li>
-        <li><a href="https://github.com/norcalli/nvim-colorizer.lua">nvim-colorizer.lua</a></li>
+        <li><a href="https://github.com/brenoprata10/nvim-highlight-colors">nvim-highlight-colors</a></li>
         <li><a href="https://github.com/ziontee113/color-picker.nvim">color-picker.nvim</a></li>
         <li><a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a></li>
         <li><a href="https://github.com/lukas-reineke/headlines.nvim">headline.nvim</a></li>
