@@ -1,5 +1,5 @@
 format = """
-(#a0a9cb)$username$hostname|(white)$directory$gitbranch$c$rust$dotnet$python$nodejs$lua$php$golang
+(#a0a9cb)$username$hostname|(white)$directory$git_branch$c$rust$dotnet$python$nodejs$lua$php$golang
 (#a0a9cb)$character"""
 
 add_newline = false
