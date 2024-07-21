@@ -28,8 +28,8 @@ local plugins = {
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
   { "glepnir/dashboard-nvim",              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
+  -- { "tamton-aquib/zone.nvim",              name = "zone" },
   -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
-
 
   -- Navigation
   { "nvim-telescope/telescope.nvim",       name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim
@@ -56,11 +56,11 @@ local plugins = {
   },
 
   -- Functional
-  { "windwp/nvim-ts-autotag", name = "autotag" },
-  { "allen-mack/nvim-table-md", name = "table-md", ft = "markdown" },
-  { "lukas-reineke/headlines.nvim", name = "headlines", ft = "markdown", opts = { markdown = { fat_headline_lower_string = "─" } }, }, -- Requires treesitter
+  { "windwp/nvim-ts-autotag",             name = "autotag" },
+  { "allen-mack/nvim-table-md",           name = "table-md",         ft = "markdown" },
   { "brenoprata10/nvim-highlight-colors", name = "highlight-colors", config = { render = 'virtual' } },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
+  { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
+  { "OXY2DEV/markview.nvim",              name = "markview",         ft = "markdown" },                        -- Requires devicons and treesitter
 
   {
     "numToStr/Comment.nvim",
@@ -75,7 +75,11 @@ local plugins = {
     name = "color-picker",
     event = "VeryLazy",
     config = function()
-      require("color-picker").setup()
+      require("color-picker").setup({
+        options = {
+          symbol = "│"
+        }
+      })
     end,
   },
 

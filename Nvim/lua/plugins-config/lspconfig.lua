@@ -1,27 +1,16 @@
 require("mason").setup()
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "cssls", "clangd", "typescript-language-server", "rust-analyzer" },
+  ensure_installed = {
+    "lua_ls",
+    "cssls",
+    "clangd",
+    "tsserver",
+    "rust_analyzer",
+    "texlab" },
   automatic_installation = true,
 })
-
-require('lspsaga').setup({
-  code_action_icon = "💡",
-  symbol_in_winbar = {
-    in_custom = false,
-    enable = true,
-    separator = ' ',
-    show_file = true,
-    file_formatter = ""
-  },
-})
-
-vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<cr>', { silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 require("lspconfig").lua_ls.setup {
   capabilities = capabilities,
@@ -47,3 +36,50 @@ lspconfig.clangd.setup {}
 lspconfig.cssls.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {}
+
+lspconfig.texlab.setup {
+  settings = {
+    texlab = {
+      auxDirectory = ".",
+      bibtexFormatter = "texlab",
+      build = {
+        executable = "tectonic",
+        args = {
+          "-X",
+          "compile",
+          "%f",
+          "--synctex",
+          "--keep-logs",
+          "--keep-intermediates"
+        },
+        forwardSearchAfter = true,
+        onSave = false
+      },
+      chktex = {
+        onEdit = false,
+        onOpenAndSave = false
+      },
+      diagnosticsDelay = 300,
+      formatterLineLength = 80,
+      forwardSearch = {
+        executable = "C:\\Users\\WSwor\\scoop\\apps\\sioyek\\2.0.0\\sioyek",
+        args = {
+          "--reuse-window",
+          "--execute-command",
+          "toggle_synctex",
+          "--inverse-search",
+          "texlab inverse-search -i \"%%1\" -l %%2",
+          "--forward-search-file",
+          "%f",
+          "--forward-search-line",
+          "%l",
+          "%p",
+        }
+      },
+      latexFormatter = "latexindent",
+      latexindent = {
+        modifyLineBreaks = false
+      }
+    }
+  }
+}

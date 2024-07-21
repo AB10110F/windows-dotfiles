@@ -36,7 +36,7 @@ require('lualine').setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } }, 'diagnostics' },
-    lualine_x = { clients_lsp, { 'filesize', icon = ' ' }, 'encoding', 'filetype' },
+    lualine_x = { clients_lsp, { 'filesize', icon = ' ' }, --[[ 'encoding', 'filetype' ]] },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   },

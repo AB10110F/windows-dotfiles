@@ -39,7 +39,7 @@ keymap('n', "<leader>t", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
 
 -- Toggle wrap
-keymap('n', '<Leader>l', ':set wrap!<CR>')
+keymap('n', '<Leader>-', ':set wrap!<CR>')
 
 -- Easy split navigation
 keymap("n", "<C-h>", "<C-w>h")
@@ -108,6 +108,10 @@ keymap("n", "<Leader>tR", ':lua require("tablemd").insertRow(true)<cr>', opts)
 keymap("n", "<Leader>tj", ':lua require("tablemd").alignColumn("left")<cr>', opts)
 keymap("n", "<Leader>tk", ':lua require("tablemd").alignColumn("center")<cr>', opts)
 keymap("n", "<Leader>tl", ':lua require("tablemd").alignColumn("right")<cr>', opts)
+
+-- texlab
+keymap("n", "<Leader>lb", '<CMD>TexlabBuild<CR>', opts)
+keymap("n", "<Leader>ls", '<CMD>TexlabForward<CR>', opts)
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps

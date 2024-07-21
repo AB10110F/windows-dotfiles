@@ -31,12 +31,12 @@ vim.cmd([[
 ]])
 
 -- Change conceal level
-vim.cmd([[
-  augroup concealLevel
-    autocmd!
-    autocmd FileType markdown setlocal conceallevel=1
-  augroup END
-]])
+-- vim.cmd([[
+--   augroup concealLevel
+--     autocmd!
+--     autocmd FileType markdown setlocal conceallevel=1
+--   augroup END
+-- ]])
 
 
 -- show cursor line only in active window
