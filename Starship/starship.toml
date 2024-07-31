@@ -19,7 +19,6 @@ disabled = false
 
 [character]
 success_symbol = "[❯](white)"
-error_symbol = "[X‿X Syntax error ❯](red)"
 
 [directory]
 style = "fg:white"
