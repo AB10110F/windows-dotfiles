@@ -105,3 +105,22 @@ Set-PSReadLineKeyHandler -Key '(','{','[' `
       [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
     }
 }
+
+#yazi
+function yy {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}
+
+#bat
+$env:BAT_THEME = "tokyonight_night"
+
+#fzf
+$env:FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color=always {}' --preview-window '~3'"
+
+Set-Alias -Name ff -Value fzf
