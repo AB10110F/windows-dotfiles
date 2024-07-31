@@ -30,15 +30,6 @@ vim.cmd([[
   augroup END
 ]])
 
--- Change conceal level
--- vim.cmd([[
---   augroup concealLevel
---     autocmd!
---     autocmd FileType markdown setlocal conceallevel=1
---   augroup END
--- ]])
-
-
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   callback = function()

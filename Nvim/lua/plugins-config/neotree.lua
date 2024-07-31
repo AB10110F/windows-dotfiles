@@ -31,5 +31,13 @@ require("neo-tree").setup({
         conflict  = "",
       }
     },
+  },
+
+  filesystem = {
+    window = {
+      mappings = {
+        ["<C-b>"] = "noop" -- disable default mapping
+      }
+    }
   }
 })

@@ -58,9 +58,20 @@ local plugins = {
   -- Functional
   { "windwp/nvim-ts-autotag",             name = "autotag" },
   { "allen-mack/nvim-table-md",           name = "table-md",         ft = "markdown" },
+  { 'MeanderingProgrammer/markdown.nvim', name = "markdown",         ft = "markdown", },
   { "brenoprata10/nvim-highlight-colors", name = "highlight-colors", config = { render = 'virtual' } },
   { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
-  { "OXY2DEV/markview.nvim",              name = "markview",         ft = "markdown" },                        -- Requires devicons and treesitter
+
+  {
+    "richardbizik/nvim-toc",
+    name = "TOC",
+    ft = "markdown",
+    config = function()
+      require("nvim-toc").setup({
+        toc_header = "Table of Contents"
+      })
+    end,
+  },
 
   {
     "numToStr/Comment.nvim",
