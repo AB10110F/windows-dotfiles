@@ -1,5 +1,4 @@
 require("plugins-config.tokyonight")
-require("plugins-config.poimandres")
 require("plugins-config.dashboard")
 require("plugins-config.lualine")
 require("plugins-config.telescope")
