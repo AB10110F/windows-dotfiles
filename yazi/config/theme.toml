@@ -10,4 +10,12 @@
 use = "tokyo-night"
 
 [manager]
-border_style  = { fg = "#ffffff" }  # Darkened black
+border_style  = { fg = "#ffffff" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+
+[which]
+separator       = "  "
+separator_style = { fg = "#ffffff" }
