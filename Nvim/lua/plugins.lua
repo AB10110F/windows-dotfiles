@@ -1,19 +1,22 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   --Themes
-  { "folke/tokyonight.nvim",               name = "tokyonight", },
+  { "folke/tokyonight.nvim",               name = "tokyonight",       version = "3.0.1" },
 
   -- Interface
   { "nvim-lualine/lualine.nvim",           name = "lualine" },
@@ -25,7 +28,7 @@ local plugins = {
   { "folke/zen-mode.nvim",                 name = "zen-mode",         event = "VeryLazy" },
   { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
-  { "glepnir/dashboard-nvim",              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
+  { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
   -- { "tamton-aquib/zone.nvim",              name = "zone" },
   -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
@@ -55,11 +58,13 @@ local plugins = {
   },
 
   -- Functional
-  { "windwp/nvim-ts-autotag",             name = "autotag" },
-  { "allen-mack/nvim-table-md",           name = "table-md",         ft = "markdown" },
-  { 'MeanderingProgrammer/markdown.nvim', name = "markdown",         ft = "markdown", },
-  { "brenoprata10/nvim-highlight-colors", name = "highlight-colors", config = { render = 'virtual' } },
-  { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
+  { "windwp/nvim-ts-autotag",                    name = "autotag" },
+  { "allen-mack/nvim-table-md",                  name = "table-md",         ft = "markdown" },
+  { 'MeanderingProgrammer/render-markdown.nvim', name = "render-markdown",  ft = "markdown" },
+  { "jbyuki/venn.nvim",                          name = "venn" },
+  -- { "jbyuki/nabla.nvim",                         ft = "markdown" },
+  { "brenoprata10/nvim-highlight-colors",        name = "highlight-colors", opts = { render = 'virtual' } },
+  { "nvim-treesitter/nvim-treesitter",           build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
 
   {
     "richardbizik/nvim-toc",

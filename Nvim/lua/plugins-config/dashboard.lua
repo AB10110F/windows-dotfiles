@@ -9,7 +9,7 @@ local version = versionString:match("NVIM%s+([^%s]+)")
 
 -- local date = os.date("%A")
 
-require('dashboard').setup ({
+require('dashboard').setup({
   theme = 'doom',
   config = {
     header = {
@@ -34,7 +34,7 @@ require('dashboard').setup ({
         icon = '  ',
         icon_hl = 'Title',
         desc = 'Find File                  ',
-        key = 'f',
+        key = '1',
         key_hl = 'group',
         action = 'Telescope find_files find_command=rg,--hidden,--files'
       },
@@ -42,7 +42,7 @@ require('dashboard').setup ({
         icon = '󰒲  ',
         icon_hl = 'Title',
         desc = 'Lazy',
-        key = 'l',
+        key = '2',
         key_hl = 'group',
         action = 'Lazy'
       },
@@ -50,7 +50,7 @@ require('dashboard').setup ({
         icon = '  ',
         icon_hl = 'Title',
         desc = 'Colorscheme',
-        key = 'c',
+        key = '3',
         key_hl = 'group',
         action = 'Telescope colorscheme'
       },
@@ -58,7 +58,7 @@ require('dashboard').setup ({
         icon = '󰒋  ',
         icon_hl = 'Title',
         desc = 'Mason',
-        key = 'm',
+        key = '4',
         key_hl = 'group',
         action = 'Mason'
       },
@@ -66,7 +66,7 @@ require('dashboard').setup ({
         icon = '  ',
         icon_hl = 'Title',
         desc = 'Check Health',
-        key = 'h',
+        key = '5',
         key_hl = 'group',
         action = 'checkhealth'
       },

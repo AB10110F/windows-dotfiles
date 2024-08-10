@@ -39,7 +39,7 @@ keymap('n', "<leader>t", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
 
 -- Toggle wrap
-keymap('n', '<Leader>-', ':set wrap!<CR>')
+keymap('n', '<Leader><TAB>', ':set wrap!<CR>')
 
 -- Easy split navigation
 keymap("n", "<C-h>", "<C-w>h")
@@ -91,6 +91,7 @@ keymap('n', '<leader>fk', builtin.keymaps, {})
 keymap('n', '<leader>fgb', builtin.git_branches, {})
 keymap('n', '<leader>fgc', builtin.git_commits, {})
 keymap('n', '<leader>fgs', builtin.git_status, {})
+keymap('n', '<leader>fs', builtin.spell_suggest, {})
 keymap('n', '<leader>fi', "<CMD>:Telescope glyph<CR>")
 
 -- Diffview
@@ -112,6 +113,38 @@ keymap("n", "<Leader>tl", ':lua require("tablemd").alignColumn("right")<cr>', op
 -- texlab
 keymap("n", "<Leader>lb", '<CMD>TexlabBuild<CR>', opts)
 keymap("n", "<Leader>ls", '<CMD>TexlabForward<CR>', opts)
+
+-- venn
+function _G.Toggle_venn()
+  local venn_enabled = vim.inspect(vim.b.venn_enabled)
+  if venn_enabled == "nil" then
+    vim.b.venn_enabled = true
+    vim.cmd [[setlocal ve=all]]
+    -- draw a line on HJKL keystokes
+    vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+    -- draw a box by pressing "f" with visual selection
+    vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+  else
+    vim.cmd [[setlocal ve=]]
+    vim.api.nvim_buf_del_keymap(0, "n", "J")
+    vim.api.nvim_buf_del_keymap(0, "n", "K")
+    vim.api.nvim_buf_del_keymap(0, "n", "L")
+    vim.api.nvim_buf_del_keymap(0, "n", "H")
+    vim.api.nvim_buf_del_keymap(0, "v", "f")
+    vim.b.venn_enabled = nil
+  end
+end
+
+-- toggle keymappings for venn using <leader>v
+vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true })
+
+-- nabla
+-- require("nabla").enable_virt({ autogen = true, silent = true })
+-- keymap("", "<leader>p", ":lua require('nabla').toggle_virt({autogen=true, silent=true})<CR>", opts)
+--
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps

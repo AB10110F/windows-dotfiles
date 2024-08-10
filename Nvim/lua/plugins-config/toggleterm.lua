@@ -23,6 +23,7 @@ toggleterm.setup({
   shading_factor = 2,
   direction = "float",
   shell = vim.o.shell,
+  -- shell = 'nu',
   float_opts = {
     border = "curved",
     highlights = {
