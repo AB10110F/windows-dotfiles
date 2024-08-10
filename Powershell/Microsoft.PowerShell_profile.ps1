@@ -116,11 +116,3 @@ function yy {
     }
     Remove-Item -Path $tmp
 }
-
-#bat
-$env:BAT_THEME = "tokyonight_night"
-
-#fzf
-$env:FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color=always {}' --preview-window '~3'"
-
-Set-Alias -Name ff -Value fzf
