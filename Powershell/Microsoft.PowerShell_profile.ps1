@@ -13,17 +13,14 @@ Set-PSReadLineOption -BellStyle Visual
 Set-PSReadLineKeyHandler -vimode insert -Chord "k" -ScriptBlock { mapTwoLetterNormal 'k' 'j' }
 Set-PSReadLineKeyHandler -vimode insert -Chord "j" -ScriptBlock { mapTwoLetterNormal 'j' 'k' }
 
-function mapTwoLetterNormal($a, $b)
-{
+function mapTwoLetterNormal($a, $b) {
   mapTwoLetterFunc $a $b -func $function:setViCommandMode
 }
-function setViCommandMode
-{
+function setViCommandMode {
     [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()
 }
 
-function mapTwoLetterFunc($a,$b,$func)
-{
+function mapTwoLetterFunc($a,$b,$func) {
   if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode()) {
     $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     if ($key.Character -eq $b)
@@ -34,12 +31,10 @@ function mapTwoLetterFunc($a,$b,$func)
     {
       [Microsoft.Powershell.PSConsoleReadLine]::Insert("$a")
       # Representation of modifiers (like shift) when ReadKey uses IncludeKeyDown
-      if ($key.Character -eq 0x00)
-      {
+      if ($key.Character -eq 0x00) {
         return
       }
-      else
-      {
+      else {
         # Insert func above converts escape characters to their literals, e.g.
         # converts return to ^M. This doesn't.
         $wshell = New-Object -ComObject wscript.shell
@@ -94,8 +89,7 @@ Set-PSReadLineKeyHandler -Key '(','{','[' `
     $cursor = $null
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
 
-    if ($selectionStart -ne -1)
-    {
+    if ($selectionStart -ne -1) {
       # Text is selected, wrap it in brackets
       [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
       [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
@@ -115,4 +109,27 @@ function yy {
         Set-Location -LiteralPath $cwd
     }
     Remove-Item -Path $tmp
+}
+
+function run {
+    param (
+        [Parameter(Position = 0, Mandatory = $true)]
+        [string]$file
+    )
+
+    $exec = [System.IO.Path]::GetFileNameWithoutExtension($file)
+    $compile = Start-Process g++ -ArgumentList "-std=c++17 -Wall -Wpedantic -o $exec $file" -NoNewWindow -Wait -PassThru
+
+    if ($compile.ExitCode -eq 0) {
+        Write-Output "Compilation successful."
+        $execDot = $exec + ".exe"
+
+        if (Test-Path .\$execDot) {
+            Start-Process .\$exec -NoNewWindow -Wait
+        } else {
+            Write-Output "Executable not found."
+        }
+    } else {
+        Write-Output "Compilation failed with exit code $($compile.ExitCode)."
+    }
 }
