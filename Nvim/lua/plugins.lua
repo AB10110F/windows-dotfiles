@@ -24,7 +24,6 @@ local plugins = {
   { "gelguy/wilder.nvim",                  name = "wilder" },
   { "lewis6991/gitsigns.nvim",             name = "gitsigns" },
   { "sindrets/diffview.nvim",              name = "diffview" },
-  { "yamatsum/nvim-cursorline",            name = "cursorline" },
   { "folke/zen-mode.nvim",                 name = "zen-mode",         event = "VeryLazy" },
   { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
@@ -32,6 +31,14 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
   -- { "tamton-aquib/zone.nvim",              name = "zone" },
   -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
+
+  {
+    "echasnovski/mini.cursorword",
+    version = "*",
+    config = function()
+      require('mini.cursorword').setup({})
+    end,
+  },
 
   -- Navigation
   { "nvim-telescope/telescope.nvim",       name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim

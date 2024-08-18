@@ -29,3 +29,5 @@ require("tokyonight").setup({
 })
 -- vim.g.tokyonight_transparent = vim.g.transparent_enabled
 vim.cmd [[colorscheme tokyonight]]
+vim.api.nvim_set_hl(0, 'MiniCursorWord', { underline = true })
+vim.api.nvim_set_hl(0, 'MiniCursorWordCurrent', { underline = true })
