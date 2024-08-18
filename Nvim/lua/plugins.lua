@@ -29,8 +29,6 @@ local plugins = {
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
   { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
-  -- { "tamton-aquib/zone.nvim",              name = "zone" },
-  -- { "huy-hng/anyline.nvim",            name = "anyline",    event = 'VeryLazy', config = true, }, -- Require treesitter
 
   {
     "echasnovski/mini.cursorword",

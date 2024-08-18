@@ -1,11 +1,11 @@
 vim.g.loaded_newtrw = 1
 vim.g.loaded_netrwPlugin = 1
+
 require("neo-tree").setup({
   popup_border_style = "rounded",
   enable_git_status = true,
   window = {
     width = 30,
-    auto_expand_width = false,
   },
   default_component_configs = {
     icon = {
