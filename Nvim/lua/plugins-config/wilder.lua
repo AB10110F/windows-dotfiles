@@ -1,15 +1,7 @@
 local wilder = require('wilder')
-wilder.setup({modes = {':'}})
+wilder.setup({ modes = { ':' } })
 
--- wilder.set_option('renderer', wilder.wildmenu_renderer({
---   highlighter = wilder.basic_highlighter(),
--- }))
-
--- wilder.set_option('renderer', wilder.popupmenu_renderer({
---   pumblend = 50,
--- }))
-
---Experimental palette theme
+-- Experimental palette theme
 wilder.set_option('renderer', wilder.popupmenu_renderer(
   wilder.popupmenu_palette_theme({
     -- 'single', 'double', 'rounded' or 'solid'
