@@ -9,6 +9,10 @@ local version = versionString:match("NVIM%s+([^%s]+)")
 
 -- local date = os.date("%A")
 
+vim.cmd [[
+  hi DashboardHeader guifg=#7AA2F7
+]]
+
 require('dashboard').setup({
   theme = 'doom',
   config = {

@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   --Themes
-  { "folke/tokyonight.nvim",               name = "tokyonight",       version = "3.0.1" },
+  { "folke/tokyonight.nvim",               name = "tokyonight" },
 
   -- Interface
   { "nvim-lualine/lualine.nvim",           name = "lualine" },
