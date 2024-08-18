@@ -52,3 +52,11 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 
 -- Autoformat when saving file
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+--highlight yanked text
+vim.cmd([[
+  augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout = 300}
+  augroup END
+]])
