@@ -39,7 +39,7 @@ local plugins = {
   },
 
   -- Navigation
-  { "nvim-telescope/telescope.nvim",       name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim
+  { "nvim-telescope/telescope.nvim",             name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim
 
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -142,6 +142,14 @@ local plugins = {
   },
 }
 
-local opts = {}
+local opts = {
+  ui = {
+    border = "rounded",
+  },
+  -- dev = {
+  --@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
+  -- path = "~/projects",
+  -- }
+}
 
 require("lazy").setup(plugins, opts)
