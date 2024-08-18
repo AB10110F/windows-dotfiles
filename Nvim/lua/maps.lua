@@ -47,6 +47,9 @@ keymap("n", "<C-l>", "<C-w>l")
 keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 
+-- Replacement for <C-l>
+keymap("n", "<C-n>", "<CMD>noh<CR>", opts)
+
 -- Buffers navigation
 keymap("n", "<TAB>", "<CMD>bnext<CR>", opts)
 keymap("n", "<S-TAB>", "<Cmd>bprevious<CR>", opts)
@@ -60,7 +63,7 @@ keymap("n", "<leader>cc", "<CMD>%bd|e#<CR>", opts) -- Close all buffers except c
 keymap("n", "<leader>d", "<CMD>Dashboard<CR>", opts)
 
 -- NvimTree
-keymap("n", "<c-b>", "<CMD>Neotree toggle<CR>", opts)
+keymap("n", "<c-s>", "<CMD>Neotree toggle<CR>", opts)
 
 -- Bufferline
 keymap('n', '<leader>1', '<CMD>BufferLineGoToBuffer 1<CR>', opts)
@@ -144,7 +147,6 @@ vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = 
 -- nabla
 -- require("nabla").enable_virt({ autogen = true, silent = true })
 -- keymap("", "<leader>p", ":lua require('nabla').toggle_virt({autogen=true, silent=true})<CR>", opts)
---
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps
