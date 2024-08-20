@@ -51,7 +51,16 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 })
 
 -- Autoformat when saving file
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  callback = function()
+    local lsp = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+    if not vim.tbl_isempty(lsp) then
+      vim.lsp.buf.format()
+    end
+  end
+})
+
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 --highlight yanked text
 vim.cmd([[
