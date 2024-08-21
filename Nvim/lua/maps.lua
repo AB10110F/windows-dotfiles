@@ -95,7 +95,7 @@ keymap('n', '<leader>fgb', builtin.git_branches, {})
 keymap('n', '<leader>fgc', builtin.git_commits, {})
 keymap('n', '<leader>fgs', builtin.git_status, {})
 keymap('n', '<leader>fs', builtin.spell_suggest, {})
-keymap('n', '<leader>fi', "<CMD>:Telescope glyph<CR>")
+keymap('n', '<leader>fi', "<CMD>Nerdy<CR>")
 
 -- Diffview
 keymap("n", "<leader>g", "<CMD>DiffviewToggle<CR>", opts)
@@ -150,3 +150,4 @@ vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = 
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps
+-- Go to textObjects.lua for treesitter Objects keymaps

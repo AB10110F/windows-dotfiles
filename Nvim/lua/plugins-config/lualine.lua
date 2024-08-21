@@ -11,7 +11,7 @@ local clientsLsp = function()
   for _, client in pairs(clients) do
     table.insert(c, client.name)
   end
-  return '力 ' .. table.concat(c)
+  return '󰒋 ' .. table.concat(c)
 end
 
 local wordCount = function()
@@ -49,7 +49,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } }, 'diagnostics' },
+    lualine_b = { 'branch', { 'diff', symbols = { added = '󰐗 ', modified = ' ', removed = ' ' } }, 'diagnostics' },
     lualine_c = { wordCount },
     lualine_x = { clientsLsp, { 'filesize', icon = ' ' }, --[[ 'encoding', 'filetype' ]] },
     lualine_y = { 'progress' },

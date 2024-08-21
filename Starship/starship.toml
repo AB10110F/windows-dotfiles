@@ -7,13 +7,13 @@ command_timeout = 1000
 
 [username]
 style_user = "#a0a9cb"
-format = "[ ](fg:white)[$user]($style) "
+format = "[ ](fg:white)[$user]($style) "
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](white)[on](#a0a9cb)   [$hostname](#a0a9cb) '
+format = '[$ssh_symbol](white)[on](#a0a9cb) 󰌢  [$hostname](#a0a9cb) '
 trim_at = '.companyname.com'
 disabled = false
 
@@ -28,19 +28,19 @@ truncate_to_repo = false
 home_symbol = "Home"
 
 [directory.substitutions]
-"Documents" = " Documents"
+"Documents" = "󰈙 Documents"
 "ASCII" = " ASCII"
 "Downloads" = " Downloads"
 "Music" = " Music"
-"Pictures" = "  Pictures"
-"Videos" = "﫭Videos"
+"Pictures" = " Pictures"
+"Videos" = " Videos"
 "Movies" = "󰿎 Movies"
 "Coding" = "󱃖 Coding"
 "Library" = " Library"
 "Blender" = "󰂫 Blender"
 "Fonts" = " Fonts"
 "Repos" = " Repos"
-"Wallpapers" = " Wallpapers"
+"Wallpapers" = " Wallpapers"
 
 [git_branch]
 symbol = ""
@@ -80,7 +80,7 @@ style = "bg:#212736"
 format = '|[[ $symbol ($version) ](fg:#7aa2f7)]($style)'
 
 [golang]
-symbol = "ﳑ"
+symbol = "󰟓"
 style = "bg:#212736"
 format = '|[[ $symbol ($version) ](fg:#2ac3de)]($style)'
 
