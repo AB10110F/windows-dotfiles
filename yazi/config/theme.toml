@@ -17,5 +17,5 @@ separator_open  = ""
 separator_close = ""
 
 [which]
-separator       = "  "
+separator       = " 󰄾 "
 separator_style = { fg = "#ffffff" }
