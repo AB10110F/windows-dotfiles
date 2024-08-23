@@ -60,8 +60,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end
 })
 
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
 --highlight yanked text
 vim.cmd([[
   augroup highlight_yank
