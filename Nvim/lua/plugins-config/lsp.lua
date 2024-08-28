@@ -5,6 +5,7 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
 local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local kind_icons = {
   Text = "",
@@ -33,6 +34,15 @@ local kind_icons = {
   Operator = "󰆕",
   TypeParameter = "󰅲",
 }
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
+require('nvim-autopairs').setup({
+  enable_check_bracket_line = true
+})
 
 cmp.setup({
 
@@ -73,6 +83,10 @@ cmp.setup({
       })[entry.source.name]
       return vim_item
     end
+  },
+
+  experimental = {
+    ghost_text = { hlgroup = "Comment" }
   },
 })
 
