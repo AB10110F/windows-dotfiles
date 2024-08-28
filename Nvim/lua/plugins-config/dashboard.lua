@@ -2,12 +2,10 @@ local versionList = vim.fn.systemlist('nvim --version')
 local versionString = table.concat(versionList, "\n")
 local version = versionString:match("NVIM%s+([^%s]+)")
 
--- local lazy = require('lazy')
--- local installed_plugins = lazy.plugins()
--- local num_lazy_plugins = vim.tbl_count(installed_plugins)
--- local plugins = (num_lazy_plugins .. " plugins")
-
--- local date = os.date("%A")
+local lazy = require('lazy')
+local installed_plugins = lazy.plugins()
+local num_lazy_plugins = vim.tbl_count(installed_plugins)
+local plugins = (num_lazy_plugins .. " plugins installed")
 
 vim.cmd [[
   hi DashboardHeader guifg=#7AA2F7
@@ -75,6 +73,6 @@ require('dashboard').setup({
         action = 'checkhealth'
       },
     },
-    footer = {},
+    footer = { "", plugins },
   }
 })
