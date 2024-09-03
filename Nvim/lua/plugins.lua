@@ -61,6 +61,12 @@ local plugins = {
     cmd = "Nerdy",
   },
 
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    opts = {},
+  },
   -- Functional
   { "windwp/nvim-ts-autotag",                      name = "autotag" },
   { "allen-mack/nvim-table-md",                    name = "table-md",         ft = "markdown" },
@@ -70,17 +76,6 @@ local plugins = {
   { "brenoprata10/nvim-highlight-colors",          name = "highlight-colors", opts = { render = 'virtual' } },
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
-
-  {
-    "richardbizik/nvim-toc",
-    name = "TOC",
-    ft = "markdown",
-    config = function()
-      require("nvim-toc").setup({
-        toc_header = "Table of Contents"
-      })
-    end,
-  },
 
   {
     "numToStr/Comment.nvim",
