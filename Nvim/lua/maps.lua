@@ -144,6 +144,9 @@ end
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true })
 
+keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
+
+keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps
