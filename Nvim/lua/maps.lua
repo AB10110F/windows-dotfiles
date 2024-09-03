@@ -144,9 +144,6 @@ end
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true })
 
--- nabla
--- require("nabla").enable_virt({ autogen = true, silent = true })
--- keymap("", "<leader>p", ":lua require('nabla').toggle_virt({autogen=true, silent=true})<CR>", opts)
 
 -- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps

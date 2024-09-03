@@ -72,7 +72,6 @@ local plugins = {
   { "allen-mack/nvim-table-md",                    name = "table-md",         ft = "markdown" },
   { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown",  ft = "markdown" },
   { "jbyuki/venn.nvim",                            name = "venn" },
-  -- { "jbyuki/nabla.nvim",                         ft = "markdown" },
   { "brenoprata10/nvim-highlight-colors",          name = "highlight-colors", opts = { render = 'virtual' } },
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
