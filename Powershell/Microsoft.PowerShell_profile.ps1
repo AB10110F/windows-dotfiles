@@ -1,3 +1,5 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 Invoke-Expression (&starship init powershell)
 Import-Module -Name Terminal-Icons
 Import-Module PSReadLine
@@ -111,6 +113,7 @@ function yy {
     Remove-Item -Path $tmp
 }
 
+# g++
 function run {
     param (
         [Parameter(Position = 0, Mandatory = $true)]
