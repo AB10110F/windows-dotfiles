@@ -39,5 +39,27 @@ require("neo-tree").setup({
         ["<C-b>"] = "noop" -- disable default mapping
       }
     }
+  },
+
+  event_handlers = {
+    {
+      event = "neo_tree_buffer_enter",
+      handler = function()
+        vim.cmd("highlight! Cursor blend=100")
+      end,
+    },
+    {
+      event = "neo_tree_buffer_leave",
+      handler = function()
+        vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+      end,
+    },
+    {
+      event = "neo_tree_popup_input_ready",
+      handler = function()
+        vim.cmd("stopinsert")
+        vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+      end,
+    },
   }
 })

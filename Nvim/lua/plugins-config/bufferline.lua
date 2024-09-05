@@ -3,7 +3,7 @@ require("bufferline").setup({
     offsets = {
       {
         filetype = "neo-tree",
-        text = "NEO-TREE",
+        text = "",
         highlight = "Directory",
         separator = true -- use a "true" to enable the default, or set your own character
       },
