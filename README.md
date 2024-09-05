@@ -10,7 +10,6 @@
     <ul>
         <li><a href="https://github.com/neovim/neovim">Neovim</a></li>
         <li><a href="https://github.com/starship/starship">Starship</a></li>
-        <li><a href="https://github.com/gokcehan/lf">lf</a></li>
         <li><a href="https://github.com/aristocratos/btop">btop</a></li>
         <li><a href="https://github.com/lptstr/winfetch">Winfetch</a></li>
     </ul><br><br>
@@ -23,7 +22,7 @@
         <li><a href="https://github.com/files-community/Files">Files</a></li>
     </ul>
 </ul>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ---
 
@@ -52,7 +51,7 @@
         <li><a href="https://github.com/akinsho/toggleterm.nvim">toggleterm.nvim</a></li>
         <li><a href="https://github.com/akinsho/bufferline.nvim">bufferline.nvim</a></li>
         <li><a href="https://github.com/nvimdev/dashboard-nvim">dashboard-nvim</a></li>
-        <li><a href="https://github.com/huy-hng/anyline.nvim">anyline.nvim</a></li>
+        <li><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline</a></li>
         <li><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
     </ul>
     <li>Navigation</li>
@@ -69,7 +68,6 @@
         <li><a href="https://github.com/brenoprata10/nvim-highlight-colors">nvim-highlight-colors</a></li>
         <li><a href="https://github.com/ziontee113/color-picker.nvim">color-picker.nvim</a></li>
         <li><a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a></li>
-        <li><a href="https://github.com/lukas-reineke/headlines.nvim">headline.nvim</a></li>
         <li><a href="https://github.com/allen-mack/nvim-table-md">nvim-table-md</a></li>
         <li><a href="https://github.com/VonHeikemen/lsp-zero.nvim">lsp-zero</a></li>
         <ul>
