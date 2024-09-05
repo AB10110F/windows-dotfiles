@@ -24,7 +24,7 @@ local plugins = {
   { "gelguy/wilder.nvim",                  name = "wilder" },
   { "lewis6991/gitsigns.nvim",             name = "gitsigns" },
   { "sindrets/diffview.nvim",              name = "diffview" },
-  { "folke/zen-mode.nvim",                 name = "zen-mode",         event = "VeryLazy" },
+  { "folke/zen-mode.nvim",                 name = "zen-mode",         cmd = "ZenMode" },
   { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
   { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
@@ -67,6 +67,7 @@ local plugins = {
     cmd = { "Outline", "OutlineOpen" },
     opts = {},
   },
+
   -- Functional
   { "windwp/nvim-ts-autotag",                      name = "autotag" },
   { "allen-mack/nvim-table-md",                    name = "table-md",         ft = "markdown" },
@@ -140,6 +141,9 @@ local opts = {
   ui = {
     border = "rounded",
   },
+  rocks = {
+    enabled = false
+  }
   -- dev = {
   --@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
   -- path = "~/projects",
