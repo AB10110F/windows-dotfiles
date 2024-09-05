@@ -14,7 +14,8 @@ require("mason-lspconfig").setup({
     "tsserver",
     "jdtls",
     "rust_analyzer",
-    "texlab" },
+    "texlab",
+  },
   automatic_installation = true,
 })
 
@@ -41,6 +42,7 @@ lspconfig.lua_ls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.cssls.setup {}
 lspconfig.tsserver.setup {}
+lspconfig.jdtls.setup {}
 lspconfig.rust_analyzer.setup {}
 
 lspconfig.texlab.setup {
