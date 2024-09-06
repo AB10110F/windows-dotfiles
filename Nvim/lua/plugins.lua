@@ -39,7 +39,9 @@ local plugins = {
   },
 
   -- Navigation
-  { "nvim-telescope/telescope.nvim",               name = "telescope",        tag = "0.1.3", }, -- Requires plenary.nvim
+  { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
+  { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
+  { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
 
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -51,21 +53,6 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-  },
-
-  {
-    "2kabhishek/nerdy.nvim",
-    dependencies = {
-      "stevearc/dressing.nvim",
-    },
-    cmd = "Nerdy",
-  },
-
-  {
-    "hedyhli/outline.nvim",
-    lazy = true,
-    cmd = { "Outline", "OutlineOpen" },
-    opts = {},
   },
 
   -- Functional
@@ -115,10 +102,10 @@ local plugins = {
   { "williamboman/mason-lspconfig.nvim", name = "mason-lspconfig" },
 
   -- Autocompletion
-  { "hrsh7th/nvim-cmp",                  name = "cmp" }, -- Required
-  { "hrsh7th/cmp-nvim-lsp" },                            -- Required
-  { "L3MON4D3/LuaSnip" },                                -- Required
-  { "hrsh7th/cmp-path" },                                -- Required
+  { "hrsh7th/nvim-cmp",                  name = "cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "L3MON4D3/LuaSnip" },
+  { "hrsh7th/cmp-path" },
 }
 
 local opts = {
