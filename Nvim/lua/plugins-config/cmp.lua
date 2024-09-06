@@ -1,6 +1,6 @@
 local cmp = require('cmp')
+local luasnip = require("luasnip")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 local kind_icons = {
   Text = "",
   Method = "󰆧",
@@ -52,15 +52,44 @@ cmp.setup({
   },
 
   mapping = {
-    ['<Tab>'] = cmp_action.tab_complete(),
-    ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+    ['<CR>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        if luasnip.expandable() then
+          luasnip.expand()
+        else
+          cmp.confirm({
+            select = true,
+          })
+        end
+      else
+        fallback()
+      end
+    end),
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
 
     ['<Enter>'] = cmp.mapping.confirm({ select = false }),
     ['<C-x>'] = cmp.mapping.abort(),
     ['<Up>'] = cmp.mapping.scroll_docs(-4),
     ['<Down>'] = cmp.mapping.scroll_docs(4),
-    -- ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-    -- ['<C-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
   },
 
   formatting = {

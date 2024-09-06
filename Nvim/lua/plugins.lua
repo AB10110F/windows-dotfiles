@@ -109,32 +109,16 @@ local plugins = {
     end,
   },
 
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    name = "lsp-zero",
-    branch = "v2.x",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig",             name = "lspconfig" }, -- Required
-      {                                                            -- Optional
-        "williamboman/mason.nvim",
-        name = "mason",
-        build = function()
-          pcall(function()
-            vim.cmd("MasonUpdate")
-          end)
-        end,
-      },
-      { "williamboman/mason-lspconfig.nvim", name = "mason-lspconfig" }, -- Optional
+  -- LSP Support
+  { "neovim/nvim-lspconfig",             name = "lspconfig" },
+  { "williamboman/mason.nvim",           name = "mason" },
+  { "williamboman/mason-lspconfig.nvim", name = "mason-lspconfig" },
 
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp",                  name = "cmp" }, -- Required
-      { "hrsh7th/cmp-nvim-lsp" },                            -- Required
-      { "L3MON4D3/LuaSnip" },                                -- Required
-      { "hrsh7th/cmp-path" },                                -- Required
-    },
-  },
+  -- Autocompletion
+  { "hrsh7th/nvim-cmp",                  name = "cmp" }, -- Required
+  { "hrsh7th/cmp-nvim-lsp" },                            -- Required
+  { "L3MON4D3/LuaSnip" },                                -- Required
+  { "hrsh7th/cmp-path" },                                -- Required
 }
 
 local opts = {
