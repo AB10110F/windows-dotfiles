@@ -19,7 +19,7 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Surrounds
+-- Surround
 keymap("v", "s(", "xi()<ESC>P")
 keymap("v", "s)", "xi()<ESC>P")
 keymap("v", "s{", "xi{}<ESC>P")
@@ -29,11 +29,33 @@ keymap("v", "s]", "xi[]<ESC>P")
 keymap("v", "s\"", "xi\"\"<ESC>P")
 keymap("v", "s\'", "xi\'\'<ESC>P")
 
+keymap("n", "sw(", "ciw()<ESC>P")
+keymap("n", "sw)", "ciw()<ESC>P")
+keymap("n", "sw{", "ciw{}<ESC>P")
+keymap("n", "sw}", "ciw{}<ESC>P")
+keymap("n", "sw[", "ciw[]<ESC>P")
+keymap("n", "sw]", "ciw[]<ESC>P")
+keymap("n", "sw\"", "ciw\"\"<ESC>P")
+keymap("n", "sw\'", "ciw\'\'<ESC>P")
+
+keymap("v", "sr(", "<ESC>r)gvo<ESC>r(")
+keymap("v", "sr)", "<ESC>r)gvo<ESC>r(")
+keymap("v", "sr{", "<ESC>r}gvo<ESC>r{")
+keymap("v", "sr}", "<ESC>r}gvo<ESC>r{")
+keymap("v", "sr[", "<ESC>r]gvo<ESC>r[")
+keymap("v", "sr]", "<ESC>r]gvo<ESC>r[")
+keymap("v", "sr\"", "<ESC>r\"gvo<ESC>r\"")
+keymap("v", "sr\'", "<ESC>r\'gvo<ESC>r\'")
+
+keymap("v", "sd", "<ESC>xgvo<ESC>x")
+keymap("v", "sd", "<ESC>xgvo<ESC>x")
+
 -- Enter visual block
 keymap('n', "vb", "<C-v>") -- Ctrl reserved for paste
 
--- Show diagnostic
-keymap('n', "<leader>t", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
+-- lsp
+keymap('n', "<leader>e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- Toggle centered line
 keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
@@ -144,10 +166,8 @@ end
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true })
 
-keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
-
+-- outline
 keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
 
--- Go to lsp.lua to check its keymaps
 -- Go to toggleterm.lua to check its keymaps
 -- Go to textObjects.lua for treesitter Objects keymaps
