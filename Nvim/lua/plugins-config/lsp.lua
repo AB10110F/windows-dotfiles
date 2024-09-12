@@ -52,7 +52,7 @@ lspconfig.lua_ls.setup {
 
 lspconfig.clangd.setup { capabilities = capabilities }
 lspconfig.cssls.setup { capabilities = capabilities }
-lspconfig.tsserver.setup { capabilities = capabilities }
+lspconfig.ts_ls.setup { capabilities = capabilities }
 lspconfig.jdtls.setup { capabilities = capabilities }
 lspconfig.rust_analyzer.setup { capabilities = capabilities }
 

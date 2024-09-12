@@ -10,7 +10,7 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "cssls",
     "clangd",
-    "tsserver",
+    "ts_ls",
     "jdtls",
     "rust_analyzer",
     "texlab",
