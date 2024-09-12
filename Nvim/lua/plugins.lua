@@ -109,12 +109,9 @@ local plugins = {
 }
 
 local opts = {
-  ui = {
-    border = "rounded",
-  },
-  rocks = {
-    enabled = false
-  }
+  ui = { border = "rounded", },
+  rocks = { enabled = false },
+  install = { colorscheme = { "tokyonight-storm" } },
   -- dev = {
   --@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
   -- path = "~/projects",
