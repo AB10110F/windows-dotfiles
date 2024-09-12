@@ -4,10 +4,19 @@ vim.g.loaded_netrwPlugin = 1
 require("neo-tree").setup({
   popup_border_style = "rounded",
   enable_git_status = true,
+  enable_diagnostics = false,
   window = {
     width = 30,
   },
   default_component_configs = {
+    container = {
+      enable_character_fade = false
+    },
+    indent = {
+      indent_size = 2,
+      padding = 0,
+      last_indent_marker = "╰",
+    },
     icon = {
       folder_closed = "",
       folder_open = "",
@@ -16,7 +25,11 @@ require("neo-tree").setup({
     modified = {
       symbol = "",
     },
+    name = {
+      use_git_status_colors = false,
+    },
     git_status = {
+      highlight = "Conceal",
       symbols = {
         -- Change type
         added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
