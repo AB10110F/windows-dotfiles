@@ -60,10 +60,16 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end
 })
 
---highlight yanked text
+-- highlight yanked text
 vim.cmd([[
   augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout = 300}
   augroup END
 ]])
+
+-- xaml highlight
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.axaml" },
+  command = "set filetype=xml",
+})

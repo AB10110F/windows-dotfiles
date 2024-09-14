@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
     "clangd",
     "ts_ls",
     "jdtls",
+    "csharp_ls",
     "rust_analyzer",
     "texlab",
   },

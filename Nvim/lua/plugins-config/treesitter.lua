@@ -20,6 +20,7 @@ ts.setup({
     "typescript",
     "javascript",
     "json",
+    "xml",
     "css",
     "scss",
     "html",
