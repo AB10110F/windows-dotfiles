@@ -19,55 +19,62 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Increment/decrement
+keymap("n", "+", "<C-a>", opts)
+keymap("n", "-", "<C-x>", opts)
+
+-- Select all
+keymap("n", "<C-a>", "gg<S-v>G", opts)
+
 -- Surround
-keymap("v", "s(", "xi()<ESC>P")
-keymap("v", "s)", "xi()<ESC>P")
-keymap("v", "s{", "xi{}<ESC>P")
-keymap("v", "s}", "xi{}<ESC>P")
-keymap("v", "s[", "xi[]<ESC>P")
-keymap("v", "s]", "xi[]<ESC>P")
-keymap("v", "s\"", "xi\"\"<ESC>P")
-keymap("v", "s\'", "xi\'\'<ESC>P")
+keymap("v", "s(", "xi()<ESC>P", opts)
+keymap("v", "s)", "xi()<ESC>P", opts)
+keymap("v", "s{", "xi{}<ESC>P", opts)
+keymap("v", "s}", "xi{}<ESC>P", opts)
+keymap("v", "s[", "xi[]<ESC>P", opts)
+keymap("v", "s]", "xi[]<ESC>P", opts)
+keymap("v", "s\"", "xi\"\"<ESC>P", opts)
+keymap("v", "s\'", "xi\'\'<ESC>P", opts)
 
-keymap("n", "sw(", "ciw()<ESC>P")
-keymap("n", "sw)", "ciw()<ESC>P")
-keymap("n", "sw{", "ciw{}<ESC>P")
-keymap("n", "sw}", "ciw{}<ESC>P")
-keymap("n", "sw[", "ciw[]<ESC>P")
-keymap("n", "sw]", "ciw[]<ESC>P")
-keymap("n", "sw\"", "ciw\"\"<ESC>P")
-keymap("n", "sw\'", "ciw\'\'<ESC>P")
+keymap("n", "sw(", "ciw()<ESC>P", opts)
+keymap("n", "sw)", "ciw()<ESC>P", opts)
+keymap("n", "sw{", "ciw{}<ESC>P", opts)
+keymap("n", "sw}", "ciw{}<ESC>P", opts)
+keymap("n", "sw[", "ciw[]<ESC>P", opts)
+keymap("n", "sw]", "ciw[]<ESC>P", opts)
+keymap("n", "sw\"", "ciw\"\"<ESC>P", opts)
+keymap("n", "sw\'", "ciw\'\'<ESC>P", opts)
 
-keymap("v", "sr(", "<ESC>r)gvo<ESC>r(")
-keymap("v", "sr)", "<ESC>r)gvo<ESC>r(")
-keymap("v", "sr{", "<ESC>r}gvo<ESC>r{")
-keymap("v", "sr}", "<ESC>r}gvo<ESC>r{")
-keymap("v", "sr[", "<ESC>r]gvo<ESC>r[")
-keymap("v", "sr]", "<ESC>r]gvo<ESC>r[")
-keymap("v", "sr\"", "<ESC>r\"gvo<ESC>r\"")
-keymap("v", "sr\'", "<ESC>r\'gvo<ESC>r\'")
+keymap("v", "sr(", "<ESC>r)gvo<ESC>r(", opts)
+keymap("v", "sr)", "<ESC>r)gvo<ESC>r(", opts)
+keymap("v", "sr{", "<ESC>r}gvo<ESC>r{", opts)
+keymap("v", "sr}", "<ESC>r}gvo<ESC>r{", opts)
+keymap("v", "sr[", "<ESC>r]gvo<ESC>r[", opts)
+keymap("v", "sr]", "<ESC>r]gvo<ESC>r[", opts)
+keymap("v", "sr\"", "<ESC>r\"gvo<ESC>r\"", opts)
+keymap("v", "sr\'", "<ESC>r\'gvo<ESC>r\'", opts)
 
-keymap("v", "sd", "<ESC>xgvo<ESC>x")
-keymap("v", "sd", "<ESC>xgvo<ESC>x")
+keymap("v", "sd", "<ESC>xgvo<ESC>x", opts)
+keymap("v", "sd", "<ESC>xgvo<ESC>x", opts)
 
 -- Enter visual block
-keymap('n', "vb", "<C-v>") -- Ctrl reserved for paste
+keymap('n', "vb", "<C-v>", opts) -- Ctrl reserved for paste
 
 -- lsp
 keymap('n', "<leader>e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- Toggle centered line
-keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>')
+keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>', opts)
 
 -- Toggle wrap
-keymap('n', '<Leader><TAB>', ':set wrap!<CR>')
+keymap('n', '<Leader><TAB>', ':set wrap!<CR>', opts)
 
 -- Easy split navigation
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-l>", "<C-w>l")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
 
 -- Replacement for <C-l>
 keymap("n", "<C-n>", "<CMD>noh<CR>", opts)
