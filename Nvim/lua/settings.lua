@@ -21,6 +21,9 @@ o.spelllang = { "en_us", "es_mx", "ru" } -- spellcheck for this iso-languages
 o.spell = true                           -- Enable spellcheck
 o.spellsuggest = { "best" }
 o.fillchars = { eob = ' ' }              -- Change char ~ on blank lines
+o.mouse = ""                             -- Disable mouser
+o.title = true
+o.titlestring = [[NVIM - %{expand('%:p:h:t')}%{expand('%:t') == '' ? '' : '/'.expand('%:t')} ]]
 
 -- Enable cursor blink
 o.guicursor =
