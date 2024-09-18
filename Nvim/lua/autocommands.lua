@@ -18,7 +18,7 @@ vim.cmd([[
 vim.cmd([[
   augroup setIndent
     autocmd!
-    autocmd Filetype cpp,c,python,java, setlocal shiftwidth=4 tabstop=4
+    autocmd Filetype cpp,c,cs,python,java, setlocal shiftwidth=4 tabstop=4
   augroup END
 ]])
 
@@ -68,7 +68,7 @@ vim.cmd([[
   augroup END
 ]])
 
--- xaml highlight
+-- axaml highlight
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.axaml" },
   command = "set filetype=xml",
