@@ -47,7 +47,7 @@ bar:
   opacity: 1.0
   background: "#20242cc4"
   foreground: "#ffffff"
-  font_family: "Hack Nerd Font"
+  font_family: "CommitMono Nerd Font"
   font_size: "12px"
   padding: "4px 20px"
   offset_x: "0"
@@ -110,18 +110,36 @@ bar:
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: " MMM/dd/yy"
+      time_formatting: " MMM/dd/yyyy"
 
 workspaces:
   - name: "1"
+    display_name: "0001"
+    # display_name: "I"
   - name: "2"
+    display_name: "0010"
+    # display_name: "II"
   - name: "3"
+    display_name: "0011"
+    # display_name: "III"
   - name: "4"
+    display_name: "0100"
+    # display_name: "IV"
   - name: "5"
+    display_name: "0101"
+    # display_name: "V"
   - name: "6"
+    display_name: "0110"
+    # display_name: "VI"
   - name: "7"
+    display_name: "0111"
+    # display_name: "VII"
   - name: "8"
+    display_name: "1000"
+    # display_name: "VIII"
   - name: "9"
+    display_name: "1001"
+    # display_name: "IX"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
