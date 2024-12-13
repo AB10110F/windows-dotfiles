@@ -1,0 +1,104 @@
+(defcfg
+  process-unmapped-keys yes
+  log-layer-changes yes
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @fun @a   @s   d    @f   g    h    @j   k   @l   @;   '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  rctl lmet @aux           spc            @nav rmet @blk
+)
+
+(deflayer auxiliar
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   bspc
+  XX   [    ]    +    =   S-9  S-0   @_   -    @{   @}   XX   XX   XX
+  XX   1    @2   3    @4   5    6    @7   8    @9   0    XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer function
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX  lrld  XX   XX   XX   XX   XX   XX   XX   XX   XX
+  @qwr prev XX   next XX   XX   XX   vold volu XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   mute XX   XX   XX   XX
+  lctl lmet lalt           pp            ralt rmet rctl
+)
+
+(deflayer navigation
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   mrgt @mu  mlft XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   @ml  @md  @mr  XX   XX  @mwl @mwd @mwu @mwr  XX   XX   XX
+  @fst XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  lctl lmet lalt           spc            @qwr rmet rctl
+)
+
+(deflayer block
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX             XX             XX   XX   @qwr
+)
+
+(defalias
+  qwr (layer-switch qwerty)
+  fun (layer-switch function)
+  nav (layer-switch navigation)
+  aux (layer-while-held auxiliar)
+  blk (layer-switch block)
+
+  a (tap-hold 200 200 a lctl)
+  s (tap-hold 200 200 s lalt)
+  f (tap-hold 200 200 f lsft)
+
+  j (tap-hold 200 200 j rsft)
+  l (tap-hold 200 200 l ralt)
+  ; (tap-hold 200 200 ; rctl)
+
+  2 (tap-hold 200 200 2 lalt)
+  4 (tap-hold 200 200 4 lsft)
+  7 (tap-hold 200 200 7 rsft)
+  9 (tap-hold 200 200 9 ralt)
+
+  { (unicode {)
+  } (unicode })
+  _ (unicode _)
+
+  mu (movemouse-up 1 1)
+  ml (movemouse-left 1 1)
+  md (movemouse-down 1 1)
+  mr (movemouse-right 1 1)
+
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  fst (movemouse-speed 150)
+
+  ;; j (chord jkesc j)
+  ;; k (chord jkesc k)
+)
+
+;; (defchords jkesc 100
+;;   (j    ) j
+;;   (   k ) k
+;;   (j  k ) esc
+;; )
