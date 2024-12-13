@@ -1,5 +1,5 @@
 /nvim/lazy-lock.json
-/.glaze-wm/errors.log
+
 /yazi/config/flavors
 /yazi/config/plugins
 /yazi/state
@@ -9,3 +9,13 @@
 /nushell/*
 !/nushell/config.nu
 !/nushell/env.nu
+
+/.glzr/glazewm/errors.log
+/.glzr/zebar/boilerplate-react-buildless
+/.glzr/zebar/boilerplate-solid-ts
+/.glzr/zebar/normalize.css
+/.glzr/zebar/settings.json
+/.glzr/zebar/starter/*
+!/.glzr/zebar/starter/styles.css
+!/.glzr/zebar/starter/with-glazewm.html
+!/.glzr/zebar/starter/with-glazewm.zebar.json
