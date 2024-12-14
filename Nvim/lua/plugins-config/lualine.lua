@@ -28,6 +28,10 @@ local wordCount = function()
   end
 end
 
+local lines = function()
+  return '󰉸 ' .. vim.api.nvim_buf_line_count(0)
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -51,7 +55,7 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', { 'diff', symbols = { added = '󰐗 ', modified = ' ', removed = ' ' } }, 'diagnostics' },
     lualine_c = { wordCount },
-    lualine_x = { clientsLsp, { 'filesize', icon = ' ' }, --[[ 'encoding', 'filetype' ]] },
+    lualine_x = { clientsLsp, { 'filesize', icon = ' ' }, lines --[[ 'encoding', 'filetype' ]] },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   },
