@@ -15,4 +15,15 @@ require("telescope").setup {
       provider = 'freedictionaryapi',
     },
   },
+  pickers = {
+    buffers = {
+      theme = "dropdown",
+    },
+    spell_suggest = {
+      theme = "dropdown",
+    },
+    colorscheme = {
+      theme = "dropdown",
+    }
+  },
 }
