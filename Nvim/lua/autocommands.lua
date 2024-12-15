@@ -73,3 +73,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.axaml" },
   command = "set filetype=xml",
 })
+
+-- disable MiniIndentScope
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = { "dashboard", "terminal" },
+  command = "lua vim.b.miniindentscope_disable = true"
+})
