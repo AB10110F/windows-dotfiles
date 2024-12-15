@@ -8,7 +8,6 @@ require("telescope").setup {
         ["S"] = actions.select_horizontal
       },
     },
-  }
   },
   extensions = {
     thesaurus = {

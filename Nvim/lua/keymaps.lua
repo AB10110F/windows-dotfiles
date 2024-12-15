@@ -124,7 +124,10 @@ keymap('n', '<leader>fgb', builtin.git_branches, {})
 keymap('n', '<leader>fgc', builtin.git_commits, {})
 keymap('n', '<leader>fgs', builtin.git_status, {})
 keymap('n', '<leader>fs', builtin.spell_suggest, {})
+keymap('n', '<leader>fn', "<CMD>Telescope notify<CR>", {})
 keymap('n', '<leader>fi', "<CMD>Nerdy<CR>")
+
+keymap('n', '<localleader>fm', '<cmd>Telescope thesaurus lookup<CR>')
 
 -- Diffview
 keymap("n", "<leader>g", "<CMD>DiffviewToggle<CR>", opts)
