@@ -37,6 +37,13 @@ local plugins = {
   },
 
   {
+    "nvchad/showkeys",
+    config = function()
+      vim.cmd('ShowkeysToggle')
+    end
+  },
+
+  {
     "echasnovski/mini.cursorword",
     version = "*",
     config = function()
