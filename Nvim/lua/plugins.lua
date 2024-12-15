@@ -55,6 +55,14 @@ local plugins = {
   { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
   { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
   { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
+  {
+    "EL-MASTOR/bufferlist.nvim",
+    lazy = true,
+    dependencies = "nvim-tree/nvim-web-devicons",
+    cmd = "BufferList",
+    opts = {},
+  },
+  {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
