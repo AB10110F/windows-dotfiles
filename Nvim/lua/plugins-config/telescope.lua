@@ -9,4 +9,10 @@ require("telescope").setup {
       },
     },
   }
+  },
+  extensions = {
+    thesaurus = {
+      provider = 'freedictionaryapi',
+    },
+  },
 }
