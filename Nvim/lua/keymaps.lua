@@ -129,9 +129,6 @@ keymap('n', '<leader>fi', "<CMD>Nerdy<CR>")
 -- Diffview
 keymap("n", "<leader>g", "<CMD>DiffviewToggle<CR>", opts)
 
--- zenmode
-keymap("n", "<leader>z", "<CMD>ZenMode<CR>", opts)
-
 -- nvim-table-md
 keymap("n", "<Leader>tf", ':lua require("tablemd").format()<cr>', opts)
 keymap("n", "<Leader>tc", ':lua require("tablemd").insertColumn(false)<cr>', opts)
