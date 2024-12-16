@@ -23,6 +23,8 @@ o.fillchars      = { eob = ' ' }
 o.mouse          = ""
 o.showcmd        = false
 o.linebreak      = true
+o.breakindent    = true
+o.breakindentopt = { "shift:2" }
 o.nrformats      = [[bin,hex,octal,alpha]]
 o.title          = true
 o.titlestring    = [[NVIM - %{expand('%:p:h:t')}%{expand('%:t') == '' ? '' : '/'.expand('%:t')} ]]

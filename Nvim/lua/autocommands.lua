@@ -18,7 +18,7 @@ vim.cmd([[
 vim.cmd([[
   augroup setIndent
     autocmd!
-    autocmd Filetype cpp,c,cs,python,java, setlocal shiftwidth=4 tabstop=4
+    autocmd Filetype cpp,c,cs,python,java, setlocal shiftwidth=4 tabstop=4 breakindentopt=shift:4
   augroup END
 ]])
 
