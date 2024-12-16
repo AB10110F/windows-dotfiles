@@ -106,16 +106,6 @@ local plugins = {
   },
 
   {
-    "ziontee113/color-picker.nvim",
-    name = "color-picker",
-    event = "VeryLazy",
-    config = function()
-      require("color-picker").setup({
-        options = {
-          symbol = "│"
-        }
-      })
-    end,
   },
 
   {
