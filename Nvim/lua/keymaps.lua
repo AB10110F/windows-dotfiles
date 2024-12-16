@@ -106,9 +106,6 @@ keymap('n', '<leader>8', '<CMD>BufferLineGoToBuffer 8<CR>', opts)
 keymap('n', '<leader>9', '<CMD>BufferLineGoToBuffer 9<CR>', opts)
 keymap('n', '<leader>0', '<CMD>BufferLineGoToBuffer -1<CR>', opts)
 
--- PickColor
-keymap("n", "<C-p>", "<CMD>PickColor<CR>", opts)
-keymap("i", "<C-p>", "<CMD>PickColorInsert<CR>", opts)
 
 -- Telescope
 local builtin = require('telescope.builtin')
