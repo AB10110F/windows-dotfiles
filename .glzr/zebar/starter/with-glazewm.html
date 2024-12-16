@@ -117,13 +117,13 @@
 
               {output.network && (
                 <div className="network">
-                  NET {output.network.defaultGateway?.signalStrength}  {output.network.traffic.transmitted.siValue}{output.network.traffic.transmitted.siUnit}/s  {output.network.traffic.received.siValue}{output.network.traffic.received.siUnit}/s
+                  NET {output.network.defaultGateway?.signalStrength}%
                 </div>
               )}
 
               {output.audio && (
                 <div className="audio">
-                  VOL {output.audio.defaultPlaybackDevice.volume}
+                  VOL {output.audio.defaultPlaybackDevice.volume}%
                 </div>
               )}
 
