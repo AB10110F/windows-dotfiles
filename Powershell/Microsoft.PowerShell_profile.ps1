@@ -136,3 +136,5 @@ function run {
         Write-Output "Compilation failed with exit code $($compile.ExitCode)."
     }
 }
+
+$env:ATAC_KEY_BINDINGS = "~\AppData\Roaming\Julien-cpsn\ATAC\vim_key_bindings.toml"
