@@ -136,6 +136,10 @@ local plugins = {
   },
 
   {
+    "nvzone/minty",
+    cmd = { "Shades", "Huefy" },
+    dependencies = { "nvzone/volt", lazy = true },
+    config = { huefy = { border = true } }
   },
 
   {
