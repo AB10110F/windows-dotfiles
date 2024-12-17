@@ -125,6 +125,8 @@ keymap = [
 	{ on = [ "g", "v" ],       run = "cd ~/Videos",   desc = "Go to Videos" },
   { on = [ "g", "c" ],       run = "cd ~/Documents/Repos/windows-dotfiles",   desc = "Go to Dotfiles" },
   { on = [ "g", "n" ],       run = "cd ~/Documents/Notes",   desc = "Go to Notes" },
+  { on = [ "g", "l" ],       run = "cd ~/Documents/Library",   desc = "Go to Library" },
+  { on = [ "g", "r" ],       run = "cd ~/Documents/Repos",   desc = "Go to Repos" },
   { on = [ "g", "a" ],       run = "cd ~/AppData",   desc = "Go to AppData" },
 	# { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	# { on = [ "g", "t" ],       run = "cd /tmp",          desc = "Go to the temporary directory" },
