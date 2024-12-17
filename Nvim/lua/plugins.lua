@@ -73,8 +73,9 @@ local plugins = {
   -- Navigation
   { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
   { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
-  { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
   { "rafi/telescope-thesaurus.nvim" },
+  { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
+
 
   {
     "EL-MASTOR/bufferlist.nvim",
@@ -109,12 +110,22 @@ local plugins = {
 
   -- Functional
   { "windwp/nvim-ts-autotag",                      name = "autotag" },
-  { "allen-mack/nvim-table-md",                    name = "table-md",         ft = "markdown" },
-  { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown",  ft = "markdown" },
+  { "allen-mack/nvim-table-md",                    name = "table-md",        ft = "markdown" },
+  { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown", ft = "markdown" },
   { "jbyuki/venn.nvim",                            name = "venn" },
-  { "brenoprata10/nvim-highlight-colors",          name = "highlight-colors", opts = { render = 'virtual' } },
-  { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",       event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
+  { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",      event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
+
+  {
+    "brenoprata10/nvim-highlight-colors",
+    name = "highlight-colors",
+    opts = {
+      render = 'virtual',
+      virtual_symbol = '󱓻',
+      enable_tailwind = true,
+      exclude_filetypes = { "lazy" }
+    }
+  },
 
   {
     "numToStr/Comment.nvim",
