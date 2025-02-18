@@ -2,12 +2,9 @@ require 'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
       enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["aa"] = "@parameter.outer",
         ["ia"] = "@parameter.inner",
         ["af"] = "@function.outer",
@@ -18,9 +15,36 @@ require 'nvim-treesitter.configs'.setup {
         ["il"] = "@loop.inner",
         ["ai"] = "@conditional.outer",
         ["ii"] = "@conditional.inner",
+
+        ["a/"] = "@comment.outer",
+        ["a-"] = "@comment.outer",
       },
 
       include_surrounding_whitespace = false,
+    },
+    move = {
+      enable = true,
+      set_jumps = false,
+      goto_next_start = {
+        ["ma"] = "@parameter.inner",
+        ["mf"] = "@function.outer",
+        ["mc"] = "@class.outer",
+        ["ml"] = "@loop.outer",
+        ["mi"] = "@conditional.outer",
+
+        ["m/"] = "@comment.outer",
+        ["m-"] = "@comment.outer",
+      },
+      goto_previous_start = {
+        ["ma"] = "@parameter.outer",
+        ["mF"] = "@function.outer",
+        ["mC"] = "@class.outer",
+        ["mL"] = "@loop.outer",
+        ["mC"] = "@conditional.outer",
+
+        ["m/"] = "@comment.outer",
+        ["m-"] = "@comment.outer",
+      },
     },
   },
 }
