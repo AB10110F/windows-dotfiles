@@ -137,9 +137,9 @@ keymap("n", "<Leader>tc", ':lua require("tablemd").insertColumn(false)<cr>', opt
 keymap("n", "<Leader>td", ':lua require("tablemd").deleteColumn()<cr>', opts)
 keymap("n", "<Leader>tr", ':lua require("tablemd").insertRow(false)<cr>', opts)
 keymap("n", "<Leader>tR", ':lua require("tablemd").insertRow(true)<cr>', opts)
-keymap("n", "<Leader>tj", ':lua require("tablemd").alignColumn("left")<cr>', opts)
-keymap("n", "<Leader>tk", ':lua require("tablemd").alignColumn("center")<cr>', opts)
-keymap("n", "<Leader>tl", ':lua require("tablemd").alignColumn("right")<cr>', opts)
+keymap("n", "<Leader>tal", ':lua require("tablemd").alignColumn("left")<cr>', opts)
+keymap("n", "<Leader>tac", ':lua require("tablemd").alignColumn("center")<cr>', opts)
+keymap("n", "<Leader>tar", ':lua require("tablemd").alignColumn("right")<cr>', opts)
 
 -- texlab
 keymap("n", "<Leader>lb", '<CMD>TexlabBuild<CR>', opts)
