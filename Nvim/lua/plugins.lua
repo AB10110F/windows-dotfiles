@@ -28,7 +28,6 @@ local plugins = {
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
   { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
-  { "sphamba/smear-cursor.nvim",           opts = {} },
 
   {
     "echasnovski/mini.indentscope",
