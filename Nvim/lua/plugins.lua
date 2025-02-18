@@ -50,25 +50,6 @@ local plugins = {
     end,
   },
 
-  {
-    "OXY2DEV/helpview.nvim",
-    lazy = false, -- Recommended
-    opts = {
-      title = {
-        enable = true,
-        style = "decorated",
-        parts = {
-          "╭", "─", "╮",
-          "│", " ", "│",
-          "╰", "─", "╯"
-        },
-      },
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    }
-  },
-
   -- Navigation
   { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
   { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
