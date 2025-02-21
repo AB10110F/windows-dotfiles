@@ -13,6 +13,10 @@
     <!-- Add empty favicon to suppress not found errors. -->
     <link rel="icon" href="data:;" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- Allows React to be run buildless via "text/babel" script below. -->
     <script
       src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
@@ -35,13 +39,15 @@
         network: { type: 'network' },
         glazewm: { type: 'glazewm' },
         cpu: { type: 'cpu' },
-        date: { type: 'date', formatting: 'MMM/dd/yyyy' },
-        clock: { type: 'date', formatting: 'hh:mm a ZZZZ'},
-        battery: { type: 'battery' },
+        clock: { type: 'date', formatting: 'HH:mm'},
+        date: { type: 'date', formatting: 'ccc MMM dd'},
         memory: { type: 'memory' },
         media: { type: 'media' },
-        audio: {type: 'audio'}
+        audio: {type: 'audio'},
+        keyboard: {type: 'keyboard'},
       });
+
+      const svgSize = 14;
 
       createRoot(document.getElementById('root')).render(<App />);
 
@@ -52,17 +58,39 @@
           providers.onOutput(() => setOutput(providers.outputMap));
         }, []);
 
-        // Get icon to show for how much of the battery is charged.
-        function getBatteryIcon(batteryOutput) {
-          if (batteryOutput.chargePercent > 90)
-            return <i className="nf nf-fa-battery_4"></i>;
-          if (batteryOutput.chargePercent > 70)
-            return <i className="nf nf-fa-battery_3"></i>;
-          if (batteryOutput.chargePercent > 40)
-            return <i className="nf nf-fa-battery_2"></i>;
-          if (batteryOutput.chargePercent > 20)
-            return <i className="nf nf-fa-battery_1"></i>;
-          return <i className="nf nf-fa-battery_0"></i>;
+        function getTilingIcon(tilingOutput) {
+          if (tilingOutput.tilingDirection === 'horizontal')
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-left"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+          return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-up"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></svg>
+        }
+
+        function getNetworkIcon(networkOutput) {
+          if (networkOutput.defaultGateway?.signalStrength > 90)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>;
+          if (networkOutput.defaultGateway?.signalStrength > 60)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-high"><path d="M12 20h.01"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>;
+          if (networkOutput.defaultGateway?.signalStrength > 20)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-high"><path d="M12 20h.01"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>;
+          if (networkOutput.defaultGateway?.signalStrength > 0)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-zero"><path d="M12 20h.01"/></svg>;
+          return <span>NC</span>
+        }
+
+        function getAudioIcon(audioOutput) {
+          if (audioOutput.defaultPlaybackDevice.volume >= 40)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-2"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+          if (audioOutput.defaultPlaybackDevice.volume >= 12)
+            return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-1"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>
+          return <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/></svg>
+        }
+
+        function togglePlayPause() {
+          const currentSession = output.media?.currentSession;
+          if (!currentSession) return;
+          output.media
+            .togglePlayPause()
+            .then(providers.refresh)
+            .catch(console.error);
         }
 
         return (
@@ -86,57 +114,68 @@
                 </div>
               )}
 
-              <div className="mediaContainer">
-                <span className="media">  {output.media?.session?.title} - {output.media?.session?.artist} </span>
-              </div>
+              {output.media && (
+                <div className="mediaContainer">
+                  <button className={`visualizer ${output.media?.session?.isPlaying ? 'playing' : 'stopped'}`}
+                    onClick={togglePlayPause}>
+                    <span style={{ "--stroke": 3 }}></span>
+                    <span style={{ "--stroke": 2 }}></span>
+                    <span style={{ "--stroke": 1 }}></span>
+                    <span style={{ "--stroke": 2 }}></span>
+                    <span style={{ "--stroke": 3 }}></span>
+                  </button>
 
+                  <div className="mediaHover">
+                    <div className="controls">
+                      <button onClick={() => output.media.previous()}>
+                        <i className="nf nf-md-skip_previous"></i>
+                      </button>
+                      <button onClick={() => output.media.next()}>
+                        <i className="nf nf-md-skip_next"></i>
+                      </button>
+                    </div>
+
+                    <div className="mediaTextWrapper">
+                      <span className="mediaText">{output.media?.session?.title}</span>
+                      <span className={`${output.media?.session?.artist ? 'mediaText' : 'hidden'}`}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;{output.media?.session?.artist}</span>
+                    </div>
+                  </div>
+
+                </div>
+              )}
             </div>
 
-            <div className="center"> {output.clock?.formatted}</div>
+            <div></div>
 
             <div className="right">
               {output.glazewm && (
-                <>
-                  {output.glazewm.bindingModes.map(bindingMode => (
-                    <button
-                      className="binding-mode"
-                      key={bindingMode.name}
-                    >
-                      {bindingMode.displayName ?? bindingMode.name}
-                    </button>
-                  ))}
-
-                  <button
-                    className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
-                    onClick={() =>
-                      output.glazewm.runCommand('toggle-tiling-direction')
-                    }
-                  ></button>
-                </>
+                <button className="tiling-direction" onClick={() => output.glazewm.runCommand('toggle-tiling-direction') }>
+                  {getTilingIcon(output.glazewm)}
+                </button>
               )}
 
               {output.network && (
                 <div className="network">
-                  NET {output.network.defaultGateway?.signalStrength}%
+                  {getNetworkIcon(output.network)}
                 </div>
               )}
 
               {output.audio && (
                 <div className="audio">
-                  VOL {output.audio.defaultPlaybackDevice.volume}%
+                    {getAudioIcon(output.audio)}
                 </div>
               )}
 
               {output.memory && (
                 <div className="memory">
-                  <span>RAM </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-memory-stick"><path d="M6 19v-3"/><path d="M10 19v-3"/><path d="M14 19v-3"/><path d="M18 19v-3"/><path d="M8 11V9"/><path d="M16 11V9"/><path d="M12 11V9"/><path d="M2 15h20"/><path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z"/></svg>
                   {((12*output.memory.usage)/100).toFixed(1)} GB
                 </div>
               )}
 
               {output.cpu && (
                 <div className="cpu">
-                  <span>CPU </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
 
                   {/* Change the text color if the CPU usage is high. */}
                   <span
@@ -147,18 +186,16 @@
                 </div>
               )}
 
-              {output.battery && (
-                <div className="battery">
-                  {/* Show icon for whether battery is charging. */}
-                  {output.battery.isCharging && (
-                    <i className="nf nf-md-power_plug charging-icon"></i>
-                  )}
-                  {getBatteryIcon(output.battery)}
-                  {Math.round(output.battery.chargePercent)}%
+              {output.keyboard && (
+                <div className="keyboard">
+                  <svg xmlns="http://www.w3.org/2000/svg" width={svgSize} height={svgSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-keyboard"><path d="M10 8h.01"/><path d="M12 12h.01"/><path d="M14 8h.01"/><path d="M16 12h.01"/><path d="M18 8h.01"/><path d="M6 8h.01"/><path d="M7 16h10"/><path d="M8 12h.01"/><rect width="20" height="16" x="2" y="4" rx="2"/></svg>
+                  {output.keyboard.layout.slice(0, 2).toUpperCase()}
                 </div>
               )}
 
-              {output.date?.formatted}
+              {output.clock && (
+                <div className="clock">{output.date?.formatted} &nbsp; {output.clock?.formatted}</div>
+              )}
             </div>
           </div>
         );

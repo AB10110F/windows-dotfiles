@@ -4,18 +4,6 @@
  */
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
-i {
-  color: white;
-  margin-right: 7px;
-}
-
-body {
-  color: rgb(255 255 255 / 90%);
-  font-family: CommitMono Nerd Font;
-  font-size: 12px;
-  overflow: hidden;
-}
-
 html,
 body,
 #root {
@@ -23,13 +11,24 @@ body,
 }
 
 #root {
-  /* border: 1px solid white; */
-  border: 1px solid #4f5258;
-  /* background: black; */
-  background: #161717;
+  --foreground: #ffffff;
+  --primaryBackground: rgba(22, 22, 22, 0.72);
+  --secondaryBackground: rgb(255 255 255 / 15%);
+  --warning: #FD1B7C;
+  --border: #65676f;
+  border: 1px solid var(--border);
+  background: var(--primaryBackground);
+}
+
+body {
+  /* font-family: CommitMono Nerd Font; */
+  font-family: Roboto;
+  font-size: 12px;
+  overflow: hidden;
 }
 
 .app {
+  color: var(--foreground);
   display: grid;
   grid-template-columns: 1fr 0.2fr 1fr;
   align-items: center;
@@ -52,77 +51,226 @@ body,
   justify-self: end;
 }
 
-.logo,
-.binding-mode,
 .tiling-direction,
 .network,
 .memory,
 .cpu,
 .audio,
-.battery {
+.keyboard {
   margin-right: 20px;
 }
 
-.mediaContainer {
-  overflow-x: hidden;
-  white-space: nowrap;
+.cpu>svg,
+.memory>svg,
+.keyboard>svg {
+  margin-right: 5px;
+}
+
+i {
+  color: var(--foreground);
+  margin-right: 7px;
+}
+
+.audio,
+.tiling-direction,
+.network,
+.cpu,
+.memory,
+.keyboard {
   display: flex;
-  max-width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mediaContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin-left: 20px;
+  /* max-width: 430px; */
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: var(--secondaryBackground);
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.visualizer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.visualizer>span {
+  margin: 2px;
+  border-radius: 25px;
+  background: var(--foreground);
+  height: 15px;
+  width: 2px;
+  transition: height 0.6s linear;
+}
+
+.visualizer.playing>span {
+  animation: wave 0.4s linear infinite;
+  animation-delay: calc(0.1s * (var(--stroke) - 2));
+}
+
+.visualizer.stopped>span {
+  animation: none;
+  height: 10%;
+}
+
+@keyframes wave {
+  50% {
+    height: 30%;
+  }
+
+  100% {
+    height: 75%;
+  }
+}
+
+.mediaHover {
+  overflow: hidden;
+  height: 100%;
+}
+
+.mediaHover:hover>:first-child.controls {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.mediaHover {
+  height: 21px;
+  margin-left: 0px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mediaHover:has(.mediaText:not(:empty)) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mediaTextWrapper {
+  display: flex;
+  align-items: center;
+  /* font-size: 12px; */
+  height: 100%;
+  /* position: relative; */
+
+  /* &:before { */
+  /*   content: ''; */
+  /*   width: 100%; */
+  /*   height: 100%; */
+  /*   position: absolute; */
+  /*   background: linear-gradient(99deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 80%, rgba(22, 22, 22, 1) 300px); */
+  /* } */
+}
+
+.mediaTextWrapper>:first-child {
+  font-weight: 500;
+}
+
+.mediaText {
+  overflow: hidden;
+  max-width: 280px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hidden {
+  display: none;
+}
+
+.controls {
+  width: 0;
+  transition: 0.5s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.controls>button {
+  color: var(--foreground);
+  font-size: 8px;
+  height: 20px;
+  width: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0);
+
+  &:hover {
+    background: var(--secondaryBackground);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
 }
 
 .workspaces {
+  font-family: CommitMono Nerd Font;
   display: flex;
   align-items: center;
   z-index: 1;
 }
 
 .workspace {
-  background: rgb(255 255 255 / 5%);
-  margin-right: 4px;
-  padding: 4px 8px;
-  color: rgb(255 255 255 / 90%);
+  background: none;
+  margin: 0px 2px 0px 2px;
+  padding: 2px 8px;
+  min-width: 40px;
+  color: var(--foreground);
   border: none;
   border-radius: 0px;
   cursor: pointer;
+  transition: all 0.1s ease;
+
+  &:first-child {
+    margin: 0px 2px 0px 0px;
+  }
 
   &.displayed {
-    background: rgb(255 255 255 / 15%);
+    background: var(--secondaryBackground);
   }
 
   &.focused,
   &:hover {
-    background: rgb(255 255 255 / 15%);
-    color: rgb(255 255 255 / 90%);
+    transform: scale(1.2);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    margin: 0px 6px 0px 6px;
+    background: var(--secondaryBackground);
   }
 }
 
-.binding-mode,
 .tiling-direction {
-  background: rgb(255 255 255 / 15%);
-  color: rgb(255 255 255 / 90%);
-  border-radius: 0px;
+  background: none;
+  color: var(--foreground);
+  border-radius: 15px;
   line-height: 1;
   padding: 4px 8px;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0);
   cursor: pointer;
 }
 
-.binding-mode {
-  margin-right: 4px;
+.tiling-direction:hover {
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: var(--secondaryBackground);
 }
 
 .cpu .high-usage {
-  color: #FD1B7C;
-}
-
-.battery {
-  position: relative;
-}
-
-.battery .charging-icon {
-  position: absolute;
-  font-size: 7px;
-  left: -8px;
-  top: 3px;
+  color: var(--warning);
 }
