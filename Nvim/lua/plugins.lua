@@ -72,7 +72,7 @@ local plugins = {
     opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "z", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },
 
@@ -95,6 +95,14 @@ local plugins = {
   { "jbyuki/venn.nvim",                            name = "venn" },
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",      event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
+
+  {
+    "echasnovski/mini.surround",
+    version = false,
+    config = function()
+      require("mini.surround").setup({})
+    end,
+  },
 
   {
     "brenoprata10/nvim-highlight-colors",

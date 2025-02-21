@@ -26,37 +26,6 @@ keymap("n", "-", "<C-x>", opts)
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
 
--- Surround
-keymap("v", "s(", "xi()<ESC>P", opts)
-keymap("v", "s)", "xi()<ESC>P", opts)
-keymap("v", "s{", "xi{}<ESC>P", opts)
-keymap("v", "s}", "xi{}<ESC>P", opts)
-keymap("v", "s[", "xi[]<ESC>P", opts)
-keymap("v", "s]", "xi[]<ESC>P", opts)
-keymap("v", "s\"", "xi\"\"<ESC>P", opts)
-keymap("v", "s\'", "xi\'\'<ESC>P", opts)
-
-keymap("n", "sw(", "ciw()<ESC>P", opts)
-keymap("n", "sw)", "ciw()<ESC>P", opts)
-keymap("n", "sw{", "ciw{}<ESC>P", opts)
-keymap("n", "sw}", "ciw{}<ESC>P", opts)
-keymap("n", "sw[", "ciw[]<ESC>P", opts)
-keymap("n", "sw]", "ciw[]<ESC>P", opts)
-keymap("n", "sw\"", "ciw\"\"<ESC>P", opts)
-keymap("n", "sw\'", "ciw\'\'<ESC>P", opts)
-
-keymap("v", "sr(", "<ESC>r)gvo<ESC>r(", opts)
-keymap("v", "sr)", "<ESC>r)gvo<ESC>r(", opts)
-keymap("v", "sr{", "<ESC>r}gvo<ESC>r{", opts)
-keymap("v", "sr}", "<ESC>r}gvo<ESC>r{", opts)
-keymap("v", "sr[", "<ESC>r]gvo<ESC>r[", opts)
-keymap("v", "sr]", "<ESC>r]gvo<ESC>r[", opts)
-keymap("v", "sr\"", "<ESC>r\"gvo<ESC>r\"", opts)
-keymap("v", "sr\'", "<ESC>r\'gvo<ESC>r\'", opts)
-
-keymap("v", "sd", "<ESC>xgvo<ESC>x", opts)
-keymap("v", "sd", "<ESC>xgvo<ESC>x", opts)
-
 -- Enter visual block
 keymap('n', "vb", "<C-v>", opts) -- Ctrl reserved for paste
 
