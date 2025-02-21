@@ -43,9 +43,8 @@ cmp.setup({
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp' },
-    { name = 'buffer',         keyword_length = 3 },
-    { name = 'luasnip',        keyword_length = 2 },
-    { name = 'render-markdown' },
+    { name = 'buffer',  keyword_length = 3 },
+    { name = 'luasnip', keyword_length = 2 },
   },
   window = {
     completion = cmp.config.window.bordered(),
