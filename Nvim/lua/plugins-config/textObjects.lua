@@ -16,7 +16,6 @@ require 'nvim-treesitter.configs'.setup {
         ["ai"] = "@conditional.outer",
         ["ii"] = "@conditional.inner",
 
-        ["a/"] = "@comment.outer",
         ["a-"] = "@comment.outer",
       },
 
@@ -31,8 +30,6 @@ require 'nvim-treesitter.configs'.setup {
         ["mc"] = "@class.outer",
         ["ml"] = "@loop.outer",
         ["mi"] = "@conditional.outer",
-
-        ["m/"] = "@comment.outer",
         ["m-"] = "@comment.outer",
       },
       goto_previous_start = {
@@ -40,10 +37,8 @@ require 'nvim-treesitter.configs'.setup {
         ["mF"] = "@function.outer",
         ["mC"] = "@class.outer",
         ["mL"] = "@loop.outer",
-        ["mC"] = "@conditional.outer",
-
-        ["m/"] = "@comment.outer",
-        ["m-"] = "@comment.outer",
+        ["mI"] = "@conditional.outer",
+        ["m."] = "@comment.outer",
       },
     },
   },
