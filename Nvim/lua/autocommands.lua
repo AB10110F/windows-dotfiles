@@ -7,12 +7,10 @@ vim.cmd([[
 ]])
 
 -- Open help files in vertical split
-vim.cmd([[
-  augroup verticalHelp
-    autocmd!
-    autocmd FileType help wincmd L
-  augroup END
-]])
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "help", "man" },
+  command = "wincmd L",
+})
 
 -- Switch indentation
 vim.cmd([[
