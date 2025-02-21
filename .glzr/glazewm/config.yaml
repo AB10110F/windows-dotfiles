@@ -106,44 +106,35 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: "0001"
     bind_to_monitor: 1
-    # display_name: "I"
+    display_name: "I"
   - name: "2"
-    display_name: "0010"
     bind_to_monitor: 0
-    # display_name: "II"
+    display_name: "II"
   - name: "3"
-    display_name: "0011"
     bind_to_monitor: 1
-    # display_name: "III"
+    display_name: "III"
   - name: "4"
-    display_name: "0100"
     bind_to_monitor: 1
-    # display_name: "IV"
+    display_name: "IV"
   - name: "5"
-    display_name: "0101"
     bind_to_monitor: 1
-    # display_name: "V"
+    display_name: "V"
   - name: "6"
-    display_name: "0110"
     bind_to_monitor: 1
-    # display_name: "VI"
+    display_name: "VI"
   - name: "7"
-    display_name: "0111"
     bind_to_monitor: 1
-    # display_name: "VII"
+    display_name: "VII"
   - name: "8"
-    display_name: "1000"
     bind_to_monitor: 1
-    # display_name: "VIII"
+    display_name: "VIII"
   - name: "9"
-    display_name: "1001"
     bind_to_monitor: 1
-    # display_name: "IX"
+    display_name: "IX"
   - name: "10"
-    display_name: ""
     bind_to_monitor: 1
+    display_name: "X"
 
 window_rules:
   - commands: ['ignore']
