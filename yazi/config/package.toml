@@ -17,5 +17,11 @@ hash = "f0aaa1fffa27f0747a378fe161e17259"
 use = "dedukun/relative-motions"
 rev = "a1466a9"
 hash = "dea804cad3d378555af50cfe5744fd87"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "f565c5a"
+hash = "7f693155f2adc48b5484d434f2635a08"
+
 [flavor]
 deps = []
