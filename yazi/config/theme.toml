@@ -7,7 +7,7 @@
 # : Flavor {{{
 
 [flavor]
-use = "tokyo-night"
+dark = "tokyo-night"
 
 [manager]
 border_style  = { fg = "#ffffff" }

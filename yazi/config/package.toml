@@ -1,5 +1,21 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins#full-border", commit = "06e5fe1" }, { use = "Rolv-Apneseth/starship", commit = "5abe29e" }, { use = "dedukun/relative-motions", commit = "73f5542" }, { use = "yazi-rs/plugins#jump-to-char", commit = "06e5fe1" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "5186af7"
+hash = "206e2448171dad0bda0a3cdece4ee8f5"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "5186af7"
+hash = "1ddc4bc70a2b5f021854b3821c1a27f"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "6c639b4"
+hash = "f0aaa1fffa27f0747a378fe161e17259"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "a1466a9"
+hash = "dea804cad3d378555af50cfe5744fd87"
 [flavor]
 deps = []
