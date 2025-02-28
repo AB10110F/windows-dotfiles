@@ -5,6 +5,12 @@ require('render-markdown').setup({
     signs = { '󰌕 ' },
   },
 
+  code = {
+    width = 'block',
+    min_width = 30,
+    right_pad = 4,
+  },
+
   dash = {
     icon = '─',
     highlight = 'RenderMarkdownTableRow',
