@@ -66,3 +66,28 @@ def --env yy [...args] {
 	}
 	rm -fp $tmp
 }
+
+def run [file: string] {
+    let exec = ($file | path basename | str replace '.cpp' '')
+    let compile = (g++ -std=c++17 -Wall -Wpedantic -o $exec $file | complete)
+
+    if $compile.exit_code == 0 {
+        print "╭────────────────────────╮"
+        print "│ Compilation successful │"
+        print "╰────────────────────────╯\n"
+        let exec_dot = $exec + ".exe"
+
+        if ($exec_dot | path exists) {
+            ^$exec
+        } else {
+            print "╭──────────────────────╮"
+            print "│ Executable not found │"
+            print "╰──────────────────────╯\n"
+        }
+    } else {
+        print $'(ansi red)╭────────────────────╮'
+        print "│ Compilation failed │"
+        print "╰────────────────────╯\n"
+        print $compile
+    }
+}
