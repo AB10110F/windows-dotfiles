@@ -72,6 +72,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=xml",
 })
 
+-- prevent continuos comment
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
+
 -- disable MiniIndentScope
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = { "dashboard", "terminal" },
