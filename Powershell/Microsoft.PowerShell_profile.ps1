@@ -1,7 +1,6 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 Invoke-Expression (&starship init powershell)
-Import-Module -Name Terminal-Icons
 Import-Module PSReadLine
 
 Set-PSReadlineOption -EditMode vi
