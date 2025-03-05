@@ -147,8 +147,5 @@ vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = 
 -- outline
 keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
 
--- bufferlist
-keymap("n", "<leader>b", "<CMD>BufferList<CR>", opts)
-
 -- Go to toggleterm.lua to check its keymaps
 -- Go to textObjects.lua for treesitter Objects keymaps

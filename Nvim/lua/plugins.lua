@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   --Themes
   { "folke/tokyonight.nvim",               name = "tokyonight" },
+  { "aka",                                 dev = true },
 
   -- Interface
   { "nvim-lualine/lualine.nvim",           name = "lualine" },
@@ -55,15 +56,6 @@ local plugins = {
   { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
   { "rafi/telescope-thesaurus.nvim" },
   { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
-
-
-  {
-    "EL-MASTOR/bufferlist.nvim",
-    lazy = true,
-    dependencies = "nvim-tree/nvim-web-devicons",
-    cmd = "BufferList",
-    opts = {},
-  },
 
   {
     "folke/flash.nvim",
@@ -157,10 +149,12 @@ local opts = {
   ui = { border = "rounded", },
   rocks = { enabled = false },
   install = { colorscheme = { "tokyonight-storm" } },
-  -- dev = {
-  --@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
-  -- path = "~/projects",
-  -- }
+  dev = {
+    -- @type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
+    path = "~/Documents/Repos/nvim-plugins",
+    patterns = { "aka" },
+    fallback = false,
+  }
 }
 
 require("lazy").setup(plugins, opts)
