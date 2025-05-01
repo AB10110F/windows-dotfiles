@@ -1,21 +1,5 @@
--- LSP clients attached to buffer
-local clientsLsp = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local clients = vim.lsp.buf_get_clients(bufnr)
-
-  if next(clients) == nil then
-    return ''
-  end
-
-  local c = {}
-  for _, client in pairs(clients) do
-    table.insert(c, client.name)
-  end
-  return '󰒋 ' .. table.concat(c)
-end
-
 local wordCount = function()
-  if vim.bo.filetype == 'md' or vim.bo.filetype == 'txt' or vim.bo.filetype == 'markdown' or vim.bo.filetype == 'tex' then
+  if vim.bo.filetype == 'md' or vim.bo.filetype == 'text' or vim.bo.filetype == 'markdown' or vim.bo.filetype == 'tex' then
     if vim.fn.wordcount().visual_words == 1 then
       return '%=' .. tostring(vim.fn.wordcount().visual_words) .. ' word'
     elseif not (vim.fn.wordcount().visual_words == nil) then
@@ -29,7 +13,7 @@ local wordCount = function()
 end
 
 local lines = function()
-  return '󰉸 ' .. vim.api.nvim_buf_line_count(0)
+  return vim.api.nvim_buf_line_count(0) .. 'L'
 end
 
 require('lualine').setup {
@@ -46,16 +30,16 @@ require('lualine').setup {
     always_divide_middle = true,
     globalstatus = true,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
     }
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 3) end } },
     lualine_b = { 'branch', { 'diff', symbols = { added = '󰐗 ', modified = ' ', removed = ' ' } }, 'diagnostics' },
     lualine_c = { wordCount },
-    lualine_x = { clientsLsp, { 'filesize', icon = ' ' }, lines --[[ 'encoding', 'filetype' ]] },
+    lualine_x = { { 'lsp_status', icon = '󰒋', symbols = { done = '', separator = ', ', }, }, { 'filesize', icon = ' ' }, lines --[[ 'encoding' ]] },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   },
