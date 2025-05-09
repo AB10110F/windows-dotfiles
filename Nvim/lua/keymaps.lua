@@ -34,7 +34,7 @@ keymap('n', "<leader>e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- Toggle centered line
-keymap('n', '<Leader>zz', ':let &scrolloff=999-&scrolloff<CR>', opts)
+keymap('n', '<Leader>z', ':let &scrolloff=999-&scrolloff<CR>', opts)
 
 -- Toggle wrap
 keymap('n', '<Leader><TAB>', ':set wrap!<CR>', opts)
@@ -146,6 +146,3 @@ vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = 
 
 -- outline
 keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
-
--- Go to toggleterm.lua to check its keymaps
--- Go to textObjects.lua for treesitter Objects keymaps
