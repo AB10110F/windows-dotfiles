@@ -1,8 +1,9 @@
 require('render-markdown').setup({
   render_modes = { 'n', 'i' },
+  sign = { enabled = false },
+
   heading = {
     icons = { '󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 ' },
-    signs = { '󰌕 ' },
   },
 
   code = {
