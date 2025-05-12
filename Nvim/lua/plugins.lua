@@ -24,7 +24,7 @@ local plugins = {
   { "rcarriga/nvim-notify",                name = "notify" },
   { "gelguy/wilder.nvim",                  name = "wilder" },
   { "lewis6991/gitsigns.nvim",             name = "gitsigns" },
-  { "sindrets/diffview.nvim",              name = "diffview" },
+  { "sindrets/diffview.nvim",              name = "diffview",         lazy = true },
   { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
   { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
@@ -54,7 +54,7 @@ local plugins = {
   -- Navigation
   { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
   { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
-  { "rafi/telescope-thesaurus.nvim" },
+  { "rafi/telescope-thesaurus.nvim", cmd = "Telescope thesaurus lookup" },
   { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
 
   {
@@ -64,7 +64,7 @@ local plugins = {
     opts = {},
     -- stylua: ignore
     keys = {
-      { "z", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "Z", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },
 
@@ -81,8 +81,7 @@ local plugins = {
   },
 
   -- Functional
-  { "windwp/nvim-ts-autotag",                      name = "autotag" },
-  { "allen-mack/nvim-table-md",                    name = "table-md",        ft = "markdown" },
+  { "allen-mack/nvim-table-md",                    name = "table-md",        lazy = true,                           ft = "markdown" },
   { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown", ft = "markdown" },
   { "jbyuki/venn.nvim",                            name = "venn" },
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",      event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
@@ -112,14 +111,14 @@ local plugins = {
     name = "comment",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", name = "ts-context-commentstring" },
     opts = {},
-    lazy = false,
+    lazy = true,
   },
 
   {
     "nvzone/minty",
     cmd = { "Shades", "Huefy" },
     dependencies = { "nvzone/volt", lazy = true },
-    config = { huefy = { border = true } }
+    config = { huefy = { border = true, position = "center" } }
   },
 
   {
