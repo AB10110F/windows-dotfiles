@@ -1,7 +1,7 @@
 require("diffview").setup({
   hooks = {
     diff_buf_win_enter = function()
-      vim.opt_local.foldenable = false
+      vim.opt_local.wrap = false
     end,
   }
 })
