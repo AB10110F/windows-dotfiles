@@ -1,15 +1,28 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require('lspconfig')
 
-require('lspconfig.ui.windows').default_options.border = 'rounded'
+-- require('lspconfig.ui.windows').default_options.border = 'rounded'
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "E",
+      [vim.diagnostic.severity.WARN]  = "W",
+      [vim.diagnostic.severity.INFO]  = "I",
+      [vim.diagnostic.severity.HINT]  = "H",
+    }
+  }
+})
 
 -- Border
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded", })
-vim.lsp.buf.hover({ border = "rounded", })
-
--- Disable inline diagnostic
-vim.diagnostic.config({ virtual_text = false, })
+local hover = vim.lsp.buf.hover
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.buf.hover = function()
+  return hover({
+    border = 'rounded',
+  })
+end
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 100
@@ -20,19 +33,15 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   end
 })
 
--- Highlight number and show character
-local char = { "E", "W", "I", "H" }
-
-for i, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
-  vim.fn.sign_define("DiagnosticSign" .. diag, {
-    text = char[i],
-    texthl = "DiagnosticSign" .. diag,
-    linehl = "",
-    numhl = "DiagnosticSign" .. diag,
-  })
-end
-
 -- lsp's settings
+lspconfig.clangd.setup { capabilities = capabilities }
+lspconfig.cssls.setup { capabilities = capabilities }
+lspconfig.ts_ls.setup { capabilities = capabilities }
+lspconfig.jdtls.setup { capabilities = capabilities }
+lspconfig.csharp_ls.setup { capabilities = capabilities }
+lspconfig.rust_analyzer.setup { capabilities = capabilities }
+lspconfig.dartls.setup { capabilities = capabilities }
+
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
   settings = {
@@ -49,13 +58,6 @@ lspconfig.lua_ls.setup {
     },
   }
 }
-
-lspconfig.clangd.setup { capabilities = capabilities }
-lspconfig.cssls.setup { capabilities = capabilities }
-lspconfig.ts_ls.setup { capabilities = capabilities }
-lspconfig.jdtls.setup { capabilities = capabilities }
-lspconfig.csharp_ls.setup { capabilities = capabilities }
-lspconfig.rust_analyzer.setup { capabilities = capabilities }
 
 lspconfig.texlab.setup {
   capabilities = capabilities,

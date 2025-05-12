@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
     if ok and cl then
       vim.wo.cursorline = true
       vim.api.nvim_win_del_var(0, "auto-cursorline")
+      vim.wo.winhl = "CursorLineNR:CursorLineNRActive"
     end
   end,
 })
@@ -44,6 +45,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
     if cl then
       vim.api.nvim_win_set_var(0, "auto-cursorline", cl)
       vim.wo.cursorline = false
+      vim.wo.winhl = "CursorLineNR:CursorLineNRInactive"
     end
   end,
 })
@@ -51,7 +53,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 -- Autoformat when saving file
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   callback = function()
-    local lsp = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+    local lsp = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
     if not vim.tbl_isempty(lsp) then
       vim.lsp.buf.format()
     end

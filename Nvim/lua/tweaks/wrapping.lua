@@ -40,11 +40,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
     if vim.tbl_contains(exclude, vim.bo.filetype) or floating then
       vim.opt_local.statuscolumn = nil
     else
-      vim.opt_local.statuscolumn = '%s%C%=%#CursorLineNr#%{(v:relnum == 0)?v:lua.CheckSymbolOrNumber(v:lnum)."'
-          .. '  '
+      vim.opt_local.statuscolumn = '%s%C%=%#CursorLineNr#%{(v:relnum == 0)?v:lua.CheckSymbolOrNumber(v:lnum)."' .. '   '
           .. '":""}'
-          .. '%#LineNr#%{(v:relnum != 0)?v:lua.CheckSymbolOrNumber(v:relnum)."'
-          .. ' '
+          .. '%#LineNr#%{(v:relnum != 0)?v:lua.CheckSymbolOrNumber(v:relnum)."' .. '  '
           .. '":""}'
     end
   end
