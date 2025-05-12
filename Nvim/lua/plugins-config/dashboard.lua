@@ -7,10 +7,6 @@ local installed_plugins = lazy.plugins()
 local num_lazy_plugins = vim.tbl_count(installed_plugins)
 local plugins = (num_lazy_plugins .. " plugins installed")
 
-vim.cmd [[
-  hi DashboardHeader guifg=#7AA2F7
-]]
-
 require('dashboard').setup({
   theme = 'doom',
   config = {
