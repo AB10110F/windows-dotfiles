@@ -13,6 +13,7 @@
 /.glzr/glazewm/errors.log
 /.glzr/zebar/boilerplate-react-buildless
 /.glzr/zebar/boilerplate-solid-ts
+*tmp*
 /.glzr/zebar/normalize.css
 /.glzr/zebar/settings.json
 /.glzr/zebar/starter/*
