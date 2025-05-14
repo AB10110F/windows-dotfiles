@@ -28,6 +28,7 @@ ts.setup({
     "vim",
     "vimdoc",
     "java",
+    "dart",
     "yaml",
     "tsx",
     "rust",
