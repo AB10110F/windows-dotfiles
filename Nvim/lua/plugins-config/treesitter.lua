@@ -34,6 +34,7 @@ ts.setup({
     "rust",
     "sql",
     "latex",
+    "nu",
   },
   autotag = { enable = true },
   incremental_selection = { enable = true },

@@ -1,7 +1,4 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lspconfig = require('lspconfig')
-
--- require('lspconfig.ui.windows').default_options.border = 'rounded'
 
 vim.diagnostic.config({
   virtual_text = false,
@@ -34,15 +31,15 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 })
 
 -- lsp's settings
-lspconfig.clangd.setup { capabilities = capabilities }
-lspconfig.cssls.setup { capabilities = capabilities }
-lspconfig.ts_ls.setup { capabilities = capabilities }
-lspconfig.jdtls.setup { capabilities = capabilities }
-lspconfig.csharp_ls.setup { capabilities = capabilities }
-lspconfig.rust_analyzer.setup { capabilities = capabilities }
-lspconfig.dartls.setup { capabilities = capabilities }
+vim.lsp.enable("clangd")
+vim.lsp.enable("cssls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("jdtls")
+vim.lsp.enable("csharp_ls")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("dartls")
 
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -51,15 +48,16 @@ lspconfig.lua_ls.setup {
       },
       workspace = {
         library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.stdpath "config" .. "/lua"] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
         },
       },
     },
-  }
-}
+  },
+})
+vim.lsp.enable("lua_ls")
 
-lspconfig.texlab.setup {
+vim.lsp.config("texlab", {
   capabilities = capabilities,
   settings = {
     texlab = {
@@ -105,4 +103,5 @@ lspconfig.texlab.setup {
       }
     }
   }
-}
+})
+vim.lsp.enable("texlab")

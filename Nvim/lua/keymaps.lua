@@ -114,8 +114,8 @@ keymap("n", "<Leader>tac", ':lua require("tablemd").alignColumn("center")<cr>', 
 keymap("n", "<Leader>tar", ':lua require("tablemd").alignColumn("right")<cr>', opts)
 
 -- texlab
-keymap("n", "<Leader>lb", '<CMD>TexlabBuild<CR>', opts)
-keymap("n", "<Leader>ls", '<CMD>TexlabForward<CR>', opts)
+keymap("n", "<Leader>lb", '<CMD>LspTexlabBuild<CR>', opts)
+keymap("n", "<Leader>ls", '<CMD>LspTexlabForward<CR>', opts)
 
 -- venn
 function _G.Toggle_venn()
