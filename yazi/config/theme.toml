@@ -9,13 +9,42 @@
 [flavor]
 dark = "tokyo-night"
 
-[manager]
+[mgr]
 border_style  = { fg = "#ffffff" }
 
+[mode]
+normal_main = { fg = "#16161e", bg = "#c0caf5", bold = true }
+normal_alt  = { fg = "#c0caf5", bg = "#16161e" }
+
+# Select mode
+select_alt  = { fg = "#c0caf5", bg = "#16161e" }
+
+# Unset mode
+unset_alt  = { fg = "#c0caf5", bg = "#16161e" }
+
+[indicator]
+parent  = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
+
 [status]
-separator_open  = ""
-separator_close = ""
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+[input]
+border   = { fg = "#ffffff" }
+
+[tasks]
+border  = { fg = "#ffffff" }
 
 [which]
+mask            = { bg = "#16161E" }
+cand            = { fg = "#c0caf5" }  # Green
 separator       = " 󰄾 "
 separator_style = { fg = "#ffffff" }
+
+[spot]
+border   = { fg = "#ffffff" }
+title    = { fg = "#ffffff" }
+tbl_cell = { fg = "#bb9af7" }

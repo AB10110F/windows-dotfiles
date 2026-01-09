@@ -1,27 +1,29 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "5186af7"
-hash = "206e2448171dad0bda0a3cdece4ee8f5"
+rev = "68f7d48"
+hash = "b16b6e08085a3dfec72335415e4c83ed"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "5186af7"
-hash = "1ddc4bc70a2b5f021854b3821c1a27f"
-
-[[plugin.deps]]
-use = "Rolv-Apneseth/starship"
-rev = "6c639b4"
-hash = "f0aaa1fffa27f0747a378fe161e17259"
+rev = "68f7d48"
+hash = "2aada555b792eb4d44dd267097957577"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "a1466a9"
-hash = "dea804cad3d378555af50cfe5744fd87"
+rev = "a603d9e"
+hash = "4841d0db6a2380a16fd8c647fc1d1187"
 
 [[plugin.deps]]
-use = "boydaihungst/mediainfo"
-rev = "f565c5a"
-hash = "7f693155f2adc48b5484d434f2635a08"
+use = "Rolv-Apneseth/starship"
+rev = "eca1861"
+hash = "158f863f60b43d077fef3b91e83d6087"
 
-[flavor]
-deps = []
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "68f7d48"
+hash = "5a87b143d719f768227a0ae0f8a42e08"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "8e6296f"
+hash = "49258e379077f4b0d2e62dfdb131c7d"

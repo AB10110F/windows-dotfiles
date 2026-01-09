@@ -1,8 +1,12 @@
 /nvim/lazy-lock.json
 
-/yazi/config/flavors
-/yazi/config/plugins
 /yazi/state
+/yazi/config/*
+!/yazi/config/init.lua
+!/yazi/config/keymap.toml
+!/yazi/config/package.toml
+!/yazi/config/theme.toml
+!/yazi/config/yazi.toml
 
 /lazygit/state.yml
 
