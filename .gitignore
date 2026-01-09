@@ -8,7 +8,8 @@
 
 /nushell/*
 !/nushell/config.nu
-!/nushell/env.nu
+!/nushell/aliases.nu
+!/nushell/completions.nu
 
 /.glzr/glazewm/errors.log
 /.glzr/zebar/boilerplate-react-buildless

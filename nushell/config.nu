@@ -1,18 +1,37 @@
 $env.config.history.file_format = "sqlite"
+$env.config.history.max_size = 1000
 
 $env.config.show_banner = false
 
 $env.config.edit_mode = "vi"
-# $env.config.buffer_editor = "vi"
+$env.config.buffer_editor = "nvim"
 
 $env.config.cursor_shape.emacs = "inherit"
 $env.config.cursor_shape.vi_insert = "blink_line"
 $env.config.cursor_shape.vi_normal = "blink_block"
 
-$env.config.error_style = "fancy"                                                             # plain or fancy
-# $env.config.footer_mode = "never"
+$env.config.error_style = "fancy"                          # plain or fancy
 $env.config.ls.use_ls_colors = false
-$env.config.table.mode = "rounded"                                                            # markdown | rounded | basic | thin
+$env.config.table.mode = "rounded"                         # markdown | rounded | basic | thin
+
+$env.config.hooks.command_not_found = [
+    # this hook is a workaround, it deletes the last command
+    {||
+        let id = open $nu.history-path
+        | query db "SELECT max(id) FROM history"
+        | get "max(id)" | $in.0
+        open $nu.history-path
+        | query db $"DELETE FROM history WHERE id == ($id);"
+    }
+]
+
+$env.config.hooks.pre_execution = [
+    {
+        open $nu.history-path
+        | query db "DELETE FROM history WHERE id NOT IN (SELECT MAX(id) FROM history AS h2 WHERE h2.command_line = history.command_line GROUP BY h2.command_line);"
+        ignore
+ }
+]
 
 def create_left_prompt [] {
     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
@@ -31,7 +50,7 @@ $env.config.keybindings ++= [{
   mode: [ emacs, vi_normal, vi_insert ]
   event: {
     until: [
-      { send: historyhintcomplete }
+      # { send: historyhintcomplete }
       { send: menu name: completion_menu }
       { send: menunext }
       { edit: complete }
@@ -40,54 +59,37 @@ $env.config.keybindings ++= [{
 }]
 
 $env.config.menus ++= [{
-  name: history_menu
-  only_buffer_difference: true
-  marker: " "
-  type: {
-    layout: list
-  }
-  style: {
-    text: blue
-    selected_text: green_reverse
-    description_text: white
-  }
+    name: completion_menu
+    only_buffer_difference: false # Search is done on the text written after activating the menu
+    marker: ""                    # Indicator that appears with the menu is active
+    type: {
+        layout: ide               # list | description | ide | columnar
+        columns: 4                # Number of columns where the options are displayed
+        col_width: 40             # Optional value. If missing all the screen width is used to calculate column width
+        col_padding: 2            # Padding between columns
+    }
+    style: {
+        text: blue
+        selected_text: green_reverse
+        description_text: yellow
+    }
+},
+{
+    name: history_menu
+    only_buffer_difference: false
+    marker: " "
+    type: {
+      layout: list
+    }
+    style: {
+      text: blue
+      selected_text: green_reverse
+      description_text: white
+    }
 }]
 
-def gl [] { git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" Commit Author Subject Date | upsert Date {|d| $d.Date | into datetime} }
+$env.BAT_THEME = "tokyonight_storm"
+$env.ATAC_KEY_BINDINGS = "~\\AppData\\Roaming\\Julien-cpsn\\ATAC\\vim_key_bindings.toml"
 
-def sl [] { scoop export | from json | get apps | select Name Version Source | table }
-
-def --env yy [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
-}
-
-def run [file: string] {
-    let exec = ($file | path basename | str replace '.cpp' '')
-    let compile = (g++ -std=c++17 -Wall -Wpedantic -o $exec $file | complete)
-
-    if $compile.exit_code == 0 {
-        print "╭────────────────────────╮"
-        print "│ Compilation successful │"
-        print "╰────────────────────────╯\n"
-        let exec_dot = $exec + ".exe"
-
-        if ($exec_dot | path exists) {
-            ^$exec
-        } else {
-            print "╭──────────────────────╮"
-            print "│ Executable not found │"
-            print "╰──────────────────────╯\n"
-        }
-    } else {
-        print $'(ansi red)╭────────────────────╮'
-        print "│ Compilation failed │"
-        print "╰────────────────────╯\n"
-        print $compile
-    }
-}
+source aliases.nu
+source completions.nu
