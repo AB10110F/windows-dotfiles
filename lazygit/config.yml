@@ -1,6 +1,7 @@
 gui:
 
   nerdFontsVersion: "3"
+  showRandomTip: false
 
   spinner:
     # The frames of the spinner animation.
@@ -14,3 +15,10 @@ gui:
 
     # The "speed" of the spinner in milliseconds.
     rate: 50
+
+  theme:
+    selectedLineBgColor:
+      - cyan
+
+os:
+  editPreset: 'nvim'
