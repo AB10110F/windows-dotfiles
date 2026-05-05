@@ -88,7 +88,6 @@ $env.config.menus ++= [{
     }
 }]
 
-$env.BAT_THEME = "tokyonight_storm"
 $env.ATAC_KEY_BINDINGS = "~\\AppData\\Roaming\\Julien-cpsn\\ATAC\\vim_key_bindings.toml"
 
 source aliases.nu
