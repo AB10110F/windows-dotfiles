@@ -50,8 +50,8 @@ $env.config.keybindings ++= [{
   mode: [ emacs, vi_normal, vi_insert ]
   event: {
     until: [
-      # { send: historyhintcomplete }
-      { send: menu name: completion_menu }
+      { send: historyhintcomplete }
+      # { send: menu name: completion_menu }
       { send: menunext }
       { edit: complete }
     ]
