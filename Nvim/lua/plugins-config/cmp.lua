@@ -47,8 +47,14 @@ cmp.setup({
     { name = 'luasnip', keyword_length = 2 },
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None"
+    },
+    documentation = {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None"
+    }
   },
 
   mapping = {

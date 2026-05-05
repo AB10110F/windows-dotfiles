@@ -21,8 +21,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     local nvim_hl = vim.api.nvim_set_hl
 
     nvim_hl(0, 'LineNrAbove', { fg = '#525B82', bold = true })
-    nvim_hl(0, 'CursorLineNr', { fg = '#C0CAF5', bg = "#16161e", bold = true })
-    nvim_hl(0, 'CursorLineNRActive', { fg = '#C0CAF5', bg = "#16161e", bold = true })
+    -- nvim_hl(0, 'CursorLineNr', { fg = '#C0CAF5', bg = "#16161e", bold = true })
+    nvim_hl(0, 'CursorLineNr', { fg = '#C0CAF5', bg = "NONE", bold = true })
+    -- nvim_hl(0, 'CursorLineNRActive', { fg = '#C0CAF5', bg = "#16161e", bold = true })
+    nvim_hl(0, 'CursorLineNRActive', { fg = '#C0CAF5', bg = "NONE", bold = true })
     nvim_hl(0, 'CursorLineNRInactive', { fg = '#C0CAF5', bg = "NONE", bold = true })
     nvim_hl(0, 'LineNrBelow', { fg = '#525B82', bold = true })
     nvim_hl(0, 'LineNr', { fg = '#525B82', bold = true })

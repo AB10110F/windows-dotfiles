@@ -53,10 +53,23 @@ local plugins = {
   },
 
   -- Navigation
-  { "nvim-telescope/telescope.nvim", name = "telescope",                           tag = "0.1.3", }, -- Requires plenary.nvim
-  { "2kabhishek/nerdy.nvim",         dependencies = { "stevearc/dressing.nvim", }, cmd = "Nerdy", },
+  { "nvim-telescope/telescope.nvim", name = "telescope",                tag = "0.1.3", }, -- Requires plenary.nvim
   { "rafi/telescope-thesaurus.nvim", cmd = "Telescope thesaurus lookup" },
-  { "hedyhli/outline.nvim",          lazy = true,                                  cmd = { "Outline", "OutlineOpen" }, opts = {}, },
+  { "hedyhli/outline.nvim",          lazy = true,                       cmd = { "Outline", "OutlineOpen" }, opts = {}, },
+
+  {
+    '2kabhishek/nerdy.nvim',
+    dependencies = {
+      'folke/snacks.nvim',
+    },
+    cmd = 'Nerdy',
+    opts = {
+      max_recents = 30,               -- Configure recent icons limit
+      add_default_keybindings = true, -- Add default keybindings
+      copy_to_clipboard = false,      -- Copy glyph to clipboard instead of inserting
+      copy_register = '+',            -- Register to use for copying (if `copy_to_clipboard` is true)
+    }
+  },
 
   {
     "folke/flash.nvim",
@@ -84,7 +97,6 @@ local plugins = {
   -- Functional
   { "allen-mack/nvim-table-md",                    name = "table-md",        lazy = true,                           ft = "markdown" },
   { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown", ft = "markdown" },
-  { "jbyuki/venn.nvim",                            name = "venn" },
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",      event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
 
@@ -113,13 +125,6 @@ local plugins = {
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", name = "ts-context-commentstring" },
     opts = {},
     lazy = true,
-  },
-
-  {
-    "nvzone/minty",
-    cmd = { "Shades", "Huefy" },
-    dependencies = { "nvzone/volt", lazy = true },
-    config = { huefy = { border = true, position = "center" } }
   },
 
   {

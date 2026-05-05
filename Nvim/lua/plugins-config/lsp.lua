@@ -2,6 +2,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 vim.diagnostic.config({
   virtual_text = false,
+  virtual_lines = { current_line = true },
+  -- float = {
+  --   border = "rounded"
+  -- },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "E",
@@ -12,7 +16,7 @@ vim.diagnostic.config({
   }
 })
 
--- Border
+-- docs Border
 local hover = vim.lsp.buf.hover
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.buf.hover = function()
@@ -21,21 +25,12 @@ vim.lsp.buf.hover = function()
   })
 end
 
--- Show line diagnostics automatically in hover window
-vim.o.updatetime = 100
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-  callback = function()
-    vim.diagnostic.open_float(nil, { border = "rounded", focus = false })
-  end
-})
-
 -- lsp's settings
 vim.lsp.enable("clangd")
 vim.lsp.enable("cssls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("jdtls")
-vim.lsp.enable("csharp_ls")
+vim.lsp.enable("omnisharp")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("dartls")
 
