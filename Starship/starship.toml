@@ -18,7 +18,10 @@ trim_at = '.companyname.com'
 disabled = false
 
 [character]
-success_symbol = "[❯](white)"
+# success_symbol = "[❯](white)"
+# success_symbol = "[β](white)"
+success_symbol = "[ζ](white)"
+# success_symbol = "[λ](white)"
 
 [directory]
 style = "fg:white"
