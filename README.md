@@ -21,6 +21,7 @@
         <li><a href="https://github.com/lars-berger/GlazeWM">GlazeWM</a></li>
         <li><a href="https://github.com/adirh3/Fluent-Search">Fluent Search</a></li>
         <li><a href="https://github.com/microsoft/terminal">Windows Terminal</a></li>
+        <li><a href="https://github.com/ahrm/sioyek">Sioyek</a></li>
         <li><a href="https://github.com/files-community/Files">Files</a></li>
     </ul>
 </ul>
