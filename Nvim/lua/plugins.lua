@@ -32,6 +32,12 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
 
   {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
+
+  {
     "echasnovski/mini.indentscope",
     version = "*",
     opts = { symbol = "│", delay = 0, }
