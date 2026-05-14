@@ -107,6 +107,13 @@ local plugins = {
   { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
 
   {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('nvim-ts-autotag').setup({ opts = {}, })
+    end,
+  },
+
+  {
     "echasnovski/mini.surround",
     version = false,
     config = function()
