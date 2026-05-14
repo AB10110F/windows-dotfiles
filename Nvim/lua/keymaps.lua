@@ -19,10 +19,6 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Increment/decrement
-keymap("n", "+", "<C-a>", opts)
-keymap("n", "-", "<C-x>", opts)
-
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
 
@@ -30,7 +26,7 @@ keymap("n", "<C-a>", "gg<S-v>G", opts)
 keymap('n', "vb", "<C-v>", opts) -- Ctrl reserved for paste
 
 -- lsp
--- keymap('n', "<leader>e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
+keymap('n', "<leader>e", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ca", "<CMD>:lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- Toggle centered line
@@ -44,9 +40,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
-
--- Replacement for <C-l>
-keymap("n", "<C-n>", "<CMD>noh<CR>", opts)
 
 -- Buffers navigation
 keymap("n", "<TAB>", "<CMD>bnext<CR>", opts)
@@ -92,6 +85,7 @@ keymap('n', '<leader>fgb', builtin.git_branches, {})
 keymap('n', '<leader>fgc', builtin.git_commits, {})
 keymap('n', '<leader>fgs', builtin.git_status, {})
 keymap('n', '<leader>fs', builtin.spell_suggest, {})
+keymap('n', '<leader>ft', "<CMD>TodoTelescope<CR>", {})
 keymap('n', '<leader>fn', "<CMD>Telescope notify<CR>", {})
 keymap('n', '<leader>fi', "<CMD>Nerdy<CR>")
 
@@ -109,10 +103,6 @@ keymap("n", "<Leader>tR", ':lua require("tablemd").insertRow(true)<cr>', opts)
 keymap("n", "<Leader>tal", ':lua require("tablemd").alignColumn("left")<cr>', opts)
 keymap("n", "<Leader>tac", ':lua require("tablemd").alignColumn("center")<cr>', opts)
 keymap("n", "<Leader>tar", ':lua require("tablemd").alignColumn("right")<cr>', opts)
-
--- texlab
-keymap("n", "<Leader>lb", '<CMD>LspTexlabBuild<CR>', opts)
-keymap("n", "<Leader>ls", '<CMD>LspTexlabForward<CR>', opts)
 
 -- outline
 keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
