@@ -16,6 +16,21 @@ local lines = function()
   return vim.api.nvim_buf_line_count(0) .. 'L'
 end
 
+local function visualCount()
+  if vim.fn.mode():find("[vV]") then -- Blockwise is not detected
+    local ln_beg = vim.fn.line("v")
+    local ln_end = vim.fn.line(".")
+
+    local vLines = ln_beg <= ln_end
+        and ln_end - ln_beg + 1
+        or ln_beg - ln_end + 1
+
+    return tostring(tostring(vLines) .. "L  " .. vim.fn.wordcount().visual_chars) .. "C"
+  else
+    return ''
+  end
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -36,7 +51,7 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 3) end } },
+    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 3) end }, visualCount },
     lualine_b = { 'branch', { 'diff', symbols = { added = '󰐗 ', modified = ' ', removed = ' ' } }, 'diagnostics' },
     lualine_c = { wordCount },
     lualine_x = { { 'lsp_status', icon = '󰒋', symbols = { done = '', separator = ', ', }, }, { 'filesize', icon = ' ' }, lines --[[ 'encoding' ]] },
