@@ -103,8 +103,9 @@ local plugins = {
   -- Functional
   { "allen-mack/nvim-table-md",                    name = "table-md",        lazy = true,                           ft = "markdown" },
   { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown", ft = "markdown" },
-  { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",      event = { "BufReadPre", "BufNewFile" } }, -- name = "treesitter",
-  { "nvim-treesitter/nvim-treesitter-textobjects", name = "textObjects" },
+  { "nvim-treesitter/nvim-treesitter",              branch = "main",          build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } },
+  { "nvim-treesitter/nvim-treesitter-textobjects",  branch = "main",          name = "textObjects" },
+  { "MeanderingProgrammer/treesitter-modules.nvim", },
 
   {
     "windwp/nvim-ts-autotag",
