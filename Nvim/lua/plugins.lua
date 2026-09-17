@@ -18,7 +18,6 @@ local plugins = {
 
   --Themes
   { "folke/tokyonight.nvim",               name = "tokyonight" },
-  { "aka",                                 dev = true },
 
   -- Interface
   { "nvim-lualine/lualine.nvim",           name = "lualine" },
@@ -109,6 +108,7 @@ local plugins = {
   { "nvim-treesitter/nvim-treesitter-textobjects",  branch = "main",          name = "textObjects" },
   { "MeanderingProgrammer/treesitter-modules.nvim", },
 
+
   {
     "windwp/nvim-ts-autotag",
     config = function()
@@ -170,12 +170,7 @@ local opts = {
   ui = { border = "rounded", },
   rocks = { enabled = false },
   install = { colorscheme = { "tokyonight-storm" } },
-  dev = {
-    -- @type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
-    path = "~/Documents/Repos/nvim-plugins",
-    patterns = { "aka" },
-    fallback = false,
-  }
+  dev = {}
 }
 
 require("lazy").setup(plugins, opts)
