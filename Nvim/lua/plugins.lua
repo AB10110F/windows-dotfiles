@@ -25,8 +25,8 @@ local plugins = {
   { "gelguy/wilder.nvim",                  name = "wilder" },
   { "lewis6991/gitsigns.nvim",             name = "gitsigns" },
   { "sindrets/diffview.nvim",              name = "diffview",         lazy = true },
-  { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
-  { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
+  { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*", config = true },
+  { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
   { "amansingh-afk/milli.nvim",            lazy = false },
   { "folke/snacks.nvim" },
@@ -60,9 +60,8 @@ local plugins = {
   },
 
   -- Navigation
-  { "nvim-telescope/telescope.nvim", name = "telescope",                tag = "0.1.3", }, -- Requires plenary.nvim
+  { "nvim-telescope/telescope.nvim", version = '*',                     name = "telescope" }, -- Requires plenary.nvim
   { "rafi/telescope-thesaurus.nvim", cmd = "Telescope thesaurus lookup" },
-  { "hedyhli/outline.nvim",          lazy = true,                       cmd = { "Outline", "OutlineOpen" }, opts = {}, },
 
   {
     '2kabhishek/nerdy.nvim',
@@ -102,8 +101,8 @@ local plugins = {
   },
 
   -- Functional
-  { "allen-mack/nvim-table-md",                    name = "table-md",        lazy = true,                           ft = "markdown" },
-  { 'MeanderingProgrammer/render-markdown.nvim',   name = "render-markdown", ft = "markdown" },
+  { "allen-mack/nvim-table-md",                     name = "table-md",        lazy = true,         ft = "markdown" },
+  { 'MeanderingProgrammer/render-markdown.nvim',    name = "render-markdown", ft = "markdown" },
   { "nvim-treesitter/nvim-treesitter",              branch = "main",          build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } },
   { "nvim-treesitter/nvim-treesitter-textobjects",  branch = "main",          name = "textObjects" },
   { "MeanderingProgrammer/treesitter-modules.nvim", },
