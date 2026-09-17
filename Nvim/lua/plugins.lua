@@ -31,6 +31,7 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
   { "amansingh-afk/milli.nvim",            lazy = false },
   { "folke/snacks.nvim" },
+  { "atiladefreitas/dooing" },
 
   {
     "folke/todo-comments.nvim",

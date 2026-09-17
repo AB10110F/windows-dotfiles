@@ -53,7 +53,7 @@ keymap("n", "<leader>cc", "<CMD>%bd|e#<CR>", opts) -- Close all buffers except c
 -- Snacks Dashboard
 keymap("n", "<leader>d", function() require("snacks").dashboard.open() end, opts)
 
--- NvimTree
+-- NeoTree
 keymap("n", "<c-s>", "<CMD>Neotree toggle<CR>", opts)
 
 -- Bufferline
@@ -104,5 +104,5 @@ keymap("n", "<Leader>tal", ':lua require("tablemd").alignColumn("left")<cr>', op
 keymap("n", "<Leader>tac", ':lua require("tablemd").alignColumn("center")<cr>', opts)
 keymap("n", "<Leader>tar", ':lua require("tablemd").alignColumn("right")<cr>', opts)
 
--- outline
-keymap("n", "<leader>o", "<CMD>Outline<CR>", opts)
+-- Dooing
+keymap("n", "<leader>o", "<CMD>Dooing<CR>", opts)
