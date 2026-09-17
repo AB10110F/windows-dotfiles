@@ -71,6 +71,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Telescope
     nvim_hl(0, 'TelescopeSelection', { bg = '#16161e' })
 
+    -- Snacks Dashboard
+    nvim_hl(0, "SnacksDashboardIcon", { fg = "#565f89" })
+    nvim_hl(0, "SnacksDashboardDesc", { fg = "#c0caf5" })
+    nvim_hl(0, "SnacksDashboardKey", { fg = "#565f89" })
+    nvim_hl(0, "SnacksDashboardFooter", { fg = "#565f89" })
+
     -- Bufferline
     require('bufferline').setup({
       highlights = {

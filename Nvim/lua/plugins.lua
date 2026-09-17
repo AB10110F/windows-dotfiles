@@ -28,8 +28,9 @@ local plugins = {
   { "sindrets/diffview.nvim",              name = "diffview",         lazy = true },
   { "akinsho/toggleterm.nvim",             name = "toggleterm",       version = "*",      config = true },
   { "akinsho/bufferline.nvim",             name = "bufferline",       version = "*" },       -- Requires devicons
-  { 'nvimdev/dashboard-nvim',              name = "dashboard",        event = "VimEnter", }, -- Requires devicons
   { "lukas-reineke/indent-blankline.nvim", name = "indent-blankline", main = "ibl" },
+  { "amansingh-afk/milli.nvim",            lazy = false },
+  { "folke/snacks.nvim" },
 
   {
     "folke/todo-comments.nvim",

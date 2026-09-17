@@ -50,8 +50,8 @@ keymap("n", "<leader>cc", "<CMD>%bd|e#<CR>", opts) -- Close all buffers except c
 
 -- Plugins
 
--- Dashboard
-keymap("n", "<leader>d", "<CMD>Dashboard<CR>", opts)
+-- Snacks Dashboard
+keymap("n", "<leader>d", function() require("snacks").dashboard.open() end, opts)
 
 -- NvimTree
 keymap("n", "<c-s>", "<CMD>Neotree toggle<CR>", opts)
